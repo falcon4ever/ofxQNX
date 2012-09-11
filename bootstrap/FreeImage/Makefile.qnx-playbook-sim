@@ -1,0 +1,21 @@
+# PlayBook simulator makefile for FreeImage. Modified for ofxQNX by Laurence Muller (www.multigesture.net)
+# Run bbndk-env.sh before using this makefile
+
+# Windows
+MKDIR=${QNX_HOST}/usr/bin/mkdir
+CP=${QNX_HOST}/usr/bin/cp
+
+# Linux/Mac
+# MKDIR=mkdir
+# CP=cp
+
+AR=${QNX_HOST}/usr/bin/ntox86-ar
+RANLIB=${QNX_HOST}/usr/bin/ntox86-ranlib
+CPP=${QNX_HOST}/usr/bin/qcc -V4.4.2,gcc_ntox86_cpp -E
+CC=${QNX_HOST}/usr/bin/qcc -V4.4.2,gcc_ntox86_cpp
+CXX=${QNX_HOST}/usr/bin/qcc -V4.4.2,gcc_ntox86_cpp
+LD=${QNX_HOST}/usr/bin/ntox86-ld
+LDFLAGS=-L${QNX_TARGET}/x86/lib -L${PREFIX}/lib -lm
+
+# Include shared file
+include Makefile.qnx

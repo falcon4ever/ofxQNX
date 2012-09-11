@@ -1,0 +1,5 @@
+# Default paths.make file.
+# Enter the correct paths for your system and save this file as paths.make
+
+BBNDK_PLAYBOOK_ROOT=<path-to-PlayBook-NDK-location>
+BBNDK_BB10_ROOT=<path-to-BB10-NDK-location>
