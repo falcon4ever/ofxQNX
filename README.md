@@ -41,11 +41,13 @@ To compile the project you will need to install the BlackBerry 10 Native SDK (10
 QUICK START
 ===========
 
-Download (a patched) openFrameworks from the link above. Next download this add-on and place it in the addon directory.
+Download (a patched) openFrameworks from the link above. Next download this add-on and place it in the addons directory.
 
 Launch the IDE provided by the BlackBerry Native SDK and follow the instructions below:
 
-Create a new workspace at:
+= PlayBook =
+
+Open the IDE and create a new workspace at:
 - "openFrameworks\examples\qnx"
 
 After the IDE is running, import the following projects: 
@@ -53,6 +55,23 @@ After the IDE is running, import the following projects:
 - "openFrameworks\addons"
 - "openFrameworks\addons\ofxQNX"
 - The example projects (BB10 or PlayBook) under "openFrameworks\addons\ofxQNX\examples\"
+
+= BB10 =
+
+Copy the example projects 
+- Copy the examples from "openFrameworks\addons\ofxQNX\examples\BB10" to "openFrameworks\examples\qnx"
+
+Open the IDE and create a new workspace at:
+- "openFrameworks\examples\qnx"
+
+After the IDE is running, import the following projects: 
+- "openFrameworks\libs"
+- "openFrameworks\addons"
+
+And all examples from
+- "openFrameworks\examples\qnx"
+
+= Both =
 
 If you installed both the PlayBook and BB10 Native SDK, make sure your workspace has been set to the right platform. 
 
@@ -118,6 +137,9 @@ http://forum.openframeworks.cc/index.php/topic,9189.msg42786.html#msg42786
 
 NEWS
 ====
+11/03/2012
+- Updated BB10 example projects
+
 11/02/2012
 - Updated BB10 target (BlackBerry 10 Native SDK 10.0.09 beta 3)
 
