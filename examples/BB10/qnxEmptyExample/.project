@@ -76,14 +76,24 @@
 	</natures>
 	<linkedResources>
 		<link>
-			<name>openFrameworks/bbutil.c</name>
+			<name>ofxQNX/bbutil.c</name>
 			<type>1</type>
 			<locationURI>PARENT-2-WORKSPACE_LOC/addons/ofxQNX/src/bbutil.c</locationURI>
 		</link>
 		<link>
-			<name>openFrameworks/ofAppQNXWindow.cpp</name>
+			<name>ofxQNX/ofAppQNXWindow.cpp</name>
 			<type>1</type>
 			<locationURI>PARENT-2-WORKSPACE_LOC/addons/ofxQNX/src/ofAppQNXWindow.cpp</locationURI>
+		</link>
+		<link>
+			<name>ofxQNX/ofxQNXAccelerometer.cpp</name>
+			<type>1</type>
+			<locationURI>PARENT-2-WORKSPACE_LOC/addons/ofxQNX/src/ofxQNXAccelerometer.cpp</locationURI>
+		</link>
+		<link>
+			<name>ofxQNX/ofxQNXSoundStream.cpp</name>
+			<type>1</type>
+			<locationURI>PARENT-2-WORKSPACE_LOC/addons/ofxQNX/src/ofxQNXSoundStream.cpp</locationURI>
 		</link>
 		<link>
 			<name>openFrameworks/ofAppRunner.cpp</name>
@@ -229,16 +239,6 @@
 			<name>openFrameworks/ofxAccelerometer.cpp</name>
 			<type>1</type>
 			<locationURI>PARENT-2-WORKSPACE_LOC/addons/ofxAccelerometer/src/ofxAccelerometer.cpp</locationURI>
-		</link>
-		<link>
-			<name>openFrameworks/ofxQNXAccelerometer.cpp</name>
-			<type>1</type>
-			<locationURI>PARENT-2-WORKSPACE_LOC/addons/ofxQNX/src/ofxQNXAccelerometer.cpp</locationURI>
-		</link>
-		<link>
-			<name>openFrameworks/ofxQNXSoundStream.cpp</name>
-			<type>1</type>
-			<locationURI>PARENT-2-WORKSPACE_LOC/addons/ofxQNX/src/ofxQNXSoundStream.cpp</locationURI>
 		</link>
 	</linkedResources>
 </projectDescription>

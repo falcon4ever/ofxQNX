@@ -5,12 +5,12 @@
 #include "ofxQNX.h"
 
 class testApp : public ofxQNXApp {
-	
+
 public:
 	void setup();
 	void update();
 	void draw();
-	
+
 	void touchDown(ofTouchEventArgs &touch);
 	void touchMoved(ofTouchEventArgs &touch);
 	void touchUp(ofTouchEventArgs &touch);
