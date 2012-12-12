@@ -181,6 +181,22 @@ typedef struct SDL_SysWMinfo {
 	int data;
 } SDL_SysWMinfo;
 
+#elif defined(SDL_VIDEO_DRIVER_PLAYBOOK)
+#include <screen/screen.h>
+#include <bps/event.h>
+
+/** The PlayBook custom event structure */
+struct SDL_SysWMmsg {
+	SDL_version version;
+	bps_event_t *event;
+};
+
+typedef struct SDL_SysWMinfo {
+	SDL_version version;
+	screen_context_t context;
+	screen_window_t window;
+} SDL_SysWMinfo;
+
 #else
 
 /** The generic custom event structure */
