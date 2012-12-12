@@ -34,7 +34,7 @@ To compile the project you will need to install the BlackBerry Native SDK (2.1.0
 - https://developer.blackberry.com/native/download/
 
 BlackBerry 10
-To compile the project you will need to install the BlackBerry 10 Native SDK (10.0.09 beta 3):
+To compile the project you will need to install the BlackBerry 10 Native SDK (10.0.09 gold):
 - https://bdsc.webapps.blackberry.com/cascades/download
 
 
@@ -137,6 +137,9 @@ http://forum.openframeworks.cc/index.php/topic,9189.msg42786.html#msg42786
 
 NEWS
 ====
+12/12/2012
+- Updated BB10 target (BlackBerry 10 Native SDK 10.0.09 gold)
+
 11/03/2012
 - Updated BB10 example projects
 
