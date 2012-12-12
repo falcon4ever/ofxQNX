@@ -1,2 +1,2 @@
 PlayBook NDK version: 2.1.0-beta1
-BB10 NDK version: 10.0.09-beta3
+BB10 NDK version: 10.0.09-gold
