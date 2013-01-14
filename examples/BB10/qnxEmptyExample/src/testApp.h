@@ -26,6 +26,11 @@ public:
 	void windowResized(int w, int h);
 	void dragEvent(ofDragInfo dragInfo);
 	void gotMessage(ofMessage msg);
+	
+	void navigatorSwipeDown();
+	void navigatorWindowState(int state);
+	void navigatorWindowActive();
+	void navigatorWindowInactive();
 };
 
 #endif /* TESTAPP_H_ */

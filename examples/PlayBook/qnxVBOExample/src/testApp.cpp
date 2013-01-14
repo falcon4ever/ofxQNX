@@ -4,7 +4,6 @@
 void testApp::setup(){
 
 	ofBackground(0,0,0);
-	ofRegisterTouchEvents(this);
 
 	bPause	   = false;
 	restLength = 3.0;

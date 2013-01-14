@@ -2,8 +2,6 @@
 
 //--------------------------------------------------------------
 void testApp::setup(){
-	// Setup multitouch input listener
-	ofRegisterTouchEvents(this);
 
 	ofBackground(34, 34, 34);
 

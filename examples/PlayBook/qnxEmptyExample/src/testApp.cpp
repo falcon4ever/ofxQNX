@@ -3,9 +3,6 @@
 //--------------------------------------------------------------
 void testApp::setup(){
 
-	// Setup multitouch input listener
-	ofRegisterTouchEvents(this);
-
 	// Set background color
 	ofBackground(255,255,255);
 
@@ -88,5 +85,36 @@ void testApp::gotMessage(ofMessage msg){
 
 //--------------------------------------------------------------
 void testApp::dragEvent(ofDragInfo dragInfo){
+
+}
+
+//--------------------------------------------------------------
+void testApp::navigatorSwipeDown()
+{
+
+}
+
+//--------------------------------------------------------------
+void testApp::navigatorWindowState(int state)
+{
+	/*
+	 * Possible states:
+	 *
+	 * NAVIGATOR_WINDOW_FULLSCREEN
+	 * NAVIGATOR_WINDOW_THUMBNAIL
+	 * NAVIGATOR_WINDOW_INVISIBLE
+	 *
+	 */
+}
+
+//--------------------------------------------------------------
+void testApp::navigatorWindowActive()
+{
+
+}
+
+//--------------------------------------------------------------
+void testApp::navigatorWindowInactive()
+{
 
 }

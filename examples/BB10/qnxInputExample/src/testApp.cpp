@@ -3,8 +3,6 @@
 
 //--------------------------------------------------------------
 void testApp::setup(){
-	// Setup multitouch input listener
-	ofRegisterTouchEvents(this);
 
 	ofSetCircleResolution(50);
 	ofBackground(255,255,255);
