@@ -151,6 +151,12 @@ int	ofAppQNXWindow::getHeight()
 void ofAppQNXWindow::setFrameRate(float targetRate)
 {
 	qnxFrameRateSet = true;
+
+	qnxRate = 1000 / targetRate;
+	qnxSkip = 10 * qnxRate;
+	qnxLastTime = 0;
+	qnxCurrentTime = 0;
+	qnxDelta = 0;
 }
 
 //--------------------------------------------------------------
@@ -239,16 +245,16 @@ void ofAppQNXWindow::qnxQuit()
 {
 	fprintf(stderr, "ofAppQNXWindow::qnxQuit()\n");
 
-	//Stop requesting events from libscreen
+	// Stop requesting events from libscreen
 	screen_stop_events(qnxScreenContext);
 
-	//Shut down BPS library for this process
+	// Shut down BPS library for this process
 	bps_shutdown();
 
-	//Use utility code to terminate EGL setup
+	// Use utility code to terminate EGL setup
 	bbutil_terminate();
 
-	//Destroy libscreen context
+	// Destroy libscreen context
 	screen_destroy_context(qnxScreenContext);
 }
 
@@ -272,9 +278,34 @@ void ofAppQNXWindow::qnxMainLoop()
 			else
 			{
 				// Update and Render async, update will be called at a fixed rate
-				// TODO add timing code
-				qnxUpdate();
-				qnxRender();
+				qnxCurrentTime = ofGetElapsedTimeMillis();
+
+				if (qnxLastTime < 0)
+					qnxLastTime = qnxCurrentTime;
+
+				qnxDelta += qnxCurrentTime - qnxLastTime;
+				qnxLastTime = qnxCurrentTime;
+
+				if (qnxDelta >= qnxRate)
+				{
+					while(qnxDelta > qnxSkip)
+						qnxDelta -= qnxSkip;
+
+					while (qnxDelta >= qnxRate)
+					{
+						qnxDelta -= qnxRate;
+						qnxUpdate();
+					}
+
+					qnxRender();
+					qnxHasRest = false;
+				}
+				else
+				{
+					if(!qnxHasRest)
+						usleep((qnxRate - qnxDelta) * 1000);
+					qnxHasRest = true;
+				}
 			}
 		}
 	}

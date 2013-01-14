@@ -137,6 +137,7 @@ http://forum.openframeworks.cc/index.php/topic,9189.msg42786.html#msg42786
 
 NEWS
 ====
+
 01/14/2013
 - Cleaned up ofAppQNXWindow
 - Changed bps event handler loop to pause properly
@@ -146,6 +147,7 @@ NEWS
 * virtual void navigatorWindowActive()
 * virtual void navigatorWindowInactive()
 - Automatically enable touch (No need for ofRegisterTouchEvents(this) anymore)
+- Added fixed time step option
 
 12/12/2012
 - Updated BB10 target (BlackBerry 10 Native SDK 10.0.09 gold)

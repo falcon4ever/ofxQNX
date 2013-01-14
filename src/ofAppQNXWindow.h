@@ -127,10 +127,19 @@ class ofAppQNXWindow : public ofAppBaseWindow
 
 		bool qnxSetupScreen;
 
-		float qnxForceX, qnxForceY, qnxForceZ;
+		float qnxForceX;
+		float qnxForceY;
+		float qnxForceZ;
 
 		bool qnxMousePressed;
 		std::vector<ofTouchEventArgs> qnxTouchList;
+
+		unsigned long qnxCurrentTime;
+		unsigned long qnxLastTime;
+		unsigned long qnxDelta;
+		unsigned long qnxRate;
+		unsigned long qnxSkip;
+		bool qnxHasRest;
 };
 
 #endif /* OFAPPQNXWINDOW_H_ */
