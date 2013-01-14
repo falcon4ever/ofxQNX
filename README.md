@@ -9,7 +9,7 @@ Project page:
 Repository: 
 - https://github.com/falcon4ever/ofxQNX
 
-Copyright (C) 2012 Laurence Muller
+Copyright (C) 2012-2013 Laurence Muller
 E-mail: laurence.muller@gmail.com
 Website: http://www.multigesture.net
 
@@ -137,6 +137,16 @@ http://forum.openframeworks.cc/index.php/topic,9189.msg42786.html#msg42786
 
 NEWS
 ====
+01/14/2013
+- Cleaned up ofAppQNXWindow
+- Changed bps event handler loop to pause properly
+- Added callbacks for navigator events (Swipe down and Window states):
+* virtual void navigatorSwipeDown()
+* virtual void navigatorWindowState(int state)
+* virtual void navigatorWindowActive()
+* virtual void navigatorWindowInactive()
+- Automatically enable touch (No need for ofRegisterTouchEvents(this) anymore)
+
 12/12/2012
 - Updated BB10 target (BlackBerry 10 Native SDK 10.0.09 gold)
 

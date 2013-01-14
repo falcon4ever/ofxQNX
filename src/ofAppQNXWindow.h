@@ -1,7 +1,7 @@
 /*
 	ofxQNX - BlackBerry PlayBook and BlackBerry 10 add-on for openFrameworks
 
-	Copyright (c) 2012, Laurence Muller (www.multigesture.net)
+	Copyright (c) 2012-2013, Laurence Muller (www.multigesture.net)
 	All rights reserved.
 
 	Redistribution and use in source and binary forms, with or without
@@ -32,6 +32,7 @@
 #define OFAPPQNXWINDOW_H_
 
 #include "ofAppBaseWindow.h"
+#include "ofxQNXApp.h"
 
 #include <assert.h>
 #include <screen/screen.h>
@@ -53,14 +54,9 @@ class ofAppQNXWindow : public ofAppBaseWindow
 		ofAppQNXWindow();
 		virtual ~ofAppQNXWindow();
 
-		void onTouchDown(unsigned int id, int x, int y, int pressure);
-		void onTouchMove(unsigned int id, int x, int y, int pressure);
-		void onTouchUp(unsigned int id, int x, int y, int pressure);
-		void updateFrame();
-		
 		void setupOpenGL(int w, int h, int screenMode);
-		void initializeWindow();
-		void runAppViaInfiniteLoop(ofBaseApp * appPtr);
+		void initializeWindow() {}
+		void runAppViaInfiniteLoop(ofBaseApp *appPtr);
 
 		void hideCursor() {}
 		void showCursor() {}
@@ -78,54 +74,63 @@ class ofAppQNXWindow : public ofAppBaseWindow
 		
 		void			setOrientation(ofOrientation orientation);
 		ofOrientation	getOrientation();
-		bool	doesHWOrientation() { return true; }
+		bool			doesHWOrientation() { return true; }
 
 
 		int		getWidth();
 		int		getHeight();
 
 		void	setFrameRate(float targetRate);
-		void	setWindowTitle(string title){}
+		void	setWindowTitle(string title) {}		// Not used
 
-		int		getWindowMode() {return 0;}
+		int		getWindowMode() { return 0; }
 
-		void	setFullscreen(bool fullscreen);
-		void	toggleFullscreen();
+		void	setFullscreen(bool fullscreen) {}	// Not used
+		void	toggleFullscreen() {}				// Not used
 
 		void	enableSetupScreen();
 		void	disableSetupScreen();
 		
 	protected:
-		void    runAppLoop();
+		int 	qnxInitialize();
+		void	qnxQuit();
+
+		void	qnxMainLoop();
+		void	qnxHandleEvents();
+		void	qnxUpdate();
+		void	qnxRender();
 
 		void    qnxHandleScreenEvent(bps_event_t *event);
-		int     qnxInitialize();
-		void    qnxQuit();
 
-		int rc;
-		int exit_application;
-		screen_context_t screen_cxt;
+		void 	qnxOnTouchDown(unsigned int id, int x, int y, int pressure);
+		void 	qnxOnTouchMove(unsigned int id, int x, int y, int pressure);
+		void 	qnxOnTouchUp(unsigned int id, int x, int y, int pressure);
 
-		std::vector<ofTouchEventArgs> touchList;
+	private:
+		int		qnxFrameCount;
+		float 	qnxFrameRate;
+		float	qnxLastFrameTime;
 
-		float force_x, force_y, force_z;
+		int qnxFrames;
+		unsigned long qnxOneSecond;
+		unsigned long qnxPreviousFrameMicros;
 
-		bool mousePressed;
+		bool qnxIsRunning;
+		bool qnxIsPaused;
+		bool qnxFrameRateSet;
 
-		int		nFrameCount;
-		float	frameRate;
-		double	lastFrameTime;
-		ofOrientation orientation;
-		bool	bSetupScreen;
+		ofOrientation qnxOrientation;
+		screen_context_t qnxScreenContext;
 
-		unsigned long previousFrameMicros;
-		int frames;
-		unsigned long onesec;
-		bool bFrameRateSet;
-		unsigned long oneFrameTime;
+		int qnxWindowWidth;
+		int qnxWindowHeight;
 
-		int screenWidth;
-		int screenHeigth;
+		bool qnxSetupScreen;
+
+		float qnxForceX, qnxForceY, qnxForceZ;
+
+		bool qnxMousePressed;
+		std::vector<ofTouchEventArgs> qnxTouchList;
 };
 
 #endif /* OFAPPQNXWINDOW_H_ */
