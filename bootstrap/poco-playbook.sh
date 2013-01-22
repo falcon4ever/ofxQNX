@@ -8,9 +8,9 @@ BB_BOOTSTRAP_ROOT=$(pwd)
 BB_BOOTSTRAP_ROOT=${BB_BOOTSTRAP_ROOT%/*}
 
 # POCO
-BB_POCO_URL=http://sourceforge.net/projects/poco/files/sources/poco-1.4.3/poco-1.4.3p1.tar.gz
-BB_POCO_FILE=poco-1.4.3p1.tar.gz
-BB_POCO_FOLDER=poco-1.4.3p1
+BB_POCO_URL=http://pocoproject.org/releases/poco-1.4.6/poco-1.4.6.tar.gz
+BB_POCO_FILE=poco-1.4.6.tar.gz
+BB_POCO_FOLDER=poco-1.4.6
 
 # Create download folder
 mkdir -p "$BB_BOOTSTRAP_ROOT/bootstrap/downloads"
