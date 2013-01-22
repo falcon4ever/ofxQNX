@@ -2,12 +2,12 @@
 # Run bbndk-env.sh before using this makefile
 
 # Windows
-# MKDIR=${QNX_HOST}/usr/bin/mkdir
-# CP=${QNX_HOST}/usr/bin/cp
+MKDIR=${QNX_HOST}/usr/bin/mkdir
+CP=${QNX_HOST}/usr/bin/cp
 
 # Linux/Mac
-MKDIR=mkdir
-CP=cp
+# MKDIR=mkdir
+# CP=cp
 
 AR=${QNX_HOST}/usr/bin/ntox86-ar
 RANLIB=${QNX_HOST}/usr/bin/ntox86-ranlib
