@@ -30,6 +30,7 @@
 
 #include "ofAppQNXWindow.h"
 
+#include "ofLog.h"
 #include "ofGraphics.h"
 #include "ofAppRunner.h"
 #include "ofUtils.h"
@@ -43,9 +44,8 @@
 static ofxQNXApp *qnxApp;
 
 //--------------------------------------------------------------
-ofAppQNXWindow::ofAppQNXWindow()
-{
-	fprintf(stderr, "ofAppQNXWindow::ofAppQNXWindow()\n");
+ofAppQNXWindow::ofAppQNXWindow() {
+	ofLogNotice("ofAppQNXWindow") << "ofAppQNXWindow()";
 
 	qnxFrameCount = 0;
 	qnxFrameRate = 60.0f;
@@ -68,31 +68,29 @@ ofAppQNXWindow::ofAppQNXWindow()
 }
 
 //--------------------------------------------------------------
-ofAppQNXWindow::~ofAppQNXWindow()
-{
-	fprintf(stderr, "ofAppQNXWindow::~ofAppQNXWindow()\n");
+ofAppQNXWindow::~ofAppQNXWindow() {
+	ofLogNotice("ofAppQNXWindow") << "~ofAppQNXWindow()";
 }
 
 //--------------------------------------------------------------
-void ofAppQNXWindow::setupOpenGL(int w, int h, int screenMode)
-{
-	fprintf(stderr, "ofAppQNXWindow::setupOpenGL()\n");
+void ofAppQNXWindow::setupOpenGL(int w, int h, int screenMode) {
+	ofLogNotice("ofAppQNXWindow") << "setupOpenGL()";
 
-	if(qnxInitialize() == 0)
+	if(qnxInitialize() == 0) {
 		exit(0);
+	}
 }
 
 //--------------------------------------------------------------
-void ofAppQNXWindow::runAppViaInfiniteLoop(ofBaseApp *appPtr)
-{
-	fprintf(stderr, "ofAppQNXWindow::runAppViaInfiniteLoop()\n");
+void ofAppQNXWindow::runAppViaInfiniteLoop(ofBaseApp *appPtr) {
+	ofLogNotice("ofAppQNXWindow") << "runAppViaInfiniteLoop()";
 
 	ofNotifySetup();
 	ofNotifyUpdate();
 
-	qnxApp = dynamic_cast<ofxQNXApp*>( appPtr );
+	qnxApp = dynamic_cast<ofxQNXApp*>(appPtr);
 	if(qnxApp) {
-		fprintf(stderr, "ofRegisterTouchEvents\n");
+		ofLogNotice("ofAppQNXWindow") << "ofRegisterTouchEvents";
 		ofRegisterTouchEvents(qnxApp);
 	}
 
@@ -100,56 +98,47 @@ void ofAppQNXWindow::runAppViaInfiniteLoop(ofBaseApp *appPtr)
 }
 
 //--------------------------------------------------------------
-int ofAppQNXWindow::getFrameNum()
-{
+int ofAppQNXWindow::getFrameNum() {
 	return qnxFrameCount;
 }
 
 //--------------------------------------------------------------
-float ofAppQNXWindow::getFrameRate()
-{
+float ofAppQNXWindow::getFrameRate() {
 	return qnxFrameRate;
 }
 
 //--------------------------------------------------------------
-double ofAppQNXWindow::getLastFrameTime()
-{
+double ofAppQNXWindow::getLastFrameTime() {
 	return qnxLastFrameTime;
 }
 
 //--------------------------------------------------------------
-ofPoint	ofAppQNXWindow::getWindowSize()
-{
+ofPoint	ofAppQNXWindow::getWindowSize() {
 	return ofPoint(qnxWindowWidth, qnxWindowHeight);
 }
 
 //--------------------------------------------------------------
-void ofAppQNXWindow::setOrientation(ofOrientation orientation)
-{
+void ofAppQNXWindow::setOrientation(ofOrientation orientation) {
 	qnxOrientation = orientation;
 }
 
 //--------------------------------------------------------------
-ofOrientation ofAppQNXWindow::getOrientation()
-{
+ofOrientation ofAppQNXWindow::getOrientation() {
 	return qnxOrientation;
 }
 
 //--------------------------------------------------------------
-int	ofAppQNXWindow::getWidth()
-{
+int	ofAppQNXWindow::getWidth() {
 	return qnxWindowWidth;
 }
 
 //--------------------------------------------------------------
-int	ofAppQNXWindow::getHeight()
-{
+int	ofAppQNXWindow::getHeight() {
 	return qnxWindowHeight;
 }
 
 //--------------------------------------------------------------
-void ofAppQNXWindow::setFrameRate(float targetRate)
-{
+void ofAppQNXWindow::setFrameRate(float targetRate) {
 	qnxFrameRateSet = true;
 
 	qnxRate = 1000 / targetRate;
@@ -160,21 +149,18 @@ void ofAppQNXWindow::setFrameRate(float targetRate)
 }
 
 //--------------------------------------------------------------
-void ofAppQNXWindow::enableSetupScreen()
-{
+void ofAppQNXWindow::enableSetupScreen() {
 	qnxSetupScreen = true;
 }
 
 //--------------------------------------------------------------
-void ofAppQNXWindow::disableSetupScreen()
-{
+void ofAppQNXWindow::disableSetupScreen() {
 	qnxSetupScreen = false;
 }
 
 //--------------------------------------------------------------
-int ofAppQNXWindow::qnxInitialize()
-{
-	fprintf(stderr, "ofAppQNXWindow::qnxInitialize()\n");
+int ofAppQNXWindow::qnxInitialize() {
+	ofLogNotice("ofAppQNXWindow") << "qnxInitialize()";
 
 	// Create a screen context that will be used to create an EGL surface to receive libscreen events
 	screen_create_context(&qnxScreenContext, 0);
@@ -184,7 +170,7 @@ int ofAppQNXWindow::qnxInitialize()
 
 	// Use utility code to initialize EGL for rendering with GL ES 1.1
 	if (EXIT_SUCCESS != bbutil_init_egl(qnxScreenContext)) {
-		fprintf(stderr, "bbutil_init_egl failed\n");
+		ofLogNotice("ofAppQNXWindow") << "bbutil_init_egl failed";
 		bbutil_terminate();
 		screen_destroy_context(qnxScreenContext);
 		return 0;
@@ -192,7 +178,7 @@ int ofAppQNXWindow::qnxInitialize()
 
 	// Request screen events
 	if (BPS_SUCCESS != screen_request_events(qnxScreenContext)) {
-		fprintf(stderr, "screen_request_events failed\n");
+		ofLogNotice("ofAppQNXWindow") << "screen_request_events failed";
 		bbutil_terminate();
 		screen_destroy_context(qnxScreenContext);
 		return 0;
@@ -200,7 +186,7 @@ int ofAppQNXWindow::qnxInitialize()
 
 	// Request navigator events
 	if (BPS_SUCCESS != navigator_request_events(0)) {
-		fprintf(stderr, "navigator_request_events failed\n");
+		ofLogNotice("ofAppQNXWindow") << "navigator_request_events failed";
 		bbutil_terminate();
 		screen_destroy_context(qnxScreenContext);
 		return 0;
@@ -208,7 +194,7 @@ int ofAppQNXWindow::qnxInitialize()
 
 	// Request virtual keyboard events
     if (BPS_SUCCESS != virtualkeyboard_request_events(0)) {
-        fprintf(stderr, "navigator_request_events failed\n");
+        ofLogNotice("ofAppQNXWindow") << "navigator_request_events failed";
         bbutil_terminate();
         screen_destroy_context(qnxScreenContext);
         return 0;
@@ -216,7 +202,7 @@ int ofAppQNXWindow::qnxInitialize()
 
 	// Signal BPS library that navigator orientation is not to be locked
 	if (BPS_SUCCESS != navigator_rotation_lock(false)) {
-		fprintf(stderr, "navigator_rotation_lock failed\n");
+		ofLogNotice("ofAppQNXWindow") << "navigator_rotation_lock failed";
 		bbutil_terminate();
 		screen_destroy_context(qnxScreenContext);
 		return 0;
@@ -241,9 +227,8 @@ int ofAppQNXWindow::qnxInitialize()
 }
 
 //--------------------------------------------------------------
-void ofAppQNXWindow::qnxQuit()
-{
-	fprintf(stderr, "ofAppQNXWindow::qnxQuit()\n");
+void ofAppQNXWindow::qnxQuit() {
+	ofLogNotice("ofAppQNXWindow") << "qnxQuit()";
 
 	// Stop requesting events from libscreen
 	screen_stop_events(qnxScreenContext);
@@ -259,40 +244,35 @@ void ofAppQNXWindow::qnxQuit()
 }
 
 //--------------------------------------------------------------
-void ofAppQNXWindow::qnxMainLoop()
-{
-	fprintf(stderr, "ofAppQNXWindow::qnxMainLoop()\n");
+void ofAppQNXWindow::qnxMainLoop() {
+	ofLogNotice("ofAppQNXWindow") << "qnxMainLoop()";
 
-	while(qnxIsRunning)
-	{
+	while(qnxIsRunning) {
 		qnxHandleEvents();
 
-		if(!qnxIsPaused)
-		{
-			if(!qnxFrameRateSet)
-			{
+		if(!qnxIsPaused) {
+			if(!qnxFrameRateSet) {
 				// Update and Render in sync and as fast as it can.
 				qnxUpdate();
 				qnxRender();
 			}
-			else
-			{
+			else {
 				// Update and Render async, update will be called at a fixed rate
 				qnxCurrentTime = ofGetElapsedTimeMillis();
 
-				if (qnxLastTime < 0)
+				if (qnxLastTime < 0) {
 					qnxLastTime = qnxCurrentTime;
+				}
 
 				qnxDelta += qnxCurrentTime - qnxLastTime;
 				qnxLastTime = qnxCurrentTime;
 
-				if (qnxDelta >= qnxRate)
-				{
-					while(qnxDelta > qnxSkip)
+				if (qnxDelta >= qnxRate) {
+					while(qnxDelta > qnxSkip) {
 						qnxDelta -= qnxSkip;
+					}
 
-					while (qnxDelta >= qnxRate)
-					{
+					while (qnxDelta >= qnxRate)	{
 						qnxDelta -= qnxRate;
 						qnxUpdate();
 					}
@@ -300,10 +280,10 @@ void ofAppQNXWindow::qnxMainLoop()
 					qnxRender();
 					qnxHasRest = false;
 				}
-				else
-				{
-					if(!qnxHasRest)
+				else {
+					if(!qnxHasRest) {
 						usleep((qnxRate - qnxDelta) * 1000);
+					}
 					qnxHasRest = true;
 				}
 			}
@@ -314,67 +294,58 @@ void ofAppQNXWindow::qnxMainLoop()
 }
 
 //--------------------------------------------------------------
-void ofAppQNXWindow::qnxHandleEvents()
-{
+void ofAppQNXWindow::qnxHandleEvents() {
 	// Handle all BB events
 	bps_event_t *event_bps;
 	int event_domain;
 	int	event_timeout;
 	int	rc = 0;
 
-	for(;;)
-	{
-		if(qnxIsPaused)
+	for(;;) {
+		if(qnxIsPaused) {
 			event_timeout = -1;	// block until some events comes in
-		else
+		}
+		else {
 			event_timeout = 0;	// return immediately
+		}
 
 		event_bps = NULL;
 		rc = bps_get_event(&event_bps, event_timeout);
 		assert(rc == BPS_SUCCESS);
 
-		if (event_bps != NULL)
-		{
+		if (event_bps != NULL) {
 			event_domain = bps_event_get_domain(event_bps);
 
-			if (event_domain == screen_get_domain())
-			{
+			if (event_domain == screen_get_domain()) {
 				qnxHandleScreenEvent(event_bps);
 			}
-			else if (event_domain == navigator_get_domain())
-			{
-				switch (bps_event_get_code(event_bps))
-				{
-					case NAVIGATOR_SWIPE_DOWN:
-					{
-						fprintf(stderr, "NAVIGATOR_SWIPE_DOWN\n");
+			else if (event_domain == navigator_get_domain()) {
+				switch (bps_event_get_code(event_bps)) {
+					case NAVIGATOR_SWIPE_DOWN: {
+						ofLogNotice("ofAppQNXWindow") << "NAVIGATOR_SWIPE_DOWN";
 						qnxApp->navigatorSwipeDown();
 					}
 					break;
 
-					case NAVIGATOR_WINDOW_STATE:
-					{
+					case NAVIGATOR_WINDOW_STATE: {
 						switch (navigator_event_get_window_state(event_bps))
 						{
-							case NAVIGATOR_WINDOW_FULLSCREEN:
-							{
-								fprintf(stderr, "NAVIGATOR_WINDOW_FULLSCREEN\n");
+							case NAVIGATOR_WINDOW_FULLSCREEN: {
+								ofLogNotice("ofAppQNXWindow") << "NAVIGATOR_WINDOW_FULLSCREEN";
 								qnxApp->navigatorWindowState(NAVIGATOR_WINDOW_FULLSCREEN);
 								qnxIsPaused = false;
 							}
 							break;
 
-							case NAVIGATOR_WINDOW_THUMBNAIL:
-							{
-								fprintf(stderr, "NAVIGATOR_WINDOW_THUMBNAIL\n");
+							case NAVIGATOR_WINDOW_THUMBNAIL: {
+								ofLogNotice("ofAppQNXWindow") << "NAVIGATOR_WINDOW_THUMBNAIL";
 								qnxApp->navigatorWindowState(NAVIGATOR_WINDOW_THUMBNAIL);
 								qnxIsPaused = true;
 							}
 							break;
 
-							case NAVIGATOR_WINDOW_INVISIBLE:
-							{
-								fprintf(stderr, "NAVIGATOR_WINDOW_INVISIBLE\n");
+							case NAVIGATOR_WINDOW_INVISIBLE: {
+								ofLogNotice("ofAppQNXWindow") << "NAVIGATOR_WINDOW_INVISIBLE";
 								qnxApp->navigatorWindowState(NAVIGATOR_WINDOW_INVISIBLE);
 								qnxIsPaused = true;
 							}
@@ -383,23 +354,20 @@ void ofAppQNXWindow::qnxHandleEvents()
 					}
 					break;
 
-					case NAVIGATOR_WINDOW_ACTIVE:
-					{
-						fprintf(stderr, "NAVIGATOR_WINDOW_ACTIVE\n");
+					case NAVIGATOR_WINDOW_ACTIVE: {
+						ofLogNotice("ofAppQNXWindow") << "NAVIGATOR_WINDOW_ACTIVE";
 						qnxApp->navigatorWindowActive();
 					}
 					break;
 
-					case NAVIGATOR_WINDOW_INACTIVE:
-					{
-						fprintf(stderr, "NAVIGATOR_WINDOW_INACTIVE\n");
+					case NAVIGATOR_WINDOW_INACTIVE: {
+						ofLogNotice("ofAppQNXWindow") << "NAVIGATOR_WINDOW_INACTIVE";
 						qnxApp->navigatorWindowInactive();
 					}
 					break;
 
-					case NAVIGATOR_EXIT:
-					{
-						fprintf(stderr, "NAVIGATOR_EXIT\n");
+					case NAVIGATOR_EXIT: {
+						ofLogNotice("ofAppQNXWindow") << "NAVIGATOR_EXIT";
 
 						qnxIsRunning = false;
 						sensor_stop_events(SENSOR_TYPE_ACCELEROMETER);
@@ -408,17 +376,14 @@ void ofAppQNXWindow::qnxHandleEvents()
 					break;
 				}
 			}
-			else if (bps_event_get_domain(event_bps) == sensor_get_domain())
-			{
-				if (SENSOR_ACCELEROMETER_READING == bps_event_get_code(event_bps))
-				{
+			else if (bps_event_get_domain(event_bps) == sensor_get_domain()) {
+				if (SENSOR_ACCELEROMETER_READING == bps_event_get_code(event_bps)) {
 					sensor_event_get_xyz(event_bps, &qnxForceX, &qnxForceY, &qnxForceZ);
 					ofxAccelerometer.update(-qnxForceX, -qnxForceY, -qnxForceZ);
 				}
 			}
 		}
-		else
-		{
+		else {
 			// No events, continue.
 			break;
 		}
@@ -426,15 +391,13 @@ void ofAppQNXWindow::qnxHandleEvents()
 }
 
 //--------------------------------------------------------------
-void ofAppQNXWindow::qnxUpdate()
-{
+void ofAppQNXWindow::qnxUpdate() {
 	// Update application logic
 	ofNotifyUpdate();
 }
 
 //--------------------------------------------------------------
-void ofAppQNXWindow::qnxRender()
-{
+void ofAppQNXWindow::qnxRender() {
 	// Render results
 	unsigned long beginFrameMicros = ofGetElapsedTimeMicros();
 
@@ -447,15 +410,15 @@ void ofAppQNXWindow::qnxRender()
 
 	// Clear background
 	bool bClearAuto = ofbClearBg();
-	if(bClearAuto == true || qnxFrameCount < 3)
-	{
+	if(bClearAuto == true || qnxFrameCount < 3) {
 		float *bgPtr = ofBgColorPtr();
 		ofClear(bgPtr[0]*255, bgPtr[1]*255, bgPtr[2]*255, bgPtr[3]*255);
 	}
 
 	// Setup screen if needed
-	if(qnxSetupScreen)
+	if(qnxSetupScreen) {
 		ofSetupScreen();
+	}
 
 	// Draw
 	ofNotifyDraw();
@@ -463,8 +426,7 @@ void ofAppQNXWindow::qnxRender()
 
 	// Update framerate value
 	++qnxFrames;
-	if(beginFrameMicros - qnxOneSecond >= 1000000)
-	{
+	if(beginFrameMicros - qnxOneSecond >= 1000000) {
 		qnxFrameRate = qnxFrames;
 		qnxFrames = 0;
 		qnxOneSecond = beginFrameMicros;
@@ -475,8 +437,7 @@ void ofAppQNXWindow::qnxRender()
 }
 
 //--------------------------------------------------------------
-void ofAppQNXWindow::qnxHandleScreenEvent(bps_event_t *event)
-{
+void ofAppQNXWindow::qnxHandleScreenEvent(bps_event_t *event) {
     screen_event_t screen_event = screen_event_get_event(event);
     mtouch_event_t  mtouch_event;
     int touch_id;
@@ -484,33 +445,28 @@ void ofAppQNXWindow::qnxHandleScreenEvent(bps_event_t *event)
     int screen_val;
     screen_get_event_property_iv(screen_event, SCREEN_PROPERTY_TYPE, &screen_val);
 
-    if (screen_val == SCREEN_EVENT_MTOUCH_TOUCH)
-    {
+    if (screen_val == SCREEN_EVENT_MTOUCH_TOUCH) {
     	// Handle an initial finger press event here
     	screen_get_mtouch_event(screen_event, &mtouch_event, 0);
     	touch_id = mtouch_event.contact_id;
     	qnxOnTouchDown(touch_id, mtouch_event.x, mtouch_event.y, mtouch_event.pressure);
 	}
-    else if (screen_val == SCREEN_EVENT_MTOUCH_MOVE)
-    {
+    else if (screen_val == SCREEN_EVENT_MTOUCH_MOVE) {
 		// Handle a finger move event here
     	screen_get_mtouch_event(screen_event, &mtouch_event, 0);
 		touch_id = mtouch_event.contact_id;
 		qnxOnTouchMove(touch_id, mtouch_event.x, mtouch_event.y, mtouch_event.pressure);
 	}
-    else if (screen_val == SCREEN_EVENT_MTOUCH_RELEASE)
-    {
+    else if (screen_val == SCREEN_EVENT_MTOUCH_RELEASE) {
 		// Handle a finger release event here
     	screen_get_mtouch_event(screen_event, &mtouch_event, 0);
 		touch_id = mtouch_event.contact_id;
 		qnxOnTouchUp(touch_id, mtouch_event.x, mtouch_event.y, mtouch_event.pressure);
 	}
-    else if (screen_val == SCREEN_EVENT_KEYBOARD)
-    {
+    else if (screen_val == SCREEN_EVENT_KEYBOARD) {
     	screen_get_event_property_iv(screen_event, SCREEN_PROPERTY_KEY_FLAGS, &screen_val);
 
-		if (screen_val & KEY_DOWN)
-		{
+		if (screen_val & KEY_DOWN) {
 			screen_get_event_property_iv(screen_event, SCREEN_PROPERTY_KEY_SYM,&screen_val);
 
 			//printf("The '%c' (%d) key was pressed\n", (char)screen_val, screen_val);
@@ -528,8 +484,7 @@ void ofAppQNXWindow::qnxHandleScreenEvent(bps_event_t *event)
 			else
 				ofNotifyKeyPressed(screen_val);
 		}
-		else
-		{
+		else {
 			screen_get_event_property_iv(screen_event, SCREEN_PROPERTY_KEY_SYM,&screen_val);
 
 			//printf("The '%c' key was released\n", (char)screen_val);
@@ -548,30 +503,24 @@ void ofAppQNXWindow::qnxHandleScreenEvent(bps_event_t *event)
 				ofNotifyKeyReleased(screen_val);
 		}
     }
-    else if (screen_val == SCREEN_EVENT_POINTER)
-	{
+    else if (screen_val == SCREEN_EVENT_POINTER) {
 		// Handle a mouse event here (simulator only)
 		int buttons;
 		int pair[2];
 		screen_get_event_property_iv(screen_event, SCREEN_PROPERTY_BUTTONS, &buttons);
 		screen_get_event_property_iv(screen_event, SCREEN_PROPERTY_SOURCE_POSITION, pair);
 
-		if(!qnxMousePressed)
-		{
-			if(buttons == 1)
-			{
+		if(!qnxMousePressed) {
+			if(buttons == 1) {
 				qnxOnTouchDown(0, pair[0], pair[1], 0);
 				qnxMousePressed = true;
 			}
 		}
-		else
-		{
-			if(buttons == 1)
-			{
+		else {
+			if(buttons == 1) {
 				qnxOnTouchMove(0, pair[0], pair[1], 0);
 			}
-			else if(buttons == 0)
-			{
+			else if(buttons == 0) {
 				qnxOnTouchUp(0, pair[0], pair[1], 0);
 				qnxMousePressed = false;
 			}
@@ -580,8 +529,7 @@ void ofAppQNXWindow::qnxHandleScreenEvent(bps_event_t *event)
 }
 
 //--------------------------------------------------------------
-void ofAppQNXWindow::qnxOnTouchDown(unsigned int id, int x, int y, int pressure)
-{
+void ofAppQNXWindow::qnxOnTouchDown(unsigned int id, int x, int y, int pressure) {
 	ofNotifyMousePressed(x, y, 0);
 
 	ofTouchEventArgs touch;
@@ -597,13 +545,8 @@ void ofAppQNXWindow::qnxOnTouchDown(unsigned int id, int x, int y, int pressure)
 	{
 		// Compare position and last touch
 		int found = -1;
-		for (unsigned int i = 0; i < qnxTouchList.size(); ++i)
-		{
-			if(	abs(qnxTouchList[i].x - touch.x) < DOUBLE_TAP_RANGE &&
-				abs(qnxTouchList[i].y - touch.y) < DOUBLE_TAP_RANGE &&
-				(touch.time - qnxTouchList[i].time) < DOUBLE_TAP_TIME
-			  )
-			{
+		for (unsigned int i = 0; i < qnxTouchList.size(); ++i) {
+			if(abs(qnxTouchList[i].x - touch.x) < DOUBLE_TAP_RANGE && abs(qnxTouchList[i].y - touch.y) < DOUBLE_TAP_RANGE && (touch.time - qnxTouchList[i].time) < DOUBLE_TAP_TIME)	{
 				found = i;
 				qnxTouchList.erase (qnxTouchList.begin() + found);
 				break;
@@ -611,11 +554,9 @@ void ofAppQNXWindow::qnxOnTouchDown(unsigned int id, int x, int y, int pressure)
 		}
 
 		// Not found, add touch to history
-		if(found == -1)
-		{
+		if(found == -1) {
 			qnxTouchList.push_back (touch);
-		}		else
-		{
+		}		else {
 			// Prepare to trigger doubleTap event
 			ofTouchEventArgs touch2;
 			touch2.id = touch.id;
@@ -628,20 +569,18 @@ void ofAppQNXWindow::qnxOnTouchDown(unsigned int id, int x, int y, int pressure)
 		}
 
 		// Clean up old touches
-		if(!qnxTouchList.empty())
-			for (int j = qnxTouchList.size() - 1; j >= 0; --j)
-			{
-				if((touch.time - qnxTouchList[j].time) > DOUBLE_TAP_TIME)
-				{
+		if(!qnxTouchList.empty()) {
+			for (int j = qnxTouchList.size() - 1; j >= 0; --j) {
+				if((touch.time - qnxTouchList[j].time) > DOUBLE_TAP_TIME) {
 					qnxTouchList.erase (qnxTouchList.begin() + j);
 				}
 			}
+		}
 	}
 }
 
 //--------------------------------------------------------------
-void ofAppQNXWindow::qnxOnTouchMove(unsigned int id, int x, int y, int pressure)
-{
+void ofAppQNXWindow::qnxOnTouchMove(unsigned int id, int x, int y, int pressure) {
 	ofNotifyMouseMoved(x, y);
 	ofNotifyMouseDragged(x, y, 0);
 
@@ -656,8 +595,7 @@ void ofAppQNXWindow::qnxOnTouchMove(unsigned int id, int x, int y, int pressure)
 }
 
 //--------------------------------------------------------------
-void ofAppQNXWindow::qnxOnTouchUp(unsigned int id, int x, int y, int pressure)
-{
+void ofAppQNXWindow::qnxOnTouchUp(unsigned int id, int x, int y, int pressure) {
 	ofNotifyMouseReleased(x, y, 0);
 
 	ofTouchEventArgs touch;

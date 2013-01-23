@@ -96,6 +96,16 @@
 			<locationURI>PARENT-2-WORKSPACE_LOC/addons/ofxQNX/src/ofxQNXSoundStream.cpp</locationURI>
 		</link>
 		<link>
+			<name>ofxQNX/ofxQNXLogChannel.cpp</name>
+			<type>1</type>
+			<locationURI>PARENT-2-WORKSPACE_LOC/addons/ofxQNX/src/ofxQNXLogChannel.cpp</locationURI>
+		</link>
+		<link>
+			<name>ofxQNX/ofxQNXSoundPlayer.cpp</name>
+			<type>1</type>
+			<locationURI>PARENT-2-WORKSPACE_LOC/addons/ofxQNX/src/ofxQNXSoundPlayer.cpp</locationURI>
+		</link>
+		<link>
 			<name>openFrameworks/ofAppRunner.cpp</name>
 			<type>1</type>
 			<locationURI>PARENT-2-WORKSPACE_LOC/libs/openFrameworks/app/ofAppRunner.cpp</locationURI>

@@ -35,8 +35,7 @@
 #include "ofEvents.h"
 #include "ofConstants.h"
 
-class ofxQNXApp : public ofBaseApp
-{
+class ofxQNXApp : public ofBaseApp {
 	public:
 		virtual void touchDown(int x, int y, int id) {};
 		virtual void touchMoved(int x, int y, int id) {};
@@ -56,7 +55,7 @@ class ofxQNXApp : public ofBaseApp
 		virtual void touchDoubleTap(ofTouchEventArgs & touch) {
 			touchDoubleTap(touch.x, touch.y, touch.id);
 		};
-		virtual void touchCancelled(ofTouchEventArgs & touch){
+		virtual void touchCancelled(ofTouchEventArgs & touch) {
 			touchCancelled(touch.x, touch.y, touch.id);
 		}
 

@@ -34,8 +34,8 @@
 
 static const int ACCELEROMETER_RATE = 25000;
 
-void ofxAccelerometerHandler::setup(){
-	fprintf(stderr, "ofxAccelerometerHandler::setup()\n");
+void ofxAccelerometerHandler::setup() {
+	ofLogNotice("ofxAccelerometerHandler") << "setup()";
 	// Initialize the accelerometer by setting the rates at which the
 	// accelerometer values will be updated from hardware
 
@@ -46,5 +46,5 @@ void ofxAccelerometerHandler::setup(){
 }
 
 void ofxAccelerometerHandler::exit() {
-
+	ofLogNotice("ofxAccelerometerHandler") << "exit()";
 }

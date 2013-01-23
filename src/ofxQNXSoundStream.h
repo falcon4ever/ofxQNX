@@ -38,6 +38,8 @@
 #include "SDL.h"
 #include "SDL_main.h"
 
+// TODO: Clean up class and remove SDL dependency
+
 class ofxQNXSoundStream : public ofBaseSoundStream {
 	public:
 		ofxQNXSoundStream();

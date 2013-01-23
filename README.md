@@ -133,12 +133,19 @@ https://bdsc.webapps.blackberry.com/native/documentation/porting_overview_197089
 * TouchControlOverlay
 - https://github.com/blackberry/TouchControlOverlay
 
+* Ogg/Vorbis
+- https://github.com/blackberry/OggVorbis
+
 * Additional information can be found here:
 - http://forum.openframeworks.cc/index.php/topic,9189.msg42786.html#msg42786
 - http://forum.openframeworks.cc/index.php/topic,10726.0.html
 
 NEWS
 ====
+01/23/2013
+- Added Ogg/Vorbis libs + SoundPlayer placeholders
+- Added log support (update develop-0071-qnx)
+
 01/22/2013
 - Updated libraries for PlayBook Native SDK 2.1.0.1032 and BB10 Native SDK 10.0.9.2318
 - Upgraded POCO from 1.4.3p1 to 1.4.6

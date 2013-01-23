@@ -28,8 +28,8 @@
 	SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 
- possibly useful: http://www.gamedev.net/topic/602042-manipulating-sounds-c/
-
+	possibly useful: http://www.gamedev.net/topic/602042-manipulating-sounds-c/
+	TODO: Clean up class and remove SDL dependency
  */
 
 #include "ofSoundStream.h"
@@ -57,14 +57,13 @@ static bool isRunning = false;
 static ofBaseSoundInput * soundInputPtr = NULL;
 static ofBaseSoundOutput * soundOutputPtr = NULL;
 
-//------------------------------------------------------------------------------
-
+//--------------------------------------------------------------
 int ofxQNXSoundStream::openQNXAudio() {
 
-	fprintf(stderr, "ofxQNXSoundStream::openQNXAudio\n");
+	ofLogNotice("ofxQNXSoundStream") << "openQNXAudio()";
 
     if( SDL_Init(SDL_INIT_TIMER | SDL_INIT_AUDIO ) <0 ) {
-    	fprintf(stderr, "Unable to init SDL: %s\n", SDL_GetError());
+    	ofLogNotice("ofxQNXSoundStream") << "Unable to init SDL: " << SDL_GetError();
     }
 
 	// Allocate a desired SDL_AudioSpec
@@ -86,7 +85,7 @@ int ofxQNXSoundStream::openQNXAudio() {
 
 	// Open the audio device and start playing sound!
 	if ( SDL_OpenAudio(desired, obtained) < 0 ) {
-		fprintf(stderr, "AudioMixer, Unable to open audio: %s\n", SDL_GetError());
+		ofLogNotice("ofxQNXSoundStream") << "AudioMixer, Unable to open audio: " << SDL_GetError();
 	}
 
     nOutputChannels = obtained->channels;
@@ -96,17 +95,18 @@ int ofxQNXSoundStream::openQNXAudio() {
 	// if the format is 16 bit, two bytes are written for every sample
 	if (obtained->format==AUDIO_U16 || obtained->format==AUDIO_S16) {
 		outputBufferSize = 2 * bufferSize;
-	} else {
+	}
+	else {
 		outputBufferSize = bufferSize;
 	}
 
-	fprintf(stderr,"ofxQNXSoundStream::bufferSize: %i\n", bufferSize);
-	fprintf(stderr,"ofxQNXSoundStream::outputBufferSize: %i\n", outputBufferSize);
-	fprintf(stderr,"ofxQNXSoundStream::sampleRate: %i\n", sampleRate);
-	fprintf(stderr,"ofxQNXSoundStream::channels: %i\n", nOutputChannels);
+	ofLogNotice("ofxQNXSoundStream") << "bufferSize: " << bufferSize;
+	ofLogNotice("ofxQNXSoundStream") << "outputBufferSize: " << outputBufferSize;
+	ofLogNotice("ofxQNXSoundStream") << "sampleRate: " << sampleRate;
+	ofLogNotice("ofxQNXSoundStream") << "channels: " << nOutputChannels;
 
     char name[32];
-    fprintf(stderr,"ofxQNXSoundStream::Using audio driver: %s\n", SDL_AudioDriverName(name, 32));
+    ofLogNotice("ofxQNXSoundStream") << "Using audio driver: " << SDL_AudioDriverName(name, 32);
 
     out_float_buffer = new float[outputBufferSize];
 	out_buffer = new Sint16[outputBufferSize];
@@ -124,13 +124,13 @@ int ofxQNXSoundStream::openQNXAudio() {
 	return 1;
 }
 
-
+//--------------------------------------------------------------
 void ofxQNXSoundStream::AudioCallback(void *userdata, uint8_t *stream, int len){
 
 	soundOutputPtr->audioOut(out_float_buffer, bufferSize, nOutputChannels);
 
 	Sint16 * out_buffer = (Sint16 *)stream; //this is important - view http://lists.libsdl.org/pipermail/sdl-libsdl.org/2008-October/066797.html
-	for(int i=0; i< outputBufferSize; i++){
+	for(int i=0; i< outputBufferSize; i++) {
 		 float tempf = (out_float_buffer[i] * 32767.5f) - 0.5f;
 		 out_buffer[i] = tempf;
 	}
@@ -138,41 +138,41 @@ void ofxQNXSoundStream::AudioCallback(void *userdata, uint8_t *stream, int len){
 	memcpy(stream, out_buffer, outputBufferSize);
 }
 
-
+//--------------------------------------------------------------
 static void closeQNXAudio() {
-	fprintf(stderr, "ofxQNXSoundStream::closeQNXAudio\n");
+	ofLogNotice("ofxQNXSoundStream") << "closeQNXAudio()";
 
 	/*snd_pcm_plugin_flush(pcm_handle, SND_PCM_CHANNEL_PLAYBACK);
 	snd_mixer_close(mixer_handle);
 	snd_pcm_close(pcm_handle);*/
 }
 
-//------------------------------------------------------------------------------
-
+//--------------------------------------------------------------
 ofxQNXSoundStream::ofxQNXSoundStream() {
-	fprintf(stderr, "ofxQNXSoundStream::ofxQNXSoundStream()\n");
+	//ofLogNotice("ofxQNXSoundStream") << "ofxQNXSoundStream()";
 }
 
+//--------------------------------------------------------------
 ofxQNXSoundStream::~ofxQNXSoundStream() {
-	fprintf(stderr, "ofxQNXSoundStream::~ofxQNXSoundStream()\n");
+	ofLogNotice("ofxQNXSoundStream") << "~ofxQNXSoundStream()";
 	//closeQNXAudio(); // causes segfault
 }
 
+//--------------------------------------------------------------
 void ofxQNXSoundStream::setInput(ofBaseSoundInput * soundInput) {
-	fprintf(stderr, "ofxQNXSoundStream::setInput(ofBaseSoundInput)\n");
+	ofLogNotice("ofxQNXSoundStream") << "setInput(ofBaseSoundInput)";
 	soundInputPtr = soundInput;
 }
 
+//--------------------------------------------------------------
 void ofxQNXSoundStream::setOutput(ofBaseSoundOutput * soundOutput) {
-	fprintf(stderr, "ofxQNXSoundStream::setInput(ofBaseSoundOutput)\n");
+	ofLogNotice("ofxQNXSoundStream") << "setInput(ofBaseSoundOutput)";
 	soundOutputPtr = soundOutput;
 }
 
-bool ofxQNXSoundStream::setup(int outChannels, int inChannels, int _sampleRate,
-		int _bufferSize, int nBuffers) {
-	fprintf(stderr,
-			"ofxQNXSoundStream::setup(outChannels %d, inChannels %d, sampleRate %d, bufferSize %d, nBuffers %d)\n",
-			outChannels, inChannels, _sampleRate, _bufferSize, nBuffers);
+//--------------------------------------------------------------
+bool ofxQNXSoundStream::setup(int outChannels, int inChannels, int _sampleRate, int _bufferSize, int nBuffers) {
+	ofLogNotice("ofxQNXSoundStream") <<	"setup: outChannels " << outChannels <<	", inChannels " << inChannels << ", sampleRate " << _sampleRate << ", bufferSize " << _bufferSize << ", nBuffers " << nBuffers;
 
 	nInputChannels = inChannels;
 	nOutputChannels = outChannels;
@@ -197,39 +197,47 @@ bool ofxQNXSoundStream::setup(int outChannels, int inChannels, int _sampleRate,
 	return true;
 }
 
-bool ofxQNXSoundStream::setup(ofBaseApp * app, int outChannels, int inChannels,
-		int sampleRate, int bufferSize, int nBuffers) {
-	fprintf(stderr, "ofxQNXSoundStream::setup(ofBaseApp)\n");
+//--------------------------------------------------------------
+bool ofxQNXSoundStream::setup(ofBaseApp * app, int outChannels, int inChannels, int sampleRate, int bufferSize, int nBuffers) {
+	ofLogNotice("ofxQNXSoundStream") << "setup(ofBaseApp)";
 	setInput(app);
 	setOutput(app);
+
 	return setup(outChannels, inChannels, sampleRate, bufferSize, nBuffers);
 }
 
+//--------------------------------------------------------------
 void ofxQNXSoundStream::start() {
-	fprintf(stderr, "ofxQNXSoundStream::start\n");
+	ofLogNotice("ofxQNXSoundStream") << "start()";
 	// TODO
-	if (isRunning)
+	if (isRunning) {
 		ofSoundStreamStop();
+	}
 }
 
+//--------------------------------------------------------------
 void ofxQNXSoundStream::stop() {
-	fprintf(stderr, "ofxQNXSoundStream::stop\n");
+	ofLogNotice("ofxQNXSoundStream") << "stop()";
 	// TODO
 }
 
+//--------------------------------------------------------------
 void ofxQNXSoundStream::close() {
-	fprintf(stderr, "ofxQNXSoundStream::close\n");
+	ofLogNotice("ofxQNXSoundStream") << "close()";
 	// TODO
 }
 
+//--------------------------------------------------------------
 long unsigned long ofxQNXSoundStream::getTickCount() {
 	return tickCount;
 }
 
+//--------------------------------------------------------------
 int ofxQNXSoundStream::getNumInputChannels() {
 	return nInputChannels;
 }
 
+//--------------------------------------------------------------
 int ofxQNXSoundStream::getNumOutputChannels() {
 	return nOutputChannels;
 }

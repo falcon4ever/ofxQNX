@@ -33,112 +33,110 @@
 
 //--------------------------------------------------------------
 bool ofxQNXSoundPlayer::loadSound(string fileName, bool stream) {
-
-	ofLog(OF_LOG_WARNING, "Method not implemented (loadSound)");
+	ofLogWarning("ofxQNXSoundPlayer") << "Method not implemented: loadSound";
 	return false;
 };
 
 //--------------------------------------------------------------
 void ofxQNXSoundPlayer::unloadSound() {
-	ofLog(OF_LOG_WARNING, "Method not implemented (unloadSound)");
+	ofLogWarning("ofxQNXSoundPlayer") << "Method not implemented: unloadSound";
 }
 
 //--------------------------------------------------------------
 void ofxQNXSoundPlayer::play() {
-	ofLog(OF_LOG_WARNING, "Method not implemented (play)");
+	ofLogWarning("ofxQNXSoundPlayer") << "Method not implemented: play";
 }
 
 //--------------------------------------------------------------
 void ofxQNXSoundPlayer::stop() {
-	ofLog(OF_LOG_WARNING, "Method not implemented (stop)");
+	ofLogWarning("ofxQNXSoundPlayer") << "Method not implemented: stop";
 }
 
 //--------------------------------------------------------------
 void ofxQNXSoundPlayer::setVolume(float vol) {
-	ofLog(OF_LOG_WARNING, "Method not implemented (setVolume)");
+	ofLogWarning("ofxQNXSoundPlayer") << "Method not implemented: setVolume";
 }
 
 //--------------------------------------------------------------
 void ofxQNXSoundPlayer::setPan(float vol) {
-	ofLog(OF_LOG_WARNING, "Method not implemented (setPan)");
+	ofLogWarning("ofxQNXSoundPlayer") << "Method not implemented: setPan";
 }
 
 //--------------------------------------------------------------
 void ofxQNXSoundPlayer::setSpeed(float spd) {
-	ofLog(OF_LOG_WARNING, "Method not implemented (setSpeed)");
+	ofLogWarning("ofxQNXSoundPlayer") << "Method not implemented: setSpeed";
 }
 
 //--------------------------------------------------------------
 void ofxQNXSoundPlayer::setPaused(bool bP) {
-	ofLog(OF_LOG_WARNING, "Method not implemented (setPaused)");
+	ofLogWarning("ofxQNXSoundPlayer") << "Method not implemented: setPaused";
 }
 
 //--------------------------------------------------------------
 void ofxQNXSoundPlayer::setLoop(bool bLp) {
-	ofLog(OF_LOG_WARNING, "Method not implemented (setLoop)");
+	ofLogWarning("ofxQNXSoundPlayer") << "Method not implemented: setLoop";
 }
 
 //--------------------------------------------------------------
 void ofxQNXSoundPlayer::setMultiPlay(bool bMp) {
-	ofLog(OF_LOG_WARNING, "Method not implemented (setMultiPlay)");
+	ofLogWarning("ofxQNXSoundPlayer") << "Method not implemented: setMultiPlay";
 }
 
 //--------------------------------------------------------------
 void ofxQNXSoundPlayer::setPosition(float pct) {
 	// 0 = start, 1 = end;
-	ofLog(OF_LOG_WARNING, "Method not implemented (setPosition)");
+	ofLogWarning("ofxQNXSoundPlayer") << "Method not implemented: setPosition";
 }
 
 //--------------------------------------------------------------
 void ofxQNXSoundPlayer::setPositionMS(int ms) {
-	ofLog(OF_LOG_WARNING, "Method not implemented (setPositionMS)");
+	ofLogWarning("ofxQNXSoundPlayer") << "Method not implemented: setPositionMS";
 }
 
 //--------------------------------------------------------------
 float ofxQNXSoundPlayer::getPosition() {
-	ofLog(OF_LOG_WARNING, "Method not implemented (getPosition)");
+	ofLogWarning("ofxQNXSoundPlayer") << "Method not implemented: getPosition";
 	return 0;
 }
 
 //--------------------------------------------------------------
 int ofxQNXSoundPlayer::getPositionMS() {
-	ofLog(OF_LOG_WARNING, "Method not implemented (getPositionMS)");
+	ofLogWarning("ofxQNXSoundPlayer") << "Method not implemented: getPositionMS";
 	return 0;
 }
 
 //--------------------------------------------------------------
 bool ofxQNXSoundPlayer::getIsPlaying() {
-	ofLog(OF_LOG_WARNING, "Method not implemented (getIsPlaying)");
+	ofLogWarning("ofxQNXSoundPlayer") << "Method not implemented: getIsPlaying";
 	return false;
 }
 
 //--------------------------------------------------------------
 float ofxQNXSoundPlayer::getSpeed() {
-	ofLog(OF_LOG_WARNING, "Method not implemented (getSpeed)");
+	ofLogWarning("ofxQNXSoundPlayer") << "Method not implemented: getSpeed";
 	return 0;
 }
 
 //--------------------------------------------------------------
 float ofxQNXSoundPlayer::getPan() {
-	ofLog(OF_LOG_WARNING, "Method not implemented (getPan)");
+	ofLogWarning("ofxQNXSoundPlayer") << "Method not implemented: getPan";
 	return 0;
 }
 
 //--------------------------------------------------------------
 bool ofxQNXSoundPlayer::getIsPaused() {
-	ofLog(OF_LOG_WARNING, "Method not implemented (getIsPaused)");
+	ofLogWarning("ofxQNXSoundPlayer") << "Method not implemented: getIsPaused";
 	return false;
 }
 
 //--------------------------------------------------------------
 bool ofxQNXSoundPlayer::isLoaded() {
-	ofLog(OF_LOG_WARNING, "Method not implemented (isLoaded)");
+	ofLogWarning("ofxQNXSoundPlayer") << "Method not implemented: isLoaded";
 	return false;
 }
 
 //--------------------------------------------------------------
 float ofxQNXSoundPlayer::getVolume() {
-	ofLog(OF_LOG_WARNING, "Method not implemented (getVolume)");
+	ofLogWarning("ofxQNXSoundPlayer") << "Method not implemented: getVolume";
 	return 0;
 }
-

@@ -48,8 +48,7 @@
 
 #include "ofEvents.h"
 
-class ofAppQNXWindow : public ofAppBaseWindow 
-{
+class ofAppQNXWindow : public ofAppBaseWindow {
 	public:
 		ofAppQNXWindow();
 		virtual ~ofAppQNXWindow();
