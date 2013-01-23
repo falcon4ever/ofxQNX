@@ -28,40 +28,35 @@
 	SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 */
 
-/* 
-TODO:
-- Implement the SoundPlayer (OpenAL?)
-*/
-
 #ifndef OFXQNXSOUNDPLAYER_H_
 #define OFXQNXSOUNDPLAYER_H_
 
 #include "ofBaseSoundPlayer.h"
 
-class ofxQNXSoundPlayer : public ofBaseSoundPlayer{
+class ofxQNXSoundPlayer : public ofBaseSoundPlayer {
 	public:
-		bool loadSound(string fileName, bool stream = false) { return false; };
-		void unloadSound() {};
-		void play() {};
-		void stop() {};
+		bool loadSound(string fileName, bool stream = false);
+		void unloadSound();
+		void play();
+		void stop();
 
-		void setVolume(float vol) {};
-		void setPan(float vol) {};
-		void setSpeed(float spd) {};
-		void setPaused(bool bP) {};
-		void setLoop(bool bLp) {};
-		void setMultiPlay(bool bMp) {};
-		void setPosition(float pct) {}; // 0 = start, 1 = end;
-		void setPositionMS(int ms) {};
+		void setVolume(float vol);
+		void setPan(float vol);
+		void setSpeed(float spd);
+		void setPaused(bool bP);
+		void setLoop(bool bLp);
+		void setMultiPlay(bool bMp);
+		void setPosition(float pct); // 0 = start, 1 = end;
+		void setPositionMS(int ms);
 
-		float getPosition() { return 0; };
-		int getPositionMS() { return 0; };
-		bool getIsPlaying() { return false; };
-		float getSpeed() { return 0; };
-		float getPan() { return 0; };
-		bool getIsPaused() { return false; };
-		bool isLoaded() {  return false; };
-		float getVolume() {  return 0; };
+		float getPosition();
+		int getPositionMS();
+		bool getIsPlaying();
+		float getSpeed();
+		float getPan();
+		bool getIsPaused();
+		bool isLoaded();
+		float getVolume();
 };
 
 #endif /* OFXQNXSOUNDPLAYER_H_ */
