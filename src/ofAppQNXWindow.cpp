@@ -403,6 +403,7 @@ void ofAppQNXWindow::qnxHandleEvents()
 
 						qnxIsRunning = false;
 						sensor_stop_events(SENSOR_TYPE_ACCELEROMETER);
+						return;
 					}
 					break;
 				}
