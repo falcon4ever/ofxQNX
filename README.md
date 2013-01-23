@@ -26,16 +26,17 @@ REQUIREMENTS
 
 A patched openFrameworks until patches are merged into the official develop branch
 - git@github.com:falcon4ever/openFrameworks.git (branch: develop-0071-qnx)
+> git clone -b develop-0071-qnx https://github.com/falcon4ever/openFrameworks.git
 
 The current version is build using the following Native SDKs:
 
 BlackBerry PlayBook
-To compile the project you will need to install the BlackBerry Native SDK (2.1.0 beta 1):
-- https://developer.blackberry.com/native/download/
+To compile the project you will need to install the BlackBerry Native SDK (2.1.0-1032):
+- http://developer.blackberry.com/native/download/#playbook
 
 BlackBerry 10
-To compile the project you will need to install the BlackBerry 10 Native SDK (10.0.09 gold):
-- https://bdsc.webapps.blackberry.com/cascades/download
+To compile the project you will need to install the BlackBerry 10 Native SDK (10.0.9-2138):
+- http://developer.blackberry.com/native/download/#blackberry10
 
 
 QUICK START
@@ -101,13 +102,14 @@ https://bdsc.webapps.blackberry.com/native/documentation/porting_overview_197089
 
 * Boost 
 - http://www.boost.org/
-- Included version is 1.50.0
+- Included version is 1.52.0
 - Required because "std::tr1::shared_ptr" and "std::tr1::weak_ptr" are not available from the Native SDK (#include <boost/tr1/memory.hpp>)
 - The included version has been stripped down for use with openFrameworks.
 
 * FreeImage 
 - http://freeimage.sourceforge.net/
 - Using version 3.14.1 and removed support for EXR to make it compile.
+- Modify the makefiles (MKDIR and CP command) if you're not using MinGW but Linux or Mac
 
 * GLU
 - Since no GLU is included with the Native SDK I am using the one from:
@@ -120,7 +122,7 @@ https://bdsc.webapps.blackberry.com/native/documentation/porting_overview_197089
 
 * Poco
 - http://pocoproject.org/
-- Version 1.4.3p1
+- Version 1.4.6
 - This can only be build on a Linux or Mac platform for some reason it will fail on Windows.
 - Included a dummy syslog.h implementation (borrowed from the Android NDK) as it will not build without.
 
@@ -132,11 +134,15 @@ https://bdsc.webapps.blackberry.com/native/documentation/porting_overview_197089
 - https://github.com/blackberry/TouchControlOverlay
 
 * Additional information can be found here:
-http://forum.openframeworks.cc/index.php/topic,9189.msg42786.html#msg42786
-
+- http://forum.openframeworks.cc/index.php/topic,9189.msg42786.html#msg42786
+- http://forum.openframeworks.cc/index.php/topic,10726.0.html
 
 NEWS
 ====
+01/22/2013
+- Updated libraries for PlayBook Native SDK 2.1.0.1032 and BB10 Native SDK 10.0.9.2318
+- Upgraded POCO from 1.4.3p1 to 1.4.6
+- Upgraded Boost from  1.50.0 to 1.52.0
 
 01/14/2013
 - Cleaned up ofAppQNXWindow
@@ -214,7 +220,7 @@ https://bdsc.webapps.blackberry.com/native/reference/com.qnx.doc.bps.lib_ref/com
 FAQ
 ===
 * Is ofxQNX stable enough for prime time?
-- Yes, Definitely! It's currently used in NodeBeat (www.nodebeat.com) .
+- Yes, Definitely! It's currently used in NodeBeat (www.nodebeat.com) on the PlayBook and BB10 platforms
 
 * Where do I store my files?
 - Private assets: ofToDataPath("", true) + "/app/native/assets/" (read-only)

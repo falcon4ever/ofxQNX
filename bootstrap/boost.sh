@@ -8,9 +8,9 @@ BB_BOOTSTRAP_ROOT=$(pwd)
 BB_BOOTSTRAP_ROOT=${BB_BOOTSTRAP_ROOT%/*}
 
 # Boost
-BB_BOOST_URL=http://sourceforge.net/projects/boost/files/boost/1.50.0/boost_1_50_0.tar.gz
-BB_BOOST_FILE=boost_1_50_0.tar.gz
-BB_BOOST_FOLDER=boost_1_50_0
+BB_BOOST_URL=http://sourceforge.net/projects/boost/files/boost/1.52.0/boost_1_52_0.tar.gz
+BB_BOOST_FILE=boost_1_52_0.tar.gz
+BB_BOOST_FOLDER=boost_1_52_0
 
 # Check for is boost is already installed
 if [ -d "$BB_BOOTSTRAP_ROOT/libs/boost/include/boost" ];
