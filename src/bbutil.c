@@ -13,7 +13,6 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-#include <assert.h>
 #include <ctype.h>
 #include <unistd.h>
 #include <stdio.h>
@@ -51,7 +50,6 @@ static screen_window_t screen_win;
 static screen_display_t screen_disp;
 static int nbuffers = 2;
 static int initialized = 0;
-static int idle_mode = SCREEN_IDLE_MODE_KEEP_AWAKE;
 
 #ifdef USING_GL20
 static GLuint text_rendering_program;
@@ -195,15 +193,6 @@ bbutil_init_egl(screen_context_t ctx) {
         bbutil_terminate();
         return EXIT_FAILURE;
     }
-
-// Keep awake
-    rc = screen_set_window_property_iv(screen_win, SCREEN_PROPERTY_IDLE_MODE, &idle_mode);
-    if (rc)
-    {
-		perror("screen_set_window_property_iv(SCREEN_PROPERTY_IDLE_MODE)");
-		bbutil_terminate();
-		return EXIT_FAILURE;
-	}
 
     rc = screen_get_window_property_pv(screen_win, SCREEN_PROPERTY_DISPLAY, (void **)&screen_disp);
     if (rc) {
