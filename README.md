@@ -142,6 +142,9 @@ https://bdsc.webapps.blackberry.com/native/documentation/porting_overview_197089
 
 NEWS
 ====
+01/24/2013
+- Added SoundPlayer implementation (effects only)
+
 01/23/2013
 - Added Ogg/Vorbis libs + SoundPlayer placeholders
 - Added log support (update develop-0071-qnx)

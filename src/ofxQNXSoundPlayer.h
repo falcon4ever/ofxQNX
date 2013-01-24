@@ -35,18 +35,21 @@
 
 class ofxQNXSoundPlayer : public ofBaseSoundPlayer {
 	public:
-		bool loadSound(string fileName, bool stream = false);
+		ofxQNXSoundPlayer();
+		~ofxQNXSoundPlayer();
+
+		bool loadSound(string fileName, bool stream);
 		void unloadSound();
 		void play();
 		void stop();
 
 		void setVolume(float vol);
-		void setPan(float vol);
+		void setPan(float vol);			// -1 = left, 1 = right
 		void setSpeed(float spd);
 		void setPaused(bool bP);
 		void setLoop(bool bLp);
 		void setMultiPlay(bool bMp);
-		void setPosition(float pct); // 0 = start, 1 = end;
+		void setPosition(float pct);	// 0 = start, 1 = end;
 		void setPositionMS(int ms);
 
 		float getPosition();
@@ -57,6 +60,16 @@ class ofxQNXSoundPlayer : public ofBaseSoundPlayer {
 		bool getIsPaused();
 		bool isLoaded();
 		float getVolume();
+
+	private:
+		bool qnxIsStream;
+		string qnxFileName;
+		unsigned int qnxSoundId;
+
+		bool qnxIsLoaded;
+		bool qnxLoop;
+		bool qnxMultiPlay;
+		float qnxVolume;
 };
 
 #endif /* OFXQNXSOUNDPLAYER_H_ */

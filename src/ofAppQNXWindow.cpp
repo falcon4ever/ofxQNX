@@ -37,6 +37,7 @@
 
 #include "ofxAccelerometer.h"
 #include <bps/sensor.h>
+#include <AL/alut.h>
 
 #define DOUBLE_TAP_RANGE 10
 #define DOUBLE_TAP_TIME 300
@@ -170,7 +171,7 @@ int ofAppQNXWindow::qnxInitialize() {
 
 	// Use utility code to initialize EGL for rendering with GL ES 1.1
 	if (EXIT_SUCCESS != bbutil_init_egl(qnxScreenContext)) {
-		ofLogNotice("ofAppQNXWindow") << "bbutil_init_egl failed";
+		ofLogFatalError("ofAppQNXWindow") << "bbutil_init_egl failed";
 		bbutil_terminate();
 		screen_destroy_context(qnxScreenContext);
 		return 0;
@@ -178,7 +179,7 @@ int ofAppQNXWindow::qnxInitialize() {
 
 	// Request screen events
 	if (BPS_SUCCESS != screen_request_events(qnxScreenContext)) {
-		ofLogNotice("ofAppQNXWindow") << "screen_request_events failed";
+		ofLogFatalError("ofAppQNXWindow") << "screen_request_events failed";
 		bbutil_terminate();
 		screen_destroy_context(qnxScreenContext);
 		return 0;
@@ -186,7 +187,7 @@ int ofAppQNXWindow::qnxInitialize() {
 
 	// Request navigator events
 	if (BPS_SUCCESS != navigator_request_events(0)) {
-		ofLogNotice("ofAppQNXWindow") << "navigator_request_events failed";
+		ofLogFatalError("ofAppQNXWindow") << "navigator_request_events failed";
 		bbutil_terminate();
 		screen_destroy_context(qnxScreenContext);
 		return 0;
@@ -194,7 +195,7 @@ int ofAppQNXWindow::qnxInitialize() {
 
 	// Request virtual keyboard events
     if (BPS_SUCCESS != virtualkeyboard_request_events(0)) {
-        ofLogNotice("ofAppQNXWindow") << "navigator_request_events failed";
+    	ofLogFatalError("ofAppQNXWindow") << "navigator_request_events failed";
         bbutil_terminate();
         screen_destroy_context(qnxScreenContext);
         return 0;
@@ -202,7 +203,7 @@ int ofAppQNXWindow::qnxInitialize() {
 
 	// Signal BPS library that navigator orientation is not to be locked
 	if (BPS_SUCCESS != navigator_rotation_lock(false)) {
-		ofLogNotice("ofAppQNXWindow") << "navigator_rotation_lock failed";
+		ofLogFatalError("ofAppQNXWindow") << "navigator_rotation_lock failed";
 		bbutil_terminate();
 		screen_destroy_context(qnxScreenContext);
 		return 0;
@@ -223,12 +224,21 @@ int ofAppQNXWindow::qnxInitialize() {
 	qnxWindowWidth = dimensions[0];
 	qnxWindowHeight = dimensions[1];
 
+	// Setup OpenAL
+	if(!alutInit(0, 0)) {
+		ofLogFatalError("ofAppQNXWindow") << "Could not start sound: " << alutGetError();
+		return(0);
+	}
+
 	return 1;
 }
 
 //--------------------------------------------------------------
 void ofAppQNXWindow::qnxQuit() {
 	ofLogNotice("ofAppQNXWindow") << "qnxQuit()";
+
+	// Stop OpenAL
+	alutExit();
 
 	// Stop requesting events from libscreen
 	screen_stop_events(qnxScreenContext);
