@@ -37,10 +37,7 @@
 
 #include <map>
 
-#include <AL/al.h>
-#include <AL/alc.h>
 #include <AL/alut.h>
-#include <sys/stat.h>
 #include <vorbis/vorbisfile.h>
 
 struct soundData {
@@ -321,7 +318,7 @@ void ofxQNXSoundPlayer::play() {
 		alSourcePlay(iter->second->source);
 		checkALError("playEffect");
 
-		qnxSoundId = iter->second->source;
+		qnxSoundId = iter->second->source;	// Store Id to control this fx
 	}
 }
 
@@ -346,12 +343,14 @@ void ofxQNXSoundPlayer::setVolume(float vol) {
 	}
 	else {
 		if (vol != qnxVolume) {
+			alSourcef(qnxSoundId, AL_GAIN, vol);
+			qnxVolume = vol;
+			/*
 			EffectsMap::const_iterator end = s_effects.end();
 			for (EffectsMap::const_iterator it = s_effects.begin(); it != end; it++) {
 				alSourcef(it->second->source, AL_GAIN, vol);
 			}
-
-			qnxVolume = vol;
+			*/
 		}
 	}
 }
@@ -374,7 +373,6 @@ void ofxQNXSoundPlayer::setPaused(bool bP) {
 		ofLogWarning("ofxQNXSoundPlayer") << "stream not implemented";
 	}
 	else {
-
 		if(bP) {
 			if(getIsPlaying()) {
 				alSourcePause(qnxSoundId);
