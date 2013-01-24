@@ -27,9 +27,17 @@
 	(INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS
 	SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
-	note: this class is based on:
-	- https://github.com/cocos2d/cocos2d-x/blob/master/CocosDenshion/blackberry/SimpleAudioEngine.cpp
+	notes: this class is based on CocosDenshion:
+	- Source https://github.com/cocos2d/cocos2d-x/blob/master/CocosDenshion/blackberry/SimpleAudioEngine.cpp
 
+	Sound FX notes:
+	- OpenAL is initiated and stopped in ofAppQNXWindow.cpp
+	- Supports Wav and Ogg only
+
+	Stream notes:
+	- Implemented using the Multimedia Renderer (Based on PlayAudio example and Cocos2d-x class)
+	- The stream implementation is working although only one stream can be active at the time (acts as background music)
+	- Supported formats: https://developer.blackberry.com/devzone/develop/supported_media/bb_media_support_at_a_glance.html#kba1328545526665
 */
 
 #include "ofxQNXSoundPlayer.h"
@@ -40,6 +48,15 @@
 #include <AL/alut.h>
 #include <vorbis/vorbisfile.h>
 
+#include <sys/neutrino.h>
+#include <sys/stat.h>
+
+#include <mm/renderer.h>
+#include <mm/renderer/events.h>
+
+//
+// Sound FX
+//
 struct soundData {
 	ALuint buffer;
 	ALuint source;
@@ -55,29 +72,26 @@ EffectsMap s_effects;
 static int checkALError(const char *funcName)
 {
 	int err = alGetError();
-
-	if (err != AL_NO_ERROR)
-	{
-		switch (err)
-		{
+	if (err != AL_NO_ERROR) {
+		switch (err) {
 			case AL_INVALID_NAME:
-				fprintf(stderr, "AL_INVALID_NAME in %s\n", funcName);
+				ofLogError("checkALError") << "AL_INVALID_NAME in " << funcName;
 				break;
 
 			case AL_INVALID_ENUM:
-				fprintf(stderr, "AL_INVALID_ENUM in %s\n", funcName);
+				ofLogError("checkALError") << "AL_INVALID_ENUM in " << funcName;
 				break;
 
 			case AL_INVALID_VALUE:
-				fprintf(stderr, "AL_INVALID_VALUE in %s\n", funcName);
+				ofLogError("checkALError") << "AL_INVALID_VALUE in " << funcName;
 				break;
 
 			case AL_INVALID_OPERATION:
-				fprintf(stderr, "AL_INVALID_OPERATION in %s\n", funcName);
+				ofLogError("checkALError") << "AL_INVALID_OPERATION in " << funcName;
 				break;
 
 			case AL_OUT_OF_MEMORY:
-				fprintf(stderr, "AL_OUT_OF_MEMORY in %s\n", funcName);
+				ofLogError("checkALError") << "AL_OUT_OF_MEMORY in " << funcName;
 				break;
 		}
 	}
@@ -115,7 +129,7 @@ static ALuint createBufferFromOGG(const char *pszFilePath)
 	if (ov_fopen(pszFilePath, &ogg_file) < 0)
 	{
 		ov_clear(&ogg_file);
-		fprintf(stderr, "Could not open OGG file %s\n", pszFilePath);
+		ofLogError("ofxQNXSoundPlayer") << "Could not open OGG file " << pszFilePath;
 		return -1;
 	}
 
@@ -140,7 +154,7 @@ static ALuint createBufferFromOGG(const char *pszFilePath)
 		else if (result < 0)
 		{
 			delete [] data;
-			fprintf(stderr, "OGG file problem %s\n", pszFilePath);
+			ofLogError("ofxQNXSoundPlayer") << "OGG file problem " << pszFilePath;
 			return -1;
 		}
 		else
@@ -152,7 +166,7 @@ static ALuint createBufferFromOGG(const char *pszFilePath)
 	if (size == 0)
 	{
 		delete [] data;
-		fprintf(stderr, "Unable to read OGG data\n");
+		ofLogError("ofxQNXSoundPlayer") << "Unable to read OGG data";
 		return -1;
 	}
 
@@ -164,7 +178,7 @@ static ALuint createBufferFromOGG(const char *pszFilePath)
 
 	if (checkALError("createBufferFromOGG") != AL_NO_ERROR)
 	{
-		fprintf(stderr, "Couldn't generate a buffer for OGG file\n");
+		ofLogError("ofxQNXSoundPlayer") << "Couldn't generate a buffer for OGG file";
 		delete [] data;
 		return buffer;
 	}
@@ -178,20 +192,41 @@ static ALuint createBufferFromOGG(const char *pszFilePath)
 	return buffer;
 }
 
+//
+// Multimedia Renderer (Stream)
+//
+static void mmrerror( mmr_context_t *ctxt, const char *errmsg ) {
+	const mmr_error_info_t *err = mmr_error_info( ctxt );
+	unsigned errcode = err->error_code;
+	ofLogError("ofxQNXSoundPlayer") << "mmrerror " << errmsg << ": error " << errcode;
+}
+
+typedef enum {
+	PLAYING,
+	STOPPED,
+	PAUSED,
+} playStatus;
+
+static bool s_isBackgroundInitialized = false;
+static std::string s_currentBackgroundStr;
+
+static bool s_hasMMRError = false;
+static playStatus s_playStatus = STOPPED;
+
+static mmr_connection_t   *s_mmrConnection 	  = 0;
+static mmr_context_t 	  *s_mmrContext 	  = 0;
+static strm_dict_t 		  *s_repeatDictionary = 0;
+
 //--------------------------------------------------------------
 ofxQNXSoundPlayer::ofxQNXSoundPlayer() {
-	ofLogNotice("ofxQNXSoundPlayer") << "ofxQNXSoundPlayer()";
 }
 
 //--------------------------------------------------------------
 ofxQNXSoundPlayer::~ofxQNXSoundPlayer() {
-	ofLogNotice("ofxQNXSoundPlayer") << "~ofxQNXSoundPlayer()";
 }
 
 //--------------------------------------------------------------
 bool ofxQNXSoundPlayer::loadSound(string fileName, bool stream) {
-	ofLogNotice("ofxQNXSoundPlayer") << "loadSound: " << fileName;
-
 	qnxIsStream = stream;
 	qnxFileName = fileName;
 
@@ -201,15 +236,58 @@ bool ofxQNXSoundPlayer::loadSound(string fileName, bool stream) {
 	qnxVolume = 1.0f;
 
 	if(qnxIsStream) {
-		ofLogWarning("ofxQNXSoundPlayer") << "stream not implemented";
+		ofLogNotice("ofxQNXSoundPlayer") << "Load stream: " << qnxFileName;
+
+		s_playStatus = STOPPED;
+
+		if (!s_isBackgroundInitialized)	{
+			char cwd[FILENAME_MAX];
+			memset(cwd, FILENAME_MAX, 0);
+			getcwd(cwd, PATH_MAX);
+
+			char path[PATH_MAX];
+			snprintf(path, PATH_MAX, "file://%s%s", cwd, qnxFileName.c_str());
+
+			s_mmrConnection = mmr_connect(NULL);
+			if (!s_mmrConnection) {
+				perror("mmr_connect");
+				s_hasMMRError = true;
+				return qnxIsLoaded;
+			}
+
+			const char *ctxtname = "mmrplayer";
+			s_mmrContext = mmr_context_create(s_mmrConnection, ctxtname, 0, S_IRUSR | S_IXUSR);
+			if (!s_mmrContext) {
+				perror(ctxtname);
+				s_hasMMRError = true;
+				return qnxIsLoaded;
+			}
+
+			int s_audioOid;
+			if ((s_audioOid = mmr_output_attach(s_mmrContext, "audio:default", "audio")) < 0) {
+				mmrerror(s_mmrContext, "audio:default");
+				return qnxIsLoaded;
+			}
+
+			if (mmr_input_attach(s_mmrContext, path, "autolist") < 0) {
+				ofLogError("ofxQNXSoundPlayer") << "unable to load " << path;
+				mmrerror(s_mmrContext, path);
+				return qnxIsLoaded;
+			}
+		}
+
+		s_currentBackgroundStr 	  = qnxFileName;
+		s_isBackgroundInitialized = true;
+
+		qnxIsLoaded = true;
 	}
 	else {
+		ofLogNotice("ofxQNXSoundPlayer") << "Load effect: " << fileName;
 
 		EffectsMap::iterator iter = s_effects.find(qnxFileName);
 
-		// check if we have this already
-		if (iter == s_effects.end())
-		{
+		// Check if it is already stored
+		if (iter == s_effects.end()) {
 			ALuint 		buffer;
 			ALuint 		source;
 			soundData  *data = new soundData;
@@ -226,7 +304,7 @@ bool ofxQNXSoundPlayer::loadSound(string fileName, bool stream) {
 			}
 
 			if (buffer == AL_NONE) {
-				fprintf(stderr, "Error loading file: '%s'\n", path.data());
+				ofLogError("ofxQNXSoundPlayer") << "Error loading file: " << path.data();
 				alDeleteBuffers(1, &buffer);
 				return qnxIsLoaded;
 			}
@@ -256,10 +334,8 @@ bool ofxQNXSoundPlayer::loadSound(string fileName, bool stream) {
 
 //--------------------------------------------------------------
 void ofxQNXSoundPlayer::unloadSound() {
-	ofLogNotice("ofxQNXSoundPlayer") << "unloadSound() " << qnxFileName;
-
 	if(qnxIsStream) {
-		ofLogWarning("ofxQNXSoundPlayer") << "stream not implemented";
+		qnxStopBackground(true);
 	}
 	else {
 		EffectsMap::iterator iter = s_effects.find(qnxFileName);
@@ -284,26 +360,59 @@ void ofxQNXSoundPlayer::unloadSound() {
 
 //--------------------------------------------------------------
 void ofxQNXSoundPlayer::play() {
-	ofLogNotice("ofxQNXSoundPlayer") << "play: " << qnxFileName;
-
-
 	if(qnxIsStream) {
-		ofLogWarning("ofxQNXSoundPlayer") << "stream not implemented";
+		ofLogNotice("ofxQNXSoundPlayer") << "stream play: " << qnxFileName;
+
+		if (0 != strcmp(s_currentBackgroundStr.c_str(), qnxFileName.c_str())) {
+			qnxStopStream(true);
+		}
+		else {
+			if (s_playStatus == PAUSED) {
+				qnxResumeStream();
+			}
+			else {
+				qnxRewindStream();
+			}
+		}
+
+		if (!s_isBackgroundInitialized) {
+			loadSound(qnxFileName, true);
+		}
+
+		if(qnxLoop) {
+			// set it up to loop
+			strm_dict_t *dictionary = strm_dict_new();
+			s_repeatDictionary = strm_dict_set(dictionary, "repeat", "all");
+
+			if (mmr_input_parameters(s_mmrContext, s_repeatDictionary) != 0) {
+				mmrerror(s_mmrContext, "input parameters (loop)");
+				return;
+			}
+		}
+
+		if (s_hasMMRError || !s_mmrContext) {
+			return;
+		}
+
+		if (mmr_play(s_mmrContext) < 0) {
+			mmrerror(s_mmrContext, "mmr_play");
+			s_hasMMRError = true;
+		}
+
+		if (!s_hasMMRError) {
+			s_playStatus = PLAYING;
+		}
 	}
 	else {
 
 		EffectsMap::iterator iter = s_effects.find(qnxFileName);
-
-		if (iter == s_effects.end())
-		{
+		if (iter == s_effects.end()) {
 			loadSound(qnxFileName, qnxIsStream);
 
 			// let's try again
 			iter = s_effects.find(qnxFileName);
-			if (iter == s_effects.end())
-			{
-				fprintf(stderr, "could not find play sound %s\n", qnxFileName.c_str());
-				//return -1;
+			if (iter == s_effects.end()) {
+				ofLogError("ofxQNXSoundPlayer") << "could not find play sound " << qnxFileName.c_str();
 				return;
 			}
 		}
@@ -324,10 +433,8 @@ void ofxQNXSoundPlayer::play() {
 
 //--------------------------------------------------------------
 void ofxQNXSoundPlayer::stop() {
-	ofLogNotice("ofxQNXSoundPlayer") << "stop: " << qnxFileName;
-
 	if(qnxIsStream) {
-		ofLogWarning("ofxQNXSoundPlayer") << "stream not implemented";
+		qnxStopStream(true);
 	}
 	else {
 		alSourceStop(qnxSoundId);
@@ -337,11 +444,12 @@ void ofxQNXSoundPlayer::stop() {
 
 //--------------------------------------------------------------
 void ofxQNXSoundPlayer::setVolume(float vol) {
-	ofLogNotice("ofxQNXSoundPlayer") << "setVolume: " << vol;
+
 	if(qnxIsStream) {
-		ofLogWarning("ofxQNXSoundPlayer") << "stream not implemented";
+		ofLogWarning("ofxQNXSoundPlayer") << "setVolume() not implemented for stream";
 	}
 	else {
+		ofLogNotice("ofxQNXSoundPlayer") << "setVolume: " << vol;
 		if (vol != qnxVolume) {
 			alSourcef(qnxSoundId, AL_GAIN, vol);
 			qnxVolume = vol;
@@ -362,15 +470,29 @@ void ofxQNXSoundPlayer::setPan(float vol) {
 
 //--------------------------------------------------------------
 void ofxQNXSoundPlayer::setSpeed(float spd) {
-	ofLogWarning("ofxQNXSoundPlayer") << "Method not implemented: setSpeed";
+	if(qnxIsStream) {
+		if(mmr_speed_set(s_mmrContext, (spd * 1000)) < 0) {
+			mmrerror(s_mmrContext, "mmr_speed_set");
+			s_hasMMRError = true;
+		}
+	}
+	else {
+		ofLogWarning("ofxQNXSoundPlayer") << "Method not implemented: setSpeed";
+	}
 }
 
 //--------------------------------------------------------------
 void ofxQNXSoundPlayer::setPaused(bool bP) {
-	ofLogNotice("ofxQNXSoundPlayer") << "setPaused()";
 
 	if(qnxIsStream) {
-		ofLogWarning("ofxQNXSoundPlayer") << "stream not implemented";
+		if(bP) {
+			if(getIsPlaying()) {
+				qnxPauseStream();
+			}
+		}
+		else {
+			qnxResumeStream();
+		}
 	}
 	else {
 		if(bP) {
@@ -404,7 +526,20 @@ void ofxQNXSoundPlayer::setPosition(float pct) {
 
 //--------------------------------------------------------------
 void ofxQNXSoundPlayer::setPositionMS(int ms) {
-	ofLogWarning("ofxQNXSoundPlayer") << "Method not implemented: setPositionMS";
+
+	if(qnxIsStream) {
+		char position[PATH_MAX];
+		snprintf(position, PATH_MAX, "1:%d", ms);
+		ofLogWarning("ofxQNXSoundPlayer") << "setPositionMS" << position;
+
+		//if (s_mmrContext && mmr_seek(s_mmrContext, "1:0") < 0)
+		if (s_mmrContext && mmr_seek(s_mmrContext, position) < 0) {
+			mmrerror(s_mmrContext, "rewind");
+		}
+	}
+	else {
+		ofLogWarning("ofxQNXSoundPlayer") << "Method not implemented: setPositionMS";
+	}
 }
 
 //--------------------------------------------------------------
@@ -421,11 +556,9 @@ int ofxQNXSoundPlayer::getPositionMS() {
 
 //--------------------------------------------------------------
 bool ofxQNXSoundPlayer::getIsPlaying() {
-	ofLogNotice("ofxQNXSoundPlayer") << "getIsPlaying()";
-
 	if(qnxIsStream) {
-		ofLogWarning("ofxQNXSoundPlayer") << "stream not implemented";
-		return false;
+		// TODO update when finished playing
+		return (s_playStatus == PLAYING) && s_isBackgroundInitialized;
 	}
 	else {
 		ALint play_status;
@@ -433,8 +566,6 @@ bool ofxQNXSoundPlayer::getIsPlaying() {
 
 		return (play_status == AL_PLAYING);
 	}
-
-	return false;
 }
 
 //--------------------------------------------------------------
@@ -463,4 +594,67 @@ bool ofxQNXSoundPlayer::isLoaded() {
 //--------------------------------------------------------------
 float ofxQNXSoundPlayer::getVolume() {
 	return qnxVolume;
+}
+
+//--------------------------------------------------------------
+void ofxQNXSoundPlayer::qnxStopBackground(bool bReleaseData) {
+	s_playStatus = STOPPED;
+
+	if (s_mmrContext) {
+		mmr_stop(s_mmrContext);
+	}
+
+	if (bReleaseData) {
+		if (s_mmrContext) {
+			mmr_input_detach(s_mmrContext);
+			mmr_context_destroy(s_mmrContext);
+		}
+		if (s_mmrConnection) {
+			mmr_disconnect(s_mmrConnection);
+		}
+		if (s_repeatDictionary) {
+			strm_dict_destroy(s_repeatDictionary);
+		}
+
+		s_mmrContext = 0;
+		s_mmrConnection = 0;
+		s_repeatDictionary = 0;
+		s_hasMMRError = false;
+		s_currentBackgroundStr = "";
+		s_isBackgroundInitialized = false;
+	}
+}
+
+//--------------------------------------------------------------
+void ofxQNXSoundPlayer::qnxResumeStream() {
+	if (s_mmrContext && mmr_speed_set(s_mmrContext, 1000) < 0) {
+		mmrerror(s_mmrContext, "resume");
+	}
+
+	s_playStatus = PLAYING;
+}
+
+//--------------------------------------------------------------
+void ofxQNXSoundPlayer::qnxRewindStream() {
+	if (s_mmrContext && mmr_seek(s_mmrContext, "1:0") < 0) {
+		mmrerror(s_mmrContext, "rewind");
+	}
+}
+
+//--------------------------------------------------------------
+void ofxQNXSoundPlayer::qnxStopStream(bool bReleaseData) {
+	if (s_playStatus == PAUSED) {
+		qnxResumeStream();
+	}
+	qnxStopBackground(bReleaseData);
+}
+
+//--------------------------------------------------------------
+void ofxQNXSoundPlayer::qnxPauseStream()
+{
+	if (s_mmrContext && mmr_speed_set(s_mmrContext, 0) < 0)	{
+		mmrerror(s_mmrContext, "pause");
+	}
+
+	s_playStatus = PAUSED;
 }

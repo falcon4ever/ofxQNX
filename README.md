@@ -142,8 +142,12 @@ https://bdsc.webapps.blackberry.com/native/documentation/porting_overview_197089
 
 NEWS
 ====
+
 01/24/2013
-- Added SoundPlayer implementation (effects only)
+- Added SoundPlayer implementation
+- Stream is implemented using the Multimedia Renderer
+* List of supported media types: https://developer.blackberry.com/devzone/develop/supported_media/bb_media_support_at_a_glance.html#kba1328545526665
+- Non-stream can only play Wav or Ogg
 
 01/23/2013
 - Added Ogg/Vorbis libs + SoundPlayer placeholders
@@ -247,13 +251,11 @@ So unfortunately there wont be a qnxCameraExample or qnxOpenCVExample until then
 TODO
 ====
 - Add GPS support/example
-- Implement ofxQNXSoundPlayer class (or try to use ofOpenALSoundPlayer)
-
+- Clean up ofxQNXSoundPlayer class and Example
 
 BUGS?
 =====
 - Please report on github ;)
-
 
 Examples
 ========
@@ -283,7 +285,7 @@ qnxInputExample
 - Demonstrates how to enable and use multitouch input in a project
 
 qnxSoundPlayerExample
-- No audio, ofxQNXSoundPlayer.h not implemented.
+- Needs to be updated, SoundPlayer class is implemented
 - Demonstrates how to play audio files
 
 qnxPolygonExample 
