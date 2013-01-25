@@ -54,7 +54,6 @@ Open the IDE and create a new workspace at:
 After the IDE is running, import the following projects: 
 - "openFrameworks\libs"
 - "openFrameworks\addons"
-- "openFrameworks\addons\ofxQNX"
 - The example projects (BB10 or PlayBook) under "openFrameworks\addons\ofxQNX\examples\"
 
 = BB10 =
@@ -135,6 +134,7 @@ https://bdsc.webapps.blackberry.com/native/documentation/porting_overview_197089
 
 * Ogg/Vorbis
 - https://github.com/blackberry/OggVorbis
+- Build Vorbis with -fPIC
 
 * Additional information can be found here:
 - http://forum.openframeworks.cc/index.php/topic,9189.msg42786.html#msg42786
@@ -142,6 +142,10 @@ https://bdsc.webapps.blackberry.com/native/documentation/porting_overview_197089
 
 NEWS
 ====
+01/24/2013
+- Fixed libvorbis
+- Added (auto) rotation support
+- Updated qnxSoundPlayerExample
 
 01/24/2013
 - Added SoundPlayer implementation
@@ -285,7 +289,7 @@ qnxInputExample
 - Demonstrates how to enable and use multitouch input in a project
 
 qnxSoundPlayerExample
-- Needs to be updated, SoundPlayer class is implemented
+- Runs
 - Demonstrates how to play audio files
 
 qnxPolygonExample 

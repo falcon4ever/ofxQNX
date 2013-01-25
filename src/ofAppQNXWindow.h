@@ -93,6 +93,7 @@ class ofAppQNXWindow : public ofAppBaseWindow {
 	protected:
 		int 	qnxInitialize();
 		void	qnxQuit();
+		int		qnxResize(bps_event_t *event);
 
 		void	qnxMainLoop();
 		void	qnxHandleEvents();

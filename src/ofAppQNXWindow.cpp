@@ -254,6 +254,45 @@ void ofAppQNXWindow::qnxQuit() {
 }
 
 //--------------------------------------------------------------
+int ofAppQNXWindow::qnxResize(bps_event_t *event) {
+
+	//Query width and height of the window surface created by utility code
+	EGLint surface_width, surface_height;
+
+	if (event) {
+		int angle = navigator_event_get_orientation_angle(event);
+
+		//Let bbutil rotate current screen surface to this angle
+		if (EXIT_FAILURE == bbutil_rotate_screen_surface(angle)) {
+			ofLogError("ofAppQNXWindow") << "Unable to handle orientation change";
+			return EXIT_FAILURE;
+		}
+	}
+
+	eglQuerySurface(egl_disp, egl_surf, EGL_WIDTH, &surface_width);
+	eglQuerySurface(egl_disp, egl_surf, EGL_HEIGHT, &surface_height);
+
+	EGLint err = eglGetError();
+	if (err != 0x3000) {
+		ofLogError("ofAppQNXWindow") << "Unable to query EGL surface dimensions";
+		return EXIT_FAILURE;
+	}
+
+	qnxWindowWidth = surface_width;
+	qnxWindowHeight = surface_height;
+
+	ofNotifyWindowResized(qnxWindowWidth, qnxWindowHeight);
+
+	qnxUpdate();
+	if (event) {
+		qnxRender();
+		navigator_done_orientation(event);
+	}
+
+	return EXIT_SUCCESS;
+}
+
+//--------------------------------------------------------------
 void ofAppQNXWindow::qnxMainLoop() {
 	ofLogNotice("ofAppQNXWindow") << "qnxMainLoop()";
 
@@ -331,6 +370,25 @@ void ofAppQNXWindow::qnxHandleEvents() {
 			}
 			else if (event_domain == navigator_get_domain()) {
 				switch (bps_event_get_code(event_bps)) {
+
+					case NAVIGATOR_ORIENTATION_CHECK: {
+						ofLogNotice("ofAppQNXWindow") << "NAVIGATOR_ORIENTATION_CHECK";
+				        //Signal navigator that we intend to resize
+				        navigator_orientation_check_response(event_bps, true);
+					}
+					break;
+
+				    case NAVIGATOR_ORIENTATION: {
+				    	ofLogNotice("ofAppQNXWindow") << "NAVIGATOR_ORIENTATION";
+				        if (EXIT_FAILURE == qnxResize(event_bps)) {
+				            ofLogError("ofAppQNXWindow") << "Could not resize...";
+							qnxIsRunning = false;
+							sensor_stop_events(SENSOR_TYPE_ACCELEROMETER);
+							return;
+				        }
+				    }
+				    break;
+
 					case NAVIGATOR_SWIPE_DOWN: {
 						ofLogNotice("ofAppQNXWindow") << "NAVIGATOR_SWIPE_DOWN";
 						qnxApp->navigatorSwipeDown();
