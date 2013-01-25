@@ -209,6 +209,7 @@ typedef enum {
 
 static bool s_isBackgroundInitialized = false;
 static std::string s_currentBackgroundStr;
+static int s_audioOid;
 
 static bool s_hasMMRError = false;
 static playStatus s_playStatus = STOPPED;
@@ -216,6 +217,7 @@ static playStatus s_playStatus = STOPPED;
 static mmr_connection_t   *s_mmrConnection 	  = 0;
 static mmr_context_t 	  *s_mmrContext 	  = 0;
 static strm_dict_t 		  *s_repeatDictionary = 0;
+static strm_dict_t 		  *s_volumeDictionary = 0;
 
 //--------------------------------------------------------------
 ofxQNXSoundPlayer::ofxQNXSoundPlayer() {
@@ -263,7 +265,6 @@ bool ofxQNXSoundPlayer::loadSound(string fileName, bool stream) {
 				return qnxIsLoaded;
 			}
 
-			int s_audioOid;
 			if ((s_audioOid = mmr_output_attach(s_mmrContext, "audio:default", "audio")) < 0) {
 				mmrerror(s_mmrContext, "audio:default");
 				return qnxIsLoaded;
@@ -444,22 +445,13 @@ void ofxQNXSoundPlayer::stop() {
 
 //--------------------------------------------------------------
 void ofxQNXSoundPlayer::setVolume(float vol) {
+	qnxVolume = vol;
 
 	if(qnxIsStream) {
-		ofLogWarning("ofxQNXSoundPlayer") << "setVolume() not implemented for stream";
+		qnxSetStreamVolume(qnxVolume);
 	}
 	else {
-		ofLogNotice("ofxQNXSoundPlayer") << "setVolume: " << vol;
-		if (vol != qnxVolume) {
-			alSourcef(qnxSoundId, AL_GAIN, vol);
-			qnxVolume = vol;
-			/*
-			EffectsMap::const_iterator end = s_effects.end();
-			for (EffectsMap::const_iterator it = s_effects.begin(); it != end; it++) {
-				alSourcef(it->second->source, AL_GAIN, vol);
-			}
-			*/
-		}
+		alSourcef(qnxSoundId, AL_GAIN, qnxVolume);
 	}
 }
 
@@ -615,10 +607,14 @@ void ofxQNXSoundPlayer::qnxStopBackground(bool bReleaseData) {
 		if (s_repeatDictionary) {
 			strm_dict_destroy(s_repeatDictionary);
 		}
+		if (s_volumeDictionary) {
+			strm_dict_destroy(s_volumeDictionary);
+		}
 
 		s_mmrContext = 0;
 		s_mmrConnection = 0;
 		s_repeatDictionary = 0;
+		s_volumeDictionary = 0;
 		s_hasMMRError = false;
 		s_currentBackgroundStr = "";
 		s_isBackgroundInitialized = false;
@@ -657,4 +653,24 @@ void ofxQNXSoundPlayer::qnxPauseStream()
 	}
 
 	s_playStatus = PAUSED;
+}
+
+//--------------------------------------------------------------
+void ofxQNXSoundPlayer::qnxSetStreamVolume(float volume)
+{
+	if (!s_isBackgroundInitialized) {
+		return;
+	}
+
+	// set it up the background volume
+	strm_dict_t *dictionary = strm_dict_new();
+
+	char volume_str[128];
+	sprintf(volume_str, "%d", (int)(volume * 100) );
+	s_volumeDictionary = strm_dict_set(dictionary, "volume", volume_str);
+
+	if (mmr_output_parameters(s_mmrContext, s_audioOid, s_volumeDictionary) != 0) {
+		mmrerror(s_mmrContext, "output parameters");
+		return;
+	}
 }

@@ -66,6 +66,7 @@ class ofxQNXSoundPlayer : public ofBaseSoundPlayer {
 		void qnxRewindStream();
 		void qnxStopStream(bool bReleaseData);
 		void qnxPauseStream();
+		void qnxSetStreamVolume(float volume);
 
 	private:
 		bool qnxIsStream;
