@@ -52,7 +52,6 @@
 #include <sys/stat.h>
 
 #include <mm/renderer.h>
-#include <mm/renderer/events.h>
 
 //
 // Sound FX
