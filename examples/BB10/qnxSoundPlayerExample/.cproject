@@ -34,6 +34,8 @@
 									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/addons/ofxQNX/libs/poco/include}&quot;"/>
 									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/addons/ofxQNX/libs/SDL/include}&quot;"/>
 									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/addons/ofxQNX/libs/tess2/include}&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/addons/ofxQNX/libs/ogg/include}&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/addons/ofxQNX/libs/vorbis/include}&quot;"/>
 									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/libs/cairo/include/cairo}&quot;"/>
 									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/libs/openFrameworks}&quot;"/>
 									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/libs/openFrameworks/3d}&quot;"/>
@@ -47,7 +49,7 @@
 									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/libs/openFrameworks/utils}&quot;"/>
 									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/libs/openFrameworks/video}&quot;"/>
 								</option>
-								<option id="com.qnx.qcc.option.compiler.security.1565523948" name="Enhanced Security (-fstack-protector-all)" superClass="com.qnx.qcc.option.compiler.security" value="true" valueType="boolean"/>
+								<option id="com.qnx.qcc.option.compiler.security.1565523948" name="Enhanced Security (-fstack-protector-strong)" superClass="com.qnx.qcc.option.compiler.security" value="true" valueType="boolean"/>
 								<option id="com.qnx.qcc.option.compiler.defines.1014620479" name="Defines (-D)" superClass="com.qnx.qcc.option.compiler.defines" valueType="definedSymbols">
 									<listOptionValue builtIn="false" value="_FORTIFY_SOURCE=2"/>
 									<listOptionValue builtIn="false" value="USING_GL11"/>
@@ -74,12 +76,16 @@
 									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/addons/ofxQNX/libs/SDL/libBB10/Device-Debug}&quot;"/>
 									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/addons/ofxQNX/libs/tess2/libBB10/ARMv7/Debug}&quot;"/>
 									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/addons/ofxQNX/libs/TouchControlOverlay/libBB10/Device-Debug}&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/addons/ofxQNX/libs/vorbis/libBB10/Device-Debug}&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/addons/ofxQNX/libs/ogg/libBB10/ARMv7/Debug}&quot;"/>
 								</option>
 								<option id="com.qnx.qcc.option.linker.security.1788639578" name="Enhanced Security (-Wl,-z,relro -Wl,-z,now)" superClass="com.qnx.qcc.option.linker.security" value="true" valueType="boolean"/>
 								<option id="com.qnx.qcc.option.linker.libraries.1796325250" name="Libraries (-l)" superClass="com.qnx.qcc.option.linker.libraries" valueType="libs">
 									<listOptionValue builtIn="false" value="m"/>
 									<listOptionValue builtIn="false" value="bps"/>
 									<listOptionValue builtIn="false" value="screen"/>
+									<listOptionValue builtIn="false" value="mmrndclient"/>
+									<listOptionValue builtIn="false" value="strm"/>
 									<listOptionValue builtIn="false" value="EGL"/>
 									<listOptionValue builtIn="false" value="GLESv1_CM"/>
 									<listOptionValue builtIn="false" value="freetype"/>
@@ -95,6 +101,10 @@
 									<listOptionValue builtIn="false" value="asound"/>
 									<listOptionValue builtIn="false" value="SDL"/>
 									<listOptionValue builtIn="false" value="TouchControlOverlay"/>
+									<listOptionValue builtIn="false" value="OpenAL"/>
+									<listOptionValue builtIn="false" value="alut"/>
+									<listOptionValue builtIn="false" value="vorbis"/>
+									<listOptionValue builtIn="false" value="ogg"/>
 								</option>
 								<inputType id="com.qnx.qcc.inputType.linker.902945996" superClass="com.qnx.qcc.inputType.linker">
 									<additionalInput kind="additionalinputdependency" paths="$(USER_OBJS)"/>
@@ -143,6 +153,8 @@
 									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/addons/ofxQNX/libs/poco/include}&quot;"/>
 									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/addons/ofxQNX/libs/SDL/include}&quot;"/>
 									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/addons/ofxQNX/libs/tess2/include}&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/addons/ofxQNX/libs/ogg/include}&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/addons/ofxQNX/libs/vorbis/include}&quot;"/>
 									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/libs/cairo/include/cairo}&quot;"/>
 									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/libs/openFrameworks}&quot;"/>
 									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/libs/openFrameworks/3d}&quot;"/>
@@ -156,7 +168,7 @@
 									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/libs/openFrameworks/utils}&quot;"/>
 									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/libs/openFrameworks/video}&quot;"/>
 								</option>
-								<option id="com.qnx.qcc.option.compiler.security.1748005774" name="Enhanced Security (-fstack-protector-all)" superClass="com.qnx.qcc.option.compiler.security" value="true" valueType="boolean"/>
+								<option id="com.qnx.qcc.option.compiler.security.1748005774" name="Enhanced Security (-fstack-protector-strong)" superClass="com.qnx.qcc.option.compiler.security" value="true" valueType="boolean"/>
 								<option id="com.qnx.qcc.option.compiler.defines.1077332402" name="Defines (-D)" superClass="com.qnx.qcc.option.compiler.defines" valueType="definedSymbols">
 									<listOptionValue builtIn="false" value="_FORTIFY_SOURCE=2"/>
 									<listOptionValue builtIn="false" value="USING_GL11"/>
@@ -185,6 +197,8 @@
 									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/addons/ofxQNX/libs/SDL/libBB10/Device-Release}&quot;"/>
 									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/addons/ofxQNX/libs/tess2/libBB10/ARMv7/Release}&quot;"/>
 									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/addons/ofxQNX/libs/TouchControlOverlay/libBB10/Device-Release}&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/addons/ofxQNX/libs/vorbis/libBB10/Device-Release}&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/addons/ofxQNX/libs/ogg/libBB10/ARMv7/Release}&quot;"/>
 								</option>
 								<option id="com.qnx.qcc.option.linker.pie.867706425" name="Position Independent Executable (-pie)" superClass="com.qnx.qcc.option.linker.pie" value="true" valueType="boolean"/>
 								<option id="com.qnx.qcc.option.linker.security.1944648839" name="Enhanced Security (-Wl,-z,relro -Wl,-z,now)" superClass="com.qnx.qcc.option.linker.security" value="true" valueType="boolean"/>
@@ -192,6 +206,8 @@
 									<listOptionValue builtIn="false" value="m"/>
 									<listOptionValue builtIn="false" value="bps"/>
 									<listOptionValue builtIn="false" value="screen"/>
+									<listOptionValue builtIn="false" value="mmrndclient"/>
+									<listOptionValue builtIn="false" value="strm"/>
 									<listOptionValue builtIn="false" value="EGL"/>
 									<listOptionValue builtIn="false" value="GLESv1_CM"/>
 									<listOptionValue builtIn="false" value="freetype"/>
@@ -207,6 +223,10 @@
 									<listOptionValue builtIn="false" value="asound"/>
 									<listOptionValue builtIn="false" value="SDL"/>
 									<listOptionValue builtIn="false" value="TouchControlOverlay"/>
+									<listOptionValue builtIn="false" value="OpenAL"/>
+									<listOptionValue builtIn="false" value="alut"/>
+									<listOptionValue builtIn="false" value="vorbis"/>
+									<listOptionValue builtIn="false" value="ogg"/>
 								</option>
 								<inputType id="com.qnx.qcc.inputType.linker.1855321985" superClass="com.qnx.qcc.inputType.linker">
 									<additionalInput kind="additionalinputdependency" paths="$(USER_OBJS)"/>
@@ -255,6 +275,8 @@
 									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/addons/ofxQNX/libs/poco/include}&quot;"/>
 									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/addons/ofxQNX/libs/SDL/include}&quot;"/>
 									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/addons/ofxQNX/libs/tess2/include}&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/addons/ofxQNX/libs/ogg/include}&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/addons/ofxQNX/libs/vorbis/include}&quot;"/>
 									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/libs/cairo/include/cairo}&quot;"/>
 									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/libs/openFrameworks}&quot;"/>
 									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/libs/openFrameworks/3d}&quot;"/>
@@ -268,7 +290,7 @@
 									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/libs/openFrameworks/utils}&quot;"/>
 									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/libs/openFrameworks/video}&quot;"/>
 								</option>
-								<option id="com.qnx.qcc.option.compiler.security.267232705" name="Enhanced Security (-fstack-protector-all)" superClass="com.qnx.qcc.option.compiler.security" value="true" valueType="boolean"/>
+								<option id="com.qnx.qcc.option.compiler.security.267232705" name="Enhanced Security (-fstack-protector-strong)" superClass="com.qnx.qcc.option.compiler.security" value="true" valueType="boolean"/>
 								<option id="com.qnx.qcc.option.compiler.defines.1456342856" name="Defines (-D)" superClass="com.qnx.qcc.option.compiler.defines" valueType="definedSymbols">
 									<listOptionValue builtIn="false" value="_FORTIFY_SOURCE=2"/>
 									<listOptionValue builtIn="false" value="USING_GL11"/>
@@ -277,7 +299,7 @@
 									<listOptionValue builtIn="false" value="TARGET_LITTLE_ENDIAN"/>
 									<listOptionValue builtIn="false" value="__PLAYBOOK__"/>
 								</option>
-								<option id="com.qnx.qcc.option.compiler.qccoptions.1080407848" superClass="com.qnx.qcc.option.compiler.qccoptions" valueType="stringList">
+								<option id="com.qnx.qcc.option.compiler.qccoptions.1080407848" name="QCC Options" superClass="com.qnx.qcc.option.compiler.qccoptions" valueType="stringList">
 									<listOptionValue builtIn="false" value="-m32 -march=i486"/>
 								</option>
 								<inputType id="com.qnx.qcc.inputType.compiler.387224190" superClass="com.qnx.qcc.inputType.compiler"/>
