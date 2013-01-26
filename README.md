@@ -121,8 +121,7 @@ https://bdsc.webapps.blackberry.com/native/documentation/porting_overview_197089
 
 * Poco
 - http://pocoproject.org/
-- Version 1.4.6 for BB10
-- Version 1.4.3p1 for PlayBook (can not use 1.4.4 or above due to the use of: Poco::AtomicCounter)
+- Version 1.4.6 (use -DPOCO_NO_GCC_ATOMICS in PlayBook projects)
 - This can only be build on a Linux or Mac platform for some reason it will fail on Windows.
 - Included a dummy syslog.h implementation (borrowed from the Android NDK) as it will not build without.
 
@@ -143,6 +142,10 @@ https://bdsc.webapps.blackberry.com/native/documentation/porting_overview_197089
 
 NEWS
 ====
+
+note: Examples still need to be updated. In the meantime you can use these hints: http://forum.openframeworks.cc/index.php/topic,10726.msg52228.html#msg52228
+PlayBook -> Add -DPOCO_NO_GCC_ATOMICS
+
 01/24/2013
 - Fixed libvorbis
 - Added (auto) rotation support
@@ -160,7 +163,7 @@ NEWS
 
 01/22/2013
 - Updated libraries for PlayBook Native SDK 2.1.0.1032 and BB10 Native SDK 10.0.9.2318
-- Upgraded POCO from 1.4.3p1 to 1.4.6
+- Upgraded POCO from 1.4.3p1 to 1.4.6 (use -DPOCO_NO_GCC_ATOMICS in PlayBook projects)
 - Upgraded Boost from  1.50.0 to 1.52.0
 
 01/14/2013
