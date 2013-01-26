@@ -121,7 +121,8 @@ https://bdsc.webapps.blackberry.com/native/documentation/porting_overview_197089
 
 * Poco
 - http://pocoproject.org/
-- Version 1.4.6
+- Version 1.4.6 for BB10
+- Version 1.4.3p1 for PlayBook (can not use 1.4.4 or above due to the use of: Poco::AtomicCounter)
 - This can only be build on a Linux or Mac platform for some reason it will fail on Windows.
 - Included a dummy syslog.h implementation (borrowed from the Android NDK) as it will not build without.
 
