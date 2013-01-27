@@ -210,19 +210,21 @@ int ofAppQNXWindow::qnxInitialize() {
 	}
 
 	// Get screen dimensions
-	int numScreens = 0;
-	screen_get_context_property_iv(qnxScreenContext, SCREEN_PROPERTY_DISPLAY_COUNT, &numScreens);
-	screen_display_t *screenDisplays = (screen_display_t *)calloc(numScreens, sizeof(screen_display_t));
-	screen_get_context_property_pv(qnxScreenContext, SCREEN_PROPERTY_DISPLAYS, (void **)screenDisplays);
+	EGLint surface_width, surface_height;
+	eglQuerySurface(egl_disp, egl_surf, EGL_WIDTH, &surface_width);
+	eglQuerySurface(egl_disp, egl_surf, EGL_HEIGHT, &surface_height);
 
-	screen_display_t screenDisplay = screenDisplays[0];
-	free(screenDisplays);
+	EGLint err = eglGetError();
+	if (err != 0x3000) {
+		ofLogError("ofAppQNXWindow") << "Unable to query EGL surface dimensions";
+		return 0;
+	}
 
-	int dimensions[2] = {0, 0};
-	screen_get_display_property_iv(screenDisplay, SCREEN_PROPERTY_SIZE, dimensions);
+	ofLogNotice("ofAppQNXWindow") << "surface_width: " << surface_width;
+	ofLogNotice("ofAppQNXWindow") << "surface_height: " << surface_height;
 
-	qnxWindowWidth = dimensions[0];
-	qnxWindowHeight = dimensions[1];
+	qnxWindowWidth = surface_width;
+	qnxWindowHeight = surface_height;
 
 	// Setup OpenAL
 	if(!alutInit(0, 0)) {
