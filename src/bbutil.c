@@ -180,6 +180,18 @@ bbutil_init_egl(screen_context_t ctx) {
         return EXIT_FAILURE;
     }
 
+	// create an OS-unique name of my windows group, could be any string
+	char groupName[64];
+	snprintf(groupName, sizeof(groupName), "ofxQNX-window-group-%d", getpid());
+
+	rc = screen_create_window_group(screen_win, groupName);
+	if (rc)
+	{
+		perror("screen_create_window_group");
+		bbutil_terminate();
+		return EXIT_FAILURE;
+	}
+	
     rc = screen_set_window_property_iv(screen_win, SCREEN_PROPERTY_FORMAT, &format);
     if (rc) {
         perror("screen_set_window_property_iv(SCREEN_PROPERTY_FORMAT)");
