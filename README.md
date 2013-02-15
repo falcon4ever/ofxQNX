@@ -143,8 +143,12 @@ https://bdsc.webapps.blackberry.com/native/documentation/porting_overview_197089
 NEWS
 ====
 
-note: Examples still need to be updated. In the meantime you can use these hints: http://forum.openframeworks.cc/index.php/topic,10726.msg52228.html#msg52228
+NOTE: Examples still need to be updated. In the meantime you can use these hints: http://forum.openframeworks.cc/index.php/topic,10726.msg52228.html#msg52228
 PlayBook -> Add -DPOCO_NO_GCC_ATOMICS
+
+02/15/2013
+- Updated path behaviour (requires the latest develop-0071-qnx)
+- TODO: update examples, please consult the FAQ on how to adjust the paths.
 
 01/24/2013
 - Fixed libvorbis
@@ -238,28 +242,32 @@ https://bdsc.webapps.blackberry.com/native/reference/com.qnx.doc.bps.lib_ref/com
 30/03/2012 - beta
 - Initial commit
 
-
 FAQ
 ===
 * Is ofxQNX stable enough for prime time?
 - Yes, Definitely! It's currently used in NodeBeat (www.nodebeat.com) on the PlayBook and BB10 platforms
 
 * Where do I store my files?
-- Private assets: ofToDataPath("", true) + "/app/native/assets/" (read-only)
-- Private data: ofToDataPath("", true) + "/data/" (Contains the application's private data. The application has full access to read and write files in this folder.)
-- Public data should be in: ofToDataPath("", true) + "/shared/XXX" (see link below for available subfolders)
--- More info: https://bdsc.webapps.blackberry.com/native/documentation/com.qnx.doc.ide.userguide/topic/files_base_.html
+- Private assets that are read only 
+-- Example: You've added a "data" folder as asset with "readonly.jpg" in it:
+-- ofToDataPath("app/native/data/readonly.jpg");
 
-* Camera access?
-Currently the Native SDK doesnt provide access to the camera. More info about it here:
-http://supportforums.blackberry.com/t5/Native-SDK-for-BlackBerry-Tablet/Camera-access/m-p/1398701
-So unfortunately there wont be a qnxCameraExample or qnxOpenCVExample until then.
+- Private data is read/write from app (sandboxed): 
+-- Example: settings.dat
+-- ofToDataPath("data/settings.dat");
 
+- Public data (requires <permission>access_shared</permission> in bar descriptor file)
+-- Example: screenshot.jpg
+-- ofToDataPath("shared/camera/screenshot.jpg");
+
+-- More info: http://developer.blackberry.com/native/documentation/bb10/com.qnx.doc.native_sdk.devguide/com.qnx.doc.native_sdk.devguide/topic/accessible_folders.html
 
 TODO
 ====
 - Add GPS support/example
-- Clean up ofxQNXSoundPlayer class and Example
+- Clean up ofxQNXSoundPlayer and qnxAudioOutputExample class 
+- Update example projects for latest changes
+- Camera support for BB10
 
 BUGS?
 =====
