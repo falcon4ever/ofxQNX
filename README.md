@@ -146,7 +146,7 @@ NEWS
 NOTE: Examples still need to be updated. In the meantime you can use these hints: http://forum.openframeworks.cc/index.php/topic,10726.msg52228.html#msg52228
 PlayBook -> Add -DPOCO_NO_GCC_ATOMICS
 
-02/02/2013
+04/02/2013
 - Updated libraries for BB10 Native SDK 10.0.10.738
 - TODO: Update examples, check the "Libraries" part for the new libraries that should be included in your project.
 
