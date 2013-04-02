@@ -25,8 +25,8 @@ REQUIREMENTS
 ============
 
 A patched openFrameworks until patches are merged into the official develop branch
-- git@github.com:falcon4ever/openFrameworks.git (branch: develop-0071-qnx)
-> git clone -b develop-0071-qnx https://github.com/falcon4ever/openFrameworks.git
+- git@github.com:falcon4ever/openFrameworks.git (branch: openframeworks-v0.7.4-stable)
+> git clone -b openframeworks-v0.7.4-stable https://github.com/falcon4ever/openFrameworks.git
 
 The current version is build using the following Native SDKs:
 
@@ -35,7 +35,7 @@ To compile the project you will need to install the BlackBerry Native SDK (2.1.0
 - http://developer.blackberry.com/native/download/#playbook
 
 BlackBerry 10
-To compile the project you will need to install the BlackBerry 10 Native SDK (10.0.9-2138):
+To compile the project you will need to install the BlackBerry 10 Native SDK (10.0.10.738):
 - http://developer.blackberry.com/native/download/#blackberry10
 
 
@@ -146,9 +146,13 @@ NEWS
 NOTE: Examples still need to be updated. In the meantime you can use these hints: http://forum.openframeworks.cc/index.php/topic,10726.msg52228.html#msg52228
 PlayBook -> Add -DPOCO_NO_GCC_ATOMICS
 
+02/02/2013
+- Updated libraries for BB10 Native SDK 10.0.10.738
+- TODO: Update examples, check the "Libraries" part for the new libraries that should be included in your project.
+
 02/15/2013
 - Updated path behaviour (requires the latest develop-0071-qnx)
-- TODO: update examples, please consult the FAQ on how to adjust the paths.
+- Please consult the FAQ on how to adjust the paths.
 
 01/24/2013
 - Fixed libvorbis
@@ -268,6 +272,7 @@ TODO
 - Clean up ofxQNXSoundPlayer and qnxAudioOutputExample class 
 - Update example projects for latest changes
 - Camera support for BB10
+- Patch poco for this: https://github.com/openframeworks/openFrameworks/commit/8a59e327842eaddeaf1e3279b0e2c944ae1c4a23
 
 BUGS?
 =====
@@ -346,3 +351,13 @@ These are already set in the example projects.
 - tess2
 - GLU
 - asound
+
+new:
+- mmrndclient
+- strm
+- OpenAL
+- alut
+- vorbis
+- ogg
+
+Note: Don't forget to add the path to the vorbis and ogg libraries and header files.
