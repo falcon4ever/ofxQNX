@@ -2,13 +2,13 @@
 
 //--------------------------------------------------------------
 void testApp::setup(){
-	synth.loadSound(ofToDataPath("", true) + "/app/native/data/sounds/synth.wav");
-	beats.loadSound(ofToDataPath("", true) + "/app/native/data/sounds/1085.ogg");
-	vocals.loadSound(ofToDataPath("", true) + "/app/native/data/sounds/Violet.ogg");
+	synth.loadSound("/app/native/data/sounds/synth.wav");
+	beats.loadSound("/app/native/data/sounds/1085.ogg");
+	vocals.loadSound("/app/native/data/sounds/Violet.ogg");
 	synth.setVolume(0.75f);
 	beats.setVolume(0.75f);
 	vocals.setVolume(0.5f);
-	font.loadFont(ofToDataPath("", true) + "/app/native/data/Sudbury_Basin_3D.ttf", 32);
+	font.loadFont("/app/native/data/Sudbury_Basin_3D.ttf", 32);
 	beats.setMultiPlay(false);
 	vocals.setMultiPlay(true);
 }

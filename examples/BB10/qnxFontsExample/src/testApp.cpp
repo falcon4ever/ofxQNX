@@ -7,23 +7,23 @@ void testApp::setup(){
 	//old OF default is 96 - but this results in fonts looking larger than in other programs. 
 	ofTrueTypeFont::setGlobalDpi(72);
 
-	verdana14.loadFont(ofToDataPath("", true) + "/app/native/verdana.ttf", 14, true, true);
+	verdana14.loadFont("/app/native/verdana.ttf", 14, true, true);
 	verdana14.setLineHeight(18.0f);
 	verdana14.setLetterSpacing(1.037);
 
-	verdana30.loadFont(ofToDataPath("", true) + "/app/native/verdana.ttf", 30, true, true);
+	verdana30.loadFont("/app/native/verdana.ttf", 30, true, true);
 	verdana30.setLineHeight(34.0f);
 	verdana30.setLetterSpacing(1.035);
 	
-	verdana14A.loadFont(ofToDataPath("", true) + "/app/native/frabk.ttf", 14, false);
+	verdana14A.loadFont("/app/native/frabk.ttf", 14, false);
 	verdana14A.setLineHeight(18.0f);
 	verdana14A.setLetterSpacing(1.037);
 
-	franklinBook14.loadFont(ofToDataPath("", true) + "/app/native/frabk.ttf", 14);
+	franklinBook14.loadFont("/app/native/frabk.ttf", 14);
 	franklinBook14.setLineHeight(18.0f);
 	franklinBook14.setLetterSpacing(1.037);
 
-	franklinBook14A.loadFont(ofToDataPath("", true) + "/app/native/frabk.ttf", 14, false);
+	franklinBook14A.loadFont("/app/native/frabk.ttf", 14, false);
 	franklinBook14A.setLineHeight(18.0f);
 	franklinBook14A.setLetterSpacing(1.037);
 

@@ -2,16 +2,16 @@
 
 //--------------------------------------------------------------
 void testApp::setup(){
-	bikers.loadImage(ofToDataPath("", true) + "/app/native/bikers.jpg");
-	gears.loadImage(ofToDataPath("", true) + "/app/native/gears.gif");
-	tdf.loadImage(ofToDataPath("", true) + "/app/native/tdf_1972_poster.jpg");
+	bikers.loadImage("/app/native/bikers.jpg");
+	gears.loadImage("/app/native/gears.gif");
+	tdf.loadImage("/app/native/tdf_1972_poster.jpg");
 
-	tdfSmall.loadImage(ofToDataPath("", true) + "/app/native/tdf_1972_poster.jpg");
+	tdfSmall.loadImage("/app/native/tdf_1972_poster.jpg");
 	tdfSmall.resize(tdfSmall.width / 4, tdfSmall.height / 4);
 	tdfSmall.setImageType(OF_IMAGE_GRAYSCALE);
 
-	transparency.loadImage(ofToDataPath("", true) + "/app/native/transparency.png");
-	bikeIcon.loadImage(ofToDataPath("", true) + "/app/native/bike_icon.png");
+	transparency.loadImage("/app/native/transparency.png");
+	bikeIcon.loadImage("/app/native/bike_icon.png");
 	bikeIcon.setImageType(OF_IMAGE_GRAYSCALE);
 }
 
