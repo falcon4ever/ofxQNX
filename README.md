@@ -30,13 +30,13 @@ The current version is build using the following Native SDKs:
 
 ### BlackBerry PlayBook ###
 
-To compile the project you will need to install the BlackBerry Native SDK (**2.1.0-1032**):
+To compile the project you will need to install the BlackBerry Native SDK ( **2.1.0-1032** ):
 
 - [http://developer.blackberry.com/native/download/#playbook](http://developer.blackberry.com/native/download/#playbook)
 
 ### BlackBerry 10 ###
 
-To compile the project you will need to install the BlackBerry 10 Native SDK (**10.0.10.738**):
+To compile the project you will need to install the BlackBerry 10 Native SDK ( **10.0.10.738** ):
 
 - [http://developer.blackberry.com/native/download/#blackberry10](http://developer.blackberry.com/native/download/#blackberry10)
 
@@ -204,7 +204,7 @@ Additional information can be found here:
 
 12/12/2012
 
-- Updated BB10 target (**BlackBerry 10 Native SDK 10.0.09 gold**)
+- Updated BB10 target ( **BlackBerry 10 Native SDK 10.0.09 gold** )
 
 11/03/2012
 
@@ -212,7 +212,7 @@ Additional information can be found here:
 
 11/02/2012
 
-- Updated BB10 target (**BlackBerry 10 Native SDK 10.0.09 beta 3**)
+- Updated BB10 target ( **BlackBerry 10 Native SDK 10.0.09 beta 3** )
 
 09/11/2012
 
