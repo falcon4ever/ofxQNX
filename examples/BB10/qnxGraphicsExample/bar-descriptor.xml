@@ -43,19 +43,19 @@
     <!--  The category where the application appears. Either core.games or core.media. -->
     <category>core.games</category>
     <asset path="icon.png">icon.png</asset>
-    <configuration id="com.qnx.qcc.configuration.exe.debug.105534781" name="Device-Debug">
+    <configuration name="Device-Debug">
        <platformArchitecture>armle-v7</platformArchitecture>
        <asset path="${workspace_loc:/addons/ofxQNX/libs/SDL/libBB10/Device-Debug/libSDL.so}" type="Qnx/Elf">lib/libSDL.so</asset>
        <asset path="${workspace_loc:/addons/ofxQNX/libs/TouchControlOverlay/libBB10/Device-Debug/libTouchControlOverlay.so}" type="Qnx/Elf">lib/libTouchControlOverlay.so</asset>       
        <asset path="Device-Debug/qnxGraphicsExample" entry="true" type="Qnx/Elf">qnxGraphicsExample</asset>
     </configuration>
-    <configuration id="com.qnx.qcc.configuration.exe.release.695335353" name="Device-Release">
+    <configuration name="Device-Release">
        <platformArchitecture>armle-v7</platformArchitecture>
        <asset path="${workspace_loc:/addons/ofxQNX/libs/SDL/libBB10/Device-Release/libSDL.so}" type="Qnx/Elf">lib/libSDL.so</asset>
        <asset path="${workspace_loc:/addons/ofxQNX/libs/TouchControlOverlay/libBB10/Device-Release/libTouchControlOverlay.so}" type="Qnx/Elf">lib/libTouchControlOverlay.so</asset>
        <asset path="Device-Release/qnxGraphicsExample" entry="true" type="Qnx/Elf">qnxGraphicsExample</asset>
     </configuration>
-    <configuration id="com.qnx.qcc.configuration.exe.debug.601039226" name="Simulator-Debug">
+    <configuration name="Simulator-Debug">
        <platformArchitecture>x86</platformArchitecture>
        <asset path="${workspace_loc:/addons/ofxQNX/libs/SDL/libBB10/Simulator/libSDL.so}" type="Qnx/Elf">lib/libSDL.so</asset>
        <asset path="${workspace_loc:/addons/ofxQNX/libs/TouchControlOverlay/libBB10/Simulator/libTouchControlOverlay.so}" type="Qnx/Elf">lib/libTouchControlOverlay.so</asset>

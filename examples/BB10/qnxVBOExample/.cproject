@@ -31,7 +31,7 @@
 									<listOptionValue builtIn="false" value="${workspace_loc:/addons/ofxQNX/libs/boost/include}"/>
 									<listOptionValue builtIn="false" value="${workspace_loc:/addons/ofxQNX/libs/FreeImage/include}"/>
 									<listOptionValue builtIn="false" value="${workspace_loc:/addons/ofxQNX/libs/glu/include}"/>
-									<listOptionValue builtIn="false" value="${workspace_loc:/addons/ofxQNX/libs/poco/include}"/>
+									<listOptionValue builtIn="false" value="${workspace_loc:/libs/poco/include}"/>
 									<listOptionValue builtIn="false" value="${workspace_loc:/addons/ofxQNX/libs/SDL/include}"/>
 									<listOptionValue builtIn="false" value="${workspace_loc:/addons/ofxQNX/libs/tess2/include}"/>
 									<listOptionValue builtIn="false" value="${workspace_loc:/addons/ofxQNX/libs/vorbis/include}"/>
@@ -150,7 +150,7 @@
 									<listOptionValue builtIn="false" value="${workspace_loc:/addons/ofxQNX/libs/boost/include}"/>
 									<listOptionValue builtIn="false" value="${workspace_loc:/addons/ofxQNX/libs/FreeImage/include}"/>
 									<listOptionValue builtIn="false" value="${workspace_loc:/addons/ofxQNX/libs/glu/include}"/>
-									<listOptionValue builtIn="false" value="${workspace_loc:/addons/ofxQNX/libs/poco/include}"/>
+									<listOptionValue builtIn="false" value="${workspace_loc:/libs/poco/include}"/>
 									<listOptionValue builtIn="false" value="${workspace_loc:/addons/ofxQNX/libs/SDL/include}"/>
 									<listOptionValue builtIn="false" value="${workspace_loc:/addons/ofxQNX/libs/tess2/include}"/>
 									<listOptionValue builtIn="false" value="${workspace_loc:/addons/ofxQNX/libs/vorbis/include}"/>
@@ -272,7 +272,7 @@
 									<listOptionValue builtIn="false" value="${workspace_loc:/addons/ofxQNX/libs/boost/include}"/>
 									<listOptionValue builtIn="false" value="${workspace_loc:/addons/ofxQNX/libs/FreeImage/include}"/>
 									<listOptionValue builtIn="false" value="${workspace_loc:/addons/ofxQNX/libs/glu/include}"/>
-									<listOptionValue builtIn="false" value="${workspace_loc:/addons/ofxQNX/libs/poco/include}"/>
+									<listOptionValue builtIn="false" value="${workspace_loc:/libs/poco/include}"/>
 									<listOptionValue builtIn="false" value="${workspace_loc:/addons/ofxQNX/libs/SDL/include}"/>
 									<listOptionValue builtIn="false" value="${workspace_loc:/addons/ofxQNX/libs/tess2/include}"/>
 									<listOptionValue builtIn="false" value="${workspace_loc:/addons/ofxQNX/libs/vorbis/include}"/>
