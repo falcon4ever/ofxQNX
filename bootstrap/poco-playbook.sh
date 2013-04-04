@@ -8,9 +8,9 @@ BB_BOOTSTRAP_ROOT=$(pwd)
 BB_BOOTSTRAP_ROOT=${BB_BOOTSTRAP_ROOT%/*}
 
 # POCO
-BB_POCO_URL=http://pocoproject.org/releases/poco-1.4.6/poco-1.4.6.tar.gz
-BB_POCO_FILE=poco-1.4.6.tar.gz
-BB_POCO_FOLDER=poco-1.4.6
+BB_POCO_URL=http://downloads.sourceforge.net/project/poco/sources/poco-1.4.3/poco-1.4.3p1.tar.gz
+BB_POCO_FILE=poco-1.4.3p1.tar.gz
+BB_POCO_FOLDER=poco-1.4.3p1
 
 # Create download folder
 mkdir -p "$BB_BOOTSTRAP_ROOT/bootstrap/downloads"
@@ -47,7 +47,7 @@ if [ -d "$BBNDK_PLAYBOOK_ROOT" ]; then
 	cd "$BB_BOOTSTRAP_ROOT/bootstrap/downloads/$BB_POCO_FOLDER"
 	cp ../../poco/QNX-playbook-sim ./build/config
 	./configure --config=QNX-playbook-sim --omit=NetSSL_OpenSSL,Crypto,Data/ODBC,Data/MySQL --no-tests --no-samples --static "--prefix=$BB_BOOTSTRAP_ROOT/libs/poco/libPlayBook/X86"
-	${QNX_HOST}/usr/bin/make -s -j2
+	${QNX_HOST}/usr/bin/make -s -j4
         ${QNX_HOST}/usr/bin/make install
 
 	cd "$BB_BOOTSTRAP_ROOT/libs"
@@ -60,10 +60,10 @@ if [ -d "$BBNDK_PLAYBOOK_ROOT" ]; then
 
         # Build ARM target
 	cd "$BB_BOOTSTRAP_ROOT/bootstrap/downloads/$BB_POCO_FOLDER"
-    ${QNX_HOST}/usr/bin/make clean
+	${QNX_HOST}/usr/bin/make clean
 	cp ../../poco/QNX-playbook-device ./build/config
 	./configure --config=QNX-playbook-device --omit=NetSSL_OpenSSL,Crypto,Data/ODBC,Data/MySQL --no-tests --no-samples --static "--prefix=$BB_BOOTSTRAP_ROOT/libs/poco/libPlayBook/ARMv7"
-	${QNX_HOST}/usr/bin/make -s -j2
+	${QNX_HOST}/usr/bin/make -s -j4
 	${QNX_HOST}/usr/bin/make install
 
 	cd "$BB_BOOTSTRAP_ROOT/libs"

@@ -8,9 +8,9 @@ BB_BOOTSTRAP_ROOT=$(pwd)
 BB_BOOTSTRAP_ROOT=${BB_BOOTSTRAP_ROOT%/*}
 
 # POCO
-BB_POCO_URL=http://pocoproject.org/releases/poco-1.4.6/poco-1.4.6.tar.gz
-BB_POCO_FILE=poco-1.4.6.tar.gz
-BB_POCO_FOLDER=poco-1.4.6
+BB_POCO_URL=http://downloads.sourceforge.net/project/poco/sources/poco-1.4.3/poco-1.4.3p1.tar.gz
+BB_POCO_FILE=poco-1.4.3p1.tar.gz
+BB_POCO_FOLDER=poco-1.4.3p1
 
 # Create download folder
 mkdir -p "$BB_BOOTSTRAP_ROOT/bootstrap/downloads"
@@ -47,30 +47,30 @@ if [ -d "$BBNDK_BB10_ROOT" ]; then
 	cd "$BB_BOOTSTRAP_ROOT/bootstrap/downloads/$BB_POCO_FOLDER"
 	cp ../../poco/QNX-bb10-sim ./build/config
 	./configure --config=QNX-bb10-sim --omit=NetSSL_OpenSSL,Crypto,Data/ODBC,Data/MySQL --no-tests --no-samples --static "--prefix=$BB_BOOTSTRAP_ROOT/libs/poco/libBB10/X86"
-	${QNX_HOST}/usr/bin/make -s -j8
-    ${QNX_HOST}/usr/bin/make install
+	${QNX_HOST}/usr/bin/make -s -j4
+	${QNX_HOST}/usr/bin/make install
 
 	cd "$BB_BOOTSTRAP_ROOT/libs"
 	mv -f "$BB_BOOTSTRAP_ROOT/libs/poco/libBB10/X86/include" "$BB_BOOTSTRAP_ROOT/libs/poco"
-    cd "$BB_BOOTSTRAP_ROOT/libs/poco/libBB10/X86/lib"
-    mv * "$BB_BOOTSTRAP_ROOT/libs/poco/libBB10/X86"
-    rm -Rf "$BB_BOOTSTRAP_ROOT/libs/poco/libBB10/X86/lib"
-    rm -Rf "$BB_BOOTSTRAP_ROOT/libs/poco/libBB10/X86/bin"
-    rm -Rf "$BB_BOOTSTRAP_ROOT/libs/poco/libBB10/X86/include"
+	cd "$BB_BOOTSTRAP_ROOT/libs/poco/libBB10/X86/lib"
+	mv * "$BB_BOOTSTRAP_ROOT/libs/poco/libBB10/X86"
+	rm -Rf "$BB_BOOTSTRAP_ROOT/libs/poco/libBB10/X86/lib"
+	rm -Rf "$BB_BOOTSTRAP_ROOT/libs/poco/libBB10/X86/bin"
+	rm -Rf "$BB_BOOTSTRAP_ROOT/libs/poco/libBB10/X86/include"
 
-    # Build ARM target
+	# Build ARM target
 	cd "$BB_BOOTSTRAP_ROOT/bootstrap/downloads/$BB_POCO_FOLDER"
-    ${QNX_HOST}/usr/bin/make clean
-    cp ../../poco/QNX-bb10-device ./build/config
+	${QNX_HOST}/usr/bin/make clean
+	cp ../../poco/QNX-bb10-device ./build/config
 	./configure --config=QNX-bb10-device --omit=NetSSL_OpenSSL,Crypto,Data/ODBC,Data/MySQL --no-tests --no-samples --static "--prefix=$BB_BOOTSTRAP_ROOT/libs/poco/libBB10/ARMv7"
-	${QNX_HOST}/usr/bin/make -s -j8
+	${QNX_HOST}/usr/bin/make -s -j4
 	${QNX_HOST}/usr/bin/make install
 
 	cd "$BB_BOOTSTRAP_ROOT/libs"
 	mv -f "$BB_BOOTSTRAP_ROOT/libs/poco/libBB10/ARMv7/include" "$BB_BOOTSTRAP_ROOT/libs/poco"
-    cd "$BB_BOOTSTRAP_ROOT/libs/poco/libBB10/ARMv7/lib"
-    mv * "$BB_BOOTSTRAP_ROOT/libs/poco/libBB10/ARMv7"
-    rm -Rf "$BB_BOOTSTRAP_ROOT/libs/poco/libBB10/ARMv7/lib"
-    rm -Rf "$BB_BOOTSTRAP_ROOT/libs/poco/libBB10/ARMv7/bin"
-    rm -Rf "$BB_BOOTSTRAP_ROOT/libs/poco/libBB10/ARMv7/include"
+	cd "$BB_BOOTSTRAP_ROOT/libs/poco/libBB10/ARMv7/lib"
+	mv * "$BB_BOOTSTRAP_ROOT/libs/poco/libBB10/ARMv7"
+	rm -Rf "$BB_BOOTSTRAP_ROOT/libs/poco/libBB10/ARMv7/lib"
+	rm -Rf "$BB_BOOTSTRAP_ROOT/libs/poco/libBB10/ARMv7/bin"
+	rm -Rf "$BB_BOOTSTRAP_ROOT/libs/poco/libBB10/ARMv7/include"
 fi
