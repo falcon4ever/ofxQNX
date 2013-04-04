@@ -45,9 +45,9 @@ Download (a patched) openFrameworks from the repository that is listed above. Ne
 
 ### Workspace setup ###
 
-Copy the example projects
+Copy the example projects from
 
-- "openFrameworks\addons\ofxQNX\examples\BB10"
+- "openFrameworks\addons\ofxQNX\examples\BB10" or "openFrameworks\addons\ofxQNX\examples\PlayBook"
  
 to
 
@@ -61,7 +61,6 @@ After the IDE is running, import the following projects:
 
 - "openFrameworks\libs"
 - "openFrameworks\addons"
-- "openFrameworks\addons\ofxQNX" (PlayBook only)
 
 And all examples from
 
@@ -125,10 +124,10 @@ Tess 2
 Poco
 
 - [http://pocoproject.org/](http://pocoproject.org/)
-- Version 1.4.6
+- Version 1.4.3p1
 - This can only be build on a Linux or Mac machine. Windows is not supported.
 - Included a dummy syslog.h implementation (borrowed from the Android NDK) as it will not build without.
-- Use `-DPOCONOGCC_ATOMICS` in PlayBook projects to prevent build errors
+- Uses the included header files from openFrameworks 0.7.4
 
 SDL
 
@@ -152,6 +151,13 @@ Additional information can be found here:
 
 ## NEWS ##
 
+04/04/2013
+
+- Downgraded poco 1.4.6 to poco-1.4.3p1 to be compatible with the included modified poco headers in openFrameworks 0.7.4 ( [8a59e327](https://github.com/openframeworks/openFrameworks/commit/8a59e327842eaddeaf1e3279b0e2c944ae1c4a23) )
+- Updated PlayBook examples
+- Updated BB10 examples
+- Requires the latest **openframeworks-v0.7.4-stable**
+ 
 04/03/2013
  
 - Updated BB10 examples
@@ -307,18 +313,11 @@ More info:
 
 - [accessible_folders](http://developer.blackberry.com/native/documentation/bb10/com.qnx.doc.native_sdk.devguide/com.qnx.doc.native_sdk.devguide/topic/accessible_folders.html)
 
-**The PlayBook examples don't seem to work?**
-
-- These examples still need to be updated. In the meantime you can use these hints: [forum.openframeworks.cc](http://forum.openframeworks.cc/index.php/topic,10726.msg52228.html#msg52228). 
-- Don't forget to include this as well: `-DPOCO_NO_GCC_ATOMICS`
-
-
 ## TODO ##
 
 - Add Camera support for BB10.
 - Add GPS support and example.
 - Clean up ofxQNXSoundPlayer and qnxAudioOutputExample class.
-- Patch the current Poco for this: [8a59e327](https://github.com/openframeworks/openFrameworks/commit/8a59e327842eaddeaf1e3279b0e2c944ae1c4a23)
 - Remove SDL dependency (only used for ofSoundStream / qnxAudioOutputExample) and use the QSA audio system directly.
 - Figure out why loading OGG files is painfully slow.
 
