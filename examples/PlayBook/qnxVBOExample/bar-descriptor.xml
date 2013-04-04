@@ -48,21 +48,21 @@
     <!--  The category where the application appears. Either core.games or core.media. -->
     <category>core.games</category>
     <asset path="icon.png">icon.png</asset>
-    <configuration id="com.qnx.qcc.configuration.exe.debug.2136424254" name="Device-Debug">
+    <configuration id="com.qnx.qcc.configuration.exe.debug.1154421769" name="Device-Debug">
        <platformArchitecture>armle-v7</platformArchitecture>
        <asset path="Device-Debug/qnxVBOExample" entry="true" type="Qnx/Elf">qnxVBOExample</asset>
        <asset path="${workspace_loc:/addons/ofxQNX/libs/SDL/libPlayBook/Device-Debug/libSDL.so}" type="Qnx/Elf">lib/libSDL.so</asset>
        <asset path="${workspace_loc:/addons/ofxQNX/libs/TouchControlOverlay/libPlayBook/Device-Debug/libTouchControlOverlay.so}" type="Qnx/Elf">lib/libTouchControlOverlay.so</asset>
     </configuration>
-    <configuration id="com.qnx.qcc.configuration.exe.release.2096755720" name="Device-Release">
+    <configuration id="com.qnx.qcc.configuration.exe.release.1695597354" name="Device-Release">
        <platformArchitecture>armle-v7</platformArchitecture>
        <asset path="Device-Release/qnxVBOExample" entry="true" type="Qnx/Elf">qnxVBOExample</asset>
        <asset path="${workspace_loc:/addons/ofxQNX/libs/SDL/libPlayBook/Device-Release/libSDL.so}" type="Qnx/Elf">lib/libSDL.so</asset>
        <asset path="${workspace_loc:/addons/ofxQNX/libs/TouchControlOverlay/libPlayBook/Device-Release/libTouchControlOverlay.so}" type="Qnx/Elf">lib/libTouchControlOverlay.so</asset>
     </configuration>
-    <configuration id="com.qnx.qcc.configuration.exe.debug.886947137" name="Simulator-Debug">
+    <configuration id="com.qnx.qcc.configuration.exe.debug.616153185" name="Simulator-Debug">
        <platformArchitecture>x86</platformArchitecture>
-	   <asset path="Simulator-Debug/qnxVBOExample" entry="true" type="Qnx/Elf">qnxVBOExample</asset>
+       <asset path="Simulator-Debug/qnxVBOExample" entry="true" type="Qnx/Elf">qnxVBOExample</asset>
        <asset path="${workspace_loc:/addons/ofxQNX/libs/SDL/libPlayBook/Simulator/libSDL.so}" type="Qnx/Elf">lib/libSDL.so</asset>
        <asset path="${workspace_loc:/addons/ofxQNX/libs/TouchControlOverlay/libPlayBook/Simulator/libTouchControlOverlay.so}" type="Qnx/Elf">lib/libTouchControlOverlay.so</asset>
     </configuration>

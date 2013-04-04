@@ -7,9 +7,6 @@
 class testApp : public ofxQNXApp {
 	
 public:
-	testApp() {}
-	~testApp() {}
-
 	void setup();
 	void update();
 	void draw();

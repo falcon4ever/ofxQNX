@@ -299,7 +299,7 @@
 									<listOptionValue builtIn="false" value="TARGET_LITTLE_ENDIAN"/>
 									<listOptionValue builtIn="false" value="__PLAYBOOK__"/>
 								</option>
-								<option id="com.qnx.qcc.option.compiler.qccoptions.2033877376" superClass="com.qnx.qcc.option.compiler.qccoptions" valueType="stringList">
+								<option id="com.qnx.qcc.option.compiler.qccoptions.2033877376" name="QCC Options" superClass="com.qnx.qcc.option.compiler.qccoptions" valueType="stringList">
 									<listOptionValue builtIn="false" value="-m32 -march=i486"/>
 								</option>
 								<inputType id="com.qnx.qcc.inputType.compiler.1616923050" superClass="com.qnx.qcc.inputType.compiler"/>
@@ -395,4 +395,5 @@
 			<autodiscovery enabled="true" problemReportingEnabled="true" selectedProfileId="com.qnx.tools.ide.qde.managedbuilder.core.qccScannerInfo"/>
 		</scannerConfigBuildInfo>
 	</storageModule>
+	<storageModule moduleId="refreshScope"/>
 </cproject>

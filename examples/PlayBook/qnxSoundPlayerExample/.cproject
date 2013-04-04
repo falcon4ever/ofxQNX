@@ -3,8 +3,8 @@
 
 <cproject storage_type_id="org.eclipse.cdt.core.XmlProjectDescriptionStorage">
 	<storageModule moduleId="org.eclipse.cdt.core.settings">
-		<cconfiguration id="com.qnx.qcc.configuration.exe.debug.2136424254">
-			<storageModule buildSystemId="org.eclipse.cdt.managedbuilder.core.configurationDataProvider" id="com.qnx.qcc.configuration.exe.debug.2136424254" moduleId="org.eclipse.cdt.core.settings" name="Device-Debug">
+		<cconfiguration id="com.qnx.qcc.configuration.exe.debug.1870586175">
+			<storageModule buildSystemId="org.eclipse.cdt.managedbuilder.core.configurationDataProvider" id="com.qnx.qcc.configuration.exe.debug.1870586175" moduleId="org.eclipse.cdt.core.settings" name="Device-Debug">
 				<externalSettings/>
 				<extensions>
 					<extension id="com.qnx.tools.ide.qde.core.QDEBynaryParser" point="org.eclipse.cdt.core.BinaryParser"/>
@@ -14,41 +14,43 @@
 				</extensions>
 			</storageModule>
 			<storageModule moduleId="cdtBuildSystem" version="4.0.0">
-				<configuration artifactName="${ProjName}" buildArtefactType="org.eclipse.cdt.build.core.buildArtefactType.exe" buildProperties="org.eclipse.cdt.build.core.buildType=org.eclipse.cdt.build.core.buildType.debug,org.eclipse.cdt.build.core.buildArtefactType=org.eclipse.cdt.build.core.buildArtefactType.exe" description="" id="com.qnx.qcc.configuration.exe.debug.2136424254" name="Device-Debug" parent="com.qnx.qcc.configuration.exe.debug">
-					<folderInfo id="com.qnx.qcc.configuration.exe.debug.2136424254." name="/" resourcePath="">
-						<toolChain id="com.qnx.qcc.toolChain.exe.debug.1791946785" name="QNX QCC" superClass="com.qnx.qcc.toolChain">
-							<option id="com.qnx.qcc.option.cpu.132592615" name="Target CPU:" superClass="com.qnx.qcc.option.cpu" value="com.qnx.qcc.option.gen.cpu.armle-v7" valueType="enumerated"/>
-							<targetPlatform archList="all" binaryParser="com.qnx.tools.ide.qde.core.QDEBynaryParser" id="com.qnx.qcc.targetPlatform.795269426" osList="all" superClass="com.qnx.qcc.targetPlatform"/>
-							<builder buildPath="${workspace_loc:/qnxSoundPlayerExample/Device-Debug}" id="com.qnx.nto.872489960" keepEnvironmentInBuildfile="false" name="CDT Internal Builder" superClass="com.qnx.nto"/>
-							<tool id="com.qnx.qcc.tool.compiler.257138737" name="QCC Compiler" superClass="com.qnx.qcc.tool.compiler">
-								<option id="com.qnx.qcc.option.compiler.optlevel.1784744940" name="Optimization Level" superClass="com.qnx.qcc.option.compiler.optlevel" value="com.qnx.qcc.option.compiler.optlevel.0" valueType="enumerated"/>
-								<option id="com.qnx.qcc.option.compile.debug.177388976" name="Debug (-g)" superClass="com.qnx.qcc.option.compile.debug" value="true" valueType="boolean"/>
-								<option id="com.qnx.qcc.option.compiler.includePath.571580738" name="Include Directories (-I)" superClass="com.qnx.qcc.option.compiler.includePath" valueType="includePath">
-									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/ofxQNX/libs/SDL/include}&quot;"/>
+				<configuration artifactName="${ProjName}" buildArtefactType="org.eclipse.cdt.build.core.buildArtefactType.exe" buildProperties="org.eclipse.cdt.build.core.buildType=org.eclipse.cdt.build.core.buildType.debug,org.eclipse.cdt.build.core.buildArtefactType=org.eclipse.cdt.build.core.buildArtefactType.exe" description="" id="com.qnx.qcc.configuration.exe.debug.1870586175" name="Device-Debug" parent="com.qnx.qcc.configuration.exe.debug">
+					<folderInfo id="com.qnx.qcc.configuration.exe.debug.1870586175." name="/" resourcePath="">
+						<toolChain id="com.qnx.qcc.toolChain.exe.debug.991498538" name="QNX QCC" superClass="com.qnx.qcc.toolChain">
+							<option id="com.qnx.qcc.option.cpu.1492576149" name="Target CPU:" superClass="com.qnx.qcc.option.cpu" value="com.qnx.qcc.option.gen.cpu.armle-v7" valueType="enumerated"/>
+							<targetPlatform archList="all" binaryParser="com.qnx.tools.ide.qde.core.QDEBynaryParser" id="com.qnx.qcc.targetPlatform.1171472151" osList="all" superClass="com.qnx.qcc.targetPlatform"/>
+							<builder buildPath="${workspace_loc:/qnxSoundPlayerExample/Device-Debug}" id="com.qnx.nto.794175013" keepEnvironmentInBuildfile="false" name="CDT Internal Builder" superClass="com.qnx.nto"/>
+							<tool id="com.qnx.qcc.tool.compiler.2096683183" name="QCC Compiler" superClass="com.qnx.qcc.tool.compiler">
+								<option id="com.qnx.qcc.option.compiler.optlevel.70553091" name="Optimization Level" superClass="com.qnx.qcc.option.compiler.optlevel" value="com.qnx.qcc.option.compiler.optlevel.0" valueType="enumerated"/>
+								<option id="com.qnx.qcc.option.compile.debug.1647959853" name="Debug (-g)" superClass="com.qnx.qcc.option.compile.debug" value="true" valueType="boolean"/>
+								<option id="com.qnx.qcc.option.compiler.includePath.1153656994" name="Include Directories (-I)" superClass="com.qnx.qcc.option.compiler.includePath" valueType="includePath">
 									<listOptionValue builtIn="false" value="${QNX_TARGET}/usr/include/freetype2"/>
 									<listOptionValue builtIn="false" value="${QNX_TARGET}/../target-override/usr/include"/>
-									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/addons/ofxAccelerometer/src}&quot;"/>
-									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/ofxQNX/libs/boost/include}&quot;"/>
-									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/ofxQNX/libs/FreeImage/include}&quot;"/>
-									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/ofxQNX/libs/glu/include}&quot;"/>
-									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/ofxQNX/libs/poco/include}&quot;"/>
-									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/ofxQNX/libs/tess2/include}&quot;"/>
-									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/ofxQNX/src}&quot;"/>
-									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/libs/cairo/include/cairo}&quot;"/>
-									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/libs/openFrameworks}&quot;"/>
-									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/libs/openFrameworks/3d}&quot;"/>
-									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/libs/openFrameworks/app}&quot;"/>
-									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/libs/openFrameworks/events}&quot;"/>
-									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/libs/openFrameworks/gl}&quot;"/>
-									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/libs/openFrameworks/graphics}&quot;"/>
-									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/libs/openFrameworks/math}&quot;"/>
-									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/libs/openFrameworks/sound}&quot;"/>
-									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/libs/openFrameworks/types}&quot;"/>
-									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/libs/openFrameworks/utils}&quot;"/>
-									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/libs/openFrameworks/video}&quot;"/>
+									<listOptionValue builtIn="false" value="${workspace_loc:/addons/ofxAccelerometer/src}"/>
+									<listOptionValue builtIn="false" value="${workspace_loc:/addons/ofxQNX/src}"/>
+									<listOptionValue builtIn="false" value="${workspace_loc:/addons/ofxQNX/libs/boost/include}"/>
+									<listOptionValue builtIn="false" value="${workspace_loc:/addons/ofxQNX/libs/FreeImage/include}"/>
+									<listOptionValue builtIn="false" value="${workspace_loc:/addons/ofxQNX/libs/glu/include}"/>
+									<listOptionValue builtIn="false" value="${workspace_loc:/libs/poco/include}"/>
+									<listOptionValue builtIn="false" value="${workspace_loc:/addons/ofxQNX/libs/SDL/include}"/>
+									<listOptionValue builtIn="false" value="${workspace_loc:/addons/ofxQNX/libs/tess2/include}"/>
+									<listOptionValue builtIn="false" value="${workspace_loc:/addons/ofxQNX/libs/vorbis/include}"/>
+									<listOptionValue builtIn="false" value="${workspace_loc:/addons/ofxQNX/libs/ogg/include}"/>
+									<listOptionValue builtIn="false" value="${workspace_loc:/libs/cairo/include/cairo}"/>
+									<listOptionValue builtIn="false" value="${workspace_loc:/libs/openFrameworks}"/>
+									<listOptionValue builtIn="false" value="${workspace_loc:/libs/openFrameworks/3d}"/>
+									<listOptionValue builtIn="false" value="${workspace_loc:/libs/openFrameworks/app}"/>
+									<listOptionValue builtIn="false" value="${workspace_loc:/libs/openFrameworks/events}"/>
+									<listOptionValue builtIn="false" value="${workspace_loc:/libs/openFrameworks/gl}"/>
+									<listOptionValue builtIn="false" value="${workspace_loc:/libs/openFrameworks/graphics}"/>
+									<listOptionValue builtIn="false" value="${workspace_loc:/libs/openFrameworks/math}"/>
+									<listOptionValue builtIn="false" value="${workspace_loc:/libs/openFrameworks/sound}"/>
+									<listOptionValue builtIn="false" value="${workspace_loc:/libs/openFrameworks/types}"/>
+									<listOptionValue builtIn="false" value="${workspace_loc:/libs/openFrameworks/utils}"/>
+									<listOptionValue builtIn="false" value="${workspace_loc:/libs/openFrameworks/video}"/>
 								</option>
-								<option id="com.qnx.qcc.option.compiler.security.513627726" name="Enhanced Security (-fstack-protector-all)" superClass="com.qnx.qcc.option.compiler.security" value="true" valueType="boolean"/>
-								<option id="com.qnx.qcc.option.compiler.defines.451671074" name="Defines (-D)" superClass="com.qnx.qcc.option.compiler.defines" valueType="definedSymbols">
+								<option id="com.qnx.qcc.option.compiler.security.2063838674" name="Enhanced Security (-fstack-protector-all)" superClass="com.qnx.qcc.option.compiler.security" value="true" valueType="boolean"/>
+								<option id="com.qnx.qcc.option.compiler.defines.1928384178" name="Defines (-D)" superClass="com.qnx.qcc.option.compiler.defines" valueType="definedSymbols">
 									<listOptionValue builtIn="false" value="_FORTIFY_SOURCE=2"/>
 									<listOptionValue builtIn="false" value="USING_GL11"/>
 									<listOptionValue builtIn="false" value="TARGET_QNX"/>
@@ -56,30 +58,34 @@
 									<listOptionValue builtIn="false" value="TARGET_LITTLE_ENDIAN"/>
 									<listOptionValue builtIn="false" value="__PLAYBOOK__"/>
 								</option>
-								<inputType id="com.qnx.qcc.inputType.compiler.614069098" superClass="com.qnx.qcc.inputType.compiler"/>
+								<inputType id="com.qnx.qcc.inputType.compiler.1799437588" superClass="com.qnx.qcc.inputType.compiler"/>
 							</tool>
-							<tool id="com.qnx.qcc.tool.assembler.2084352257" name="QCC Assembler" superClass="com.qnx.qcc.tool.assembler">
-								<option id="com.qnx.qcc.option.assembler.debug.783863483" name="Debug (-g)" superClass="com.qnx.qcc.option.assembler.debug" value="true" valueType="boolean"/>
-								<inputType id="com.qnx.qcc.inputType.assembler.1069213834" superClass="com.qnx.qcc.inputType.assembler"/>
+							<tool id="com.qnx.qcc.tool.assembler.856405987" name="QCC Assembler" superClass="com.qnx.qcc.tool.assembler">
+								<option id="com.qnx.qcc.option.assembler.debug.1676618791" name="Debug (-g)" superClass="com.qnx.qcc.option.assembler.debug" value="true" valueType="boolean"/>
+								<inputType id="com.qnx.qcc.inputType.assembler.759504982" superClass="com.qnx.qcc.inputType.assembler"/>
 							</tool>
-							<tool id="com.qnx.qcc.tool.linker.920472737" name="QCC Linker" superClass="com.qnx.qcc.tool.linker">
-								<option id="com.qnx.qcc.option.linker.debug.728869424" name="Debug (-g)" superClass="com.qnx.qcc.option.linker.debug" value="true" valueType="boolean"/>
-								<option id="com.qnx.qcc.option.linker.langcpp.166457282" name="C++ (-lang-c++)" superClass="com.qnx.qcc.option.linker.langcpp" value="true" valueType="boolean"/>
-								<option id="com.qnx.qcc.option.linker.libraryPaths.274777565" name="Library Paths (-L)" superClass="com.qnx.qcc.option.linker.libraryPaths" valueType="libPaths">
+							<tool id="com.qnx.qcc.tool.linker.1875489787" name="QCC Linker" superClass="com.qnx.qcc.tool.linker">
+								<option id="com.qnx.qcc.option.linker.debug.346117905" name="Debug (-g)" superClass="com.qnx.qcc.option.linker.debug" value="true" valueType="boolean"/>
+								<option id="com.qnx.qcc.option.linker.langcpp.697977228" name="C++ (-lang-c++)" superClass="com.qnx.qcc.option.linker.langcpp" value="true" valueType="boolean"/>
+								<option id="com.qnx.qcc.option.linker.libraryPaths.1998462150" name="Library Paths (-L)" superClass="com.qnx.qcc.option.linker.libraryPaths" valueType="libPaths">
 									<listOptionValue builtIn="false" value="${QNX_TARGET}/../target-override/${CPUVARDIR}/lib"/>
 									<listOptionValue builtIn="false" value="${QNX_TARGET}/../target-override/${CPUVARDIR}/usr/lib"/>
-									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/ofxQNX/libs/FreeImage/libPlayBook/ARMv7}&quot;"/>
-									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/ofxQNX/libs/glu/libPlayBook/ARMv7/Debug}&quot;"/>
-									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/ofxQNX/libs/poco/libPlayBook/ARMv7}&quot;"/>
-									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/ofxQNX/libs/tess2/libPlayBook/ARMv7/Debug}&quot;"/>
-									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/ofxQNX/libs/SDL/libPlayBook/Device-Debug}&quot;"/>
-									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/ofxQNX/libs/TouchControlOverlay/libPlayBook/Device-Debug}&quot;"/>
+									<listOptionValue builtIn="false" value="${workspace_loc:/addons/ofxQNX/libs/FreeImage/libPlayBook/ARMv7}"/>
+									<listOptionValue builtIn="false" value="${workspace_loc:/addons/ofxQNX/libs/glu/libPlayBook/ARMv7/Debug}"/>
+									<listOptionValue builtIn="false" value="${workspace_loc:/addons/ofxQNX/libs/poco/libPlayBook/ARMv7}"/>
+									<listOptionValue builtIn="false" value="${workspace_loc:/addons/ofxQNX/libs/SDL/libPlayBook/Device-Debug}"/>
+									<listOptionValue builtIn="false" value="${workspace_loc:/addons/ofxQNX/libs/tess2/libPlayBook/ARMv7/Debug}"/>
+									<listOptionValue builtIn="false" value="${workspace_loc:/addons/ofxQNX/libs/TouchControlOverlay/libPlayBook/Device-Debug}"/>
+									<listOptionValue builtIn="false" value="${workspace_loc:/addons/ofxQNX/libs/vorbis/libPlayBook/Device-Debug}"/>
+									<listOptionValue builtIn="false" value="${workspace_loc:/addons/ofxQNX/libs/ogg/libPlayBook/ARMv7/Debug}"/>
 								</option>
-								<option id="com.qnx.qcc.option.linker.security.832912397" name="Enhanced Security (-Wl,-z,relro -Wl,-z,now)" superClass="com.qnx.qcc.option.linker.security" value="true" valueType="boolean"/>
-								<option id="com.qnx.qcc.option.linker.libraries.19081386" name="Libraries (-l)" superClass="com.qnx.qcc.option.linker.libraries" valueType="libs">
+								<option id="com.qnx.qcc.option.linker.security.2142105774" name="Enhanced Security (-Wl,-z,relro -Wl,-z,now)" superClass="com.qnx.qcc.option.linker.security" value="true" valueType="boolean"/>
+								<option id="com.qnx.qcc.option.linker.libraries.1251058594" superClass="com.qnx.qcc.option.linker.libraries" valueType="libs">
 									<listOptionValue builtIn="false" value="m"/>
 									<listOptionValue builtIn="false" value="bps"/>
 									<listOptionValue builtIn="false" value="screen"/>
+									<listOptionValue builtIn="false" value="mmrndclient"/>
+									<listOptionValue builtIn="false" value="strm"/>
 									<listOptionValue builtIn="false" value="EGL"/>
 									<listOptionValue builtIn="false" value="GLESv1_CM"/>
 									<listOptionValue builtIn="false" value="freetype"/>
@@ -95,41 +101,30 @@
 									<listOptionValue builtIn="false" value="asound"/>
 									<listOptionValue builtIn="false" value="SDL"/>
 									<listOptionValue builtIn="false" value="TouchControlOverlay"/>
+									<listOptionValue builtIn="false" value="OpenAL"/>
+									<listOptionValue builtIn="false" value="alut"/>
+									<listOptionValue builtIn="false" value="vorbis"/>
+									<listOptionValue builtIn="false" value="ogg"/>
 								</option>
-								<inputType id="com.qnx.qcc.inputType.linker.1703599789" superClass="com.qnx.qcc.inputType.linker">
+								<inputType id="com.qnx.qcc.inputType.linker.1100361143" superClass="com.qnx.qcc.inputType.linker">
 									<additionalInput kind="additionalinputdependency" paths="$(USER_OBJS)"/>
 									<additionalInput kind="additionalinput" paths="$(LIBS)"/>
 								</inputType>
 							</tool>
-							<tool id="com.qnx.qcc.tool.archiver.993708486" name="QCC Archiver" superClass="com.qnx.qcc.tool.archiver"/>
-							<tool id="com.qnx.qcc.tool.compiler.1970165405" name="QCC Compiler" superClass="com.qnx.qcc.tool.compiler">
-								<option id="com.qnx.qcc.option.compile.debug.691396268" name="Debug (-g)" superClass="com.qnx.qcc.option.compile.debug" value="true" valueType="boolean"/>
-								<inputType id="com.qnx.qcc.inputType.compiler.1055020286" superClass="com.qnx.qcc.inputType.compiler"/>
-							</tool>
-							<tool id="com.qnx.qcc.tool.assembler.917431530" name="QCC Assembler" superClass="com.qnx.qcc.tool.assembler">
-								<option id="com.qnx.qcc.option.assembler.debug.1338360949" name="Debug (-g)" superClass="com.qnx.qcc.option.assembler.debug" value="true" valueType="boolean"/>
-								<inputType id="com.qnx.qcc.inputType.assembler.1314155556" superClass="com.qnx.qcc.inputType.assembler"/>
-							</tool>
-							<tool id="com.qnx.qcc.tool.linker.1095120608" name="QCC Linker" superClass="com.qnx.qcc.tool.linker">
-								<option id="com.qnx.qcc.option.linker.debug.181655728" name="Debug (-g)" superClass="com.qnx.qcc.option.linker.debug" value="true" valueType="boolean"/>
-								<inputType id="com.qnx.qcc.inputType.linker.583182303" superClass="com.qnx.qcc.inputType.linker">
-									<additionalInput kind="additionalinputdependency" paths="$(USER_OBJS)"/>
-									<additionalInput kind="additionalinput" paths="$(LIBS)"/>
-								</inputType>
-							</tool>
-							<tool id="com.qnx.qcc.tool.archiver.1873961089" name="QCC Archiver" superClass="com.qnx.qcc.tool.archiver"/>
+							<tool id="com.qnx.qcc.tool.archiver.1495413052" name="QCC Archiver" superClass="com.qnx.qcc.tool.archiver"/>
 						</toolChain>
 					</folderInfo>
 					<sourceEntries>
 						<entry flags="VALUE_WORKSPACE_PATH|RESOLVED" kind="sourcePath" name="openFrameworks"/>
 						<entry flags="VALUE_WORKSPACE_PATH|RESOLVED" kind="sourcePath" name="src"/>
+						<entry flags="VALUE_WORKSPACE_PATH|RESOLVED" kind="sourcePath" name="ofxQNX"/>
 					</sourceEntries>
 				</configuration>
 			</storageModule>
 			<storageModule moduleId="org.eclipse.cdt.core.externalSettings"/>
 		</cconfiguration>
-		<cconfiguration id="com.qnx.qcc.configuration.exe.release.2096755720">
-			<storageModule buildSystemId="org.eclipse.cdt.managedbuilder.core.configurationDataProvider" id="com.qnx.qcc.configuration.exe.release.2096755720" moduleId="org.eclipse.cdt.core.settings" name="Device-Release">
+		<cconfiguration id="com.qnx.qcc.configuration.exe.release.746107162">
+			<storageModule buildSystemId="org.eclipse.cdt.managedbuilder.core.configurationDataProvider" id="com.qnx.qcc.configuration.exe.release.746107162" moduleId="org.eclipse.cdt.core.settings" name="Device-Release">
 				<externalSettings/>
 				<extensions>
 					<extension id="com.qnx.tools.ide.qde.core.QDEBynaryParser" point="org.eclipse.cdt.core.BinaryParser"/>
@@ -139,40 +134,42 @@
 				</extensions>
 			</storageModule>
 			<storageModule moduleId="cdtBuildSystem" version="4.0.0">
-				<configuration artifactName="${ProjName}" buildArtefactType="org.eclipse.cdt.build.core.buildArtefactType.exe" buildProperties="org.eclipse.cdt.build.core.buildType=org.eclipse.cdt.build.core.buildType.release,org.eclipse.cdt.build.core.buildArtefactType=org.eclipse.cdt.build.core.buildArtefactType.exe" description="" id="com.qnx.qcc.configuration.exe.release.2096755720" name="Device-Release" parent="com.qnx.qcc.configuration.exe.release">
-					<folderInfo id="com.qnx.qcc.configuration.exe.release.2096755720." name="/" resourcePath="">
-						<toolChain id="com.qnx.qcc.toolChain.exe.release.1846011443" name="QNX QCC" superClass="com.qnx.qcc.toolChain">
-							<option id="com.qnx.qcc.option.cpu.642102019" name="Target CPU:" superClass="com.qnx.qcc.option.cpu" value="com.qnx.qcc.option.gen.cpu.armle-v7" valueType="enumerated"/>
-							<targetPlatform archList="all" binaryParser="com.qnx.tools.ide.qde.core.QDEBynaryParser" id="com.qnx.qcc.targetPlatform.1951606702" osList="all" superClass="com.qnx.qcc.targetPlatform"/>
-							<builder buildPath="${workspace_loc:/qnxSoundPlayerExample/Device-Release}" id="com.qnx.nto.1618409260" keepEnvironmentInBuildfile="false" name="CDT Internal Builder" superClass="com.qnx.nto"/>
-							<tool id="com.qnx.qcc.tool.compiler.1034741866" name="QCC Compiler" superClass="com.qnx.qcc.tool.compiler">
-								<option id="com.qnx.qcc.option.compiler.optlevel.1395089659" name="Optimization Level" superClass="com.qnx.qcc.option.compiler.optlevel" value="com.qnx.qcc.option.compiler.optlevel.2" valueType="enumerated"/>
-								<option id="com.qnx.qcc.option.compiler.includePath.12340770" name="Include Directories (-I)" superClass="com.qnx.qcc.option.compiler.includePath" valueType="includePath">
-									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/ofxQNX/libs/SDL/include}&quot;"/>
+				<configuration artifactName="${ProjName}" buildArtefactType="org.eclipse.cdt.build.core.buildArtefactType.exe" buildProperties="org.eclipse.cdt.build.core.buildType=org.eclipse.cdt.build.core.buildType.release,org.eclipse.cdt.build.core.buildArtefactType=org.eclipse.cdt.build.core.buildArtefactType.exe" description="" id="com.qnx.qcc.configuration.exe.release.746107162" name="Device-Release" parent="com.qnx.qcc.configuration.exe.release">
+					<folderInfo id="com.qnx.qcc.configuration.exe.release.746107162." name="/" resourcePath="">
+						<toolChain id="com.qnx.qcc.toolChain.exe.release.1270660438" name="QNX QCC" superClass="com.qnx.qcc.toolChain">
+							<option id="com.qnx.qcc.option.cpu.250684786" name="Target CPU:" superClass="com.qnx.qcc.option.cpu" value="com.qnx.qcc.option.gen.cpu.armle-v7" valueType="enumerated"/>
+							<targetPlatform archList="all" binaryParser="com.qnx.tools.ide.qde.core.QDEBynaryParser" id="com.qnx.qcc.targetPlatform.1377849412" osList="all" superClass="com.qnx.qcc.targetPlatform"/>
+							<builder buildPath="${workspace_loc:/qnxSoundPlayerExample/Device-Release}" id="com.qnx.nto.1808899563" keepEnvironmentInBuildfile="false" name="CDT Internal Builder" superClass="com.qnx.nto"/>
+							<tool id="com.qnx.qcc.tool.compiler.527446607" name="QCC Compiler" superClass="com.qnx.qcc.tool.compiler">
+								<option id="com.qnx.qcc.option.compiler.optlevel.2032347238" name="Optimization Level" superClass="com.qnx.qcc.option.compiler.optlevel" value="com.qnx.qcc.option.compiler.optlevel.2" valueType="enumerated"/>
+								<option id="com.qnx.qcc.option.compiler.includePath.410494047" name="Include Directories (-I)" superClass="com.qnx.qcc.option.compiler.includePath" valueType="includePath">
 									<listOptionValue builtIn="false" value="${QNX_TARGET}/usr/include/freetype2"/>
 									<listOptionValue builtIn="false" value="${QNX_TARGET}/../target-override/usr/include"/>
-									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/addons/ofxAccelerometer/src}&quot;"/>
-									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/ofxQNX/libs/boost/include}&quot;"/>
-									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/ofxQNX/libs/FreeImage/include}&quot;"/>
-									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/ofxQNX/libs/glu/include}&quot;"/>
-									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/ofxQNX/libs/poco/include}&quot;"/>
-									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/ofxQNX/libs/tess2/include}&quot;"/>
-									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/ofxQNX/src}&quot;"/>
-									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/libs/cairo/include/cairo}&quot;"/>
-									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/libs/openFrameworks}&quot;"/>
-									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/libs/openFrameworks/3d}&quot;"/>
-									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/libs/openFrameworks/app}&quot;"/>
-									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/libs/openFrameworks/events}&quot;"/>
-									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/libs/openFrameworks/gl}&quot;"/>
-									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/libs/openFrameworks/graphics}&quot;"/>
-									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/libs/openFrameworks/math}&quot;"/>
-									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/libs/openFrameworks/sound}&quot;"/>
-									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/libs/openFrameworks/types}&quot;"/>
-									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/libs/openFrameworks/utils}&quot;"/>
-									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/libs/openFrameworks/video}&quot;"/>
+									<listOptionValue builtIn="false" value="${workspace_loc:/addons/ofxAccelerometer/src}"/>
+									<listOptionValue builtIn="false" value="${workspace_loc:/addons/ofxQNX/src}"/>
+									<listOptionValue builtIn="false" value="${workspace_loc:/addons/ofxQNX/libs/boost/include}"/>
+									<listOptionValue builtIn="false" value="${workspace_loc:/addons/ofxQNX/libs/FreeImage/include}"/>
+									<listOptionValue builtIn="false" value="${workspace_loc:/addons/ofxQNX/libs/glu/include}"/>
+									<listOptionValue builtIn="false" value="${workspace_loc:/libs/poco/include}"/>
+									<listOptionValue builtIn="false" value="${workspace_loc:/addons/ofxQNX/libs/SDL/include}"/>
+									<listOptionValue builtIn="false" value="${workspace_loc:/addons/ofxQNX/libs/tess2/include}"/>
+									<listOptionValue builtIn="false" value="${workspace_loc:/addons/ofxQNX/libs/vorbis/include}"/>
+									<listOptionValue builtIn="false" value="${workspace_loc:/addons/ofxQNX/libs/ogg/include}"/>
+									<listOptionValue builtIn="false" value="${workspace_loc:/libs/cairo/include/cairo}"/>
+									<listOptionValue builtIn="false" value="${workspace_loc:/libs/openFrameworks}"/>
+									<listOptionValue builtIn="false" value="${workspace_loc:/libs/openFrameworks/3d}"/>
+									<listOptionValue builtIn="false" value="${workspace_loc:/libs/openFrameworks/app}"/>
+									<listOptionValue builtIn="false" value="${workspace_loc:/libs/openFrameworks/events}"/>
+									<listOptionValue builtIn="false" value="${workspace_loc:/libs/openFrameworks/gl}"/>
+									<listOptionValue builtIn="false" value="${workspace_loc:/libs/openFrameworks/graphics}"/>
+									<listOptionValue builtIn="false" value="${workspace_loc:/libs/openFrameworks/math}"/>
+									<listOptionValue builtIn="false" value="${workspace_loc:/libs/openFrameworks/sound}"/>
+									<listOptionValue builtIn="false" value="${workspace_loc:/libs/openFrameworks/types}"/>
+									<listOptionValue builtIn="false" value="${workspace_loc:/libs/openFrameworks/utils}"/>
+									<listOptionValue builtIn="false" value="${workspace_loc:/libs/openFrameworks/video}"/>
 								</option>
-								<option id="com.qnx.qcc.option.compiler.security.104331408" name="Enhanced Security (-fstack-protector-all)" superClass="com.qnx.qcc.option.compiler.security" value="true" valueType="boolean"/>
-								<option id="com.qnx.qcc.option.compiler.defines.1217399438" name="Defines (-D)" superClass="com.qnx.qcc.option.compiler.defines" valueType="definedSymbols">
+								<option id="com.qnx.qcc.option.compiler.security.1670515382" name="Enhanced Security (-fstack-protector-all)" superClass="com.qnx.qcc.option.compiler.security" value="true" valueType="boolean"/>
+								<option id="com.qnx.qcc.option.compiler.defines.35720730" name="Defines (-D)" superClass="com.qnx.qcc.option.compiler.defines" valueType="definedSymbols">
 									<listOptionValue builtIn="false" value="_FORTIFY_SOURCE=2"/>
 									<listOptionValue builtIn="false" value="USING_GL11"/>
 									<listOptionValue builtIn="false" value="TARGET_QNX"/>
@@ -180,33 +177,37 @@
 									<listOptionValue builtIn="false" value="TARGET_LITTLE_ENDIAN"/>
 									<listOptionValue builtIn="false" value="__PLAYBOOK__"/>
 								</option>
-								<option id="com.qnx.qcc.option.compiler.pie.434948143" name="Position Independent Executable (-fPIE)" superClass="com.qnx.qcc.option.compiler.pie" value="true" valueType="boolean"/>
-								<option id="com.qnx.qcc.option.compiler.qccoptions.1219765354" name="QCC Options" superClass="com.qnx.qcc.option.compiler.qccoptions" valueType="stringList">
+								<option id="com.qnx.qcc.option.compiler.pie.1337296437" name="Position Independent Executable (-fPIE)" superClass="com.qnx.qcc.option.compiler.pie" value="true" valueType="boolean"/>
+								<option id="com.qnx.qcc.option.compiler.qccoptions.1970002786" name="QCC Options" superClass="com.qnx.qcc.option.compiler.qccoptions" valueType="stringList">
 									<listOptionValue builtIn="false" value="-frecord-gcc-switches"/>
 								</option>
-								<inputType id="com.qnx.qcc.inputType.compiler.847092610" superClass="com.qnx.qcc.inputType.compiler"/>
+								<inputType id="com.qnx.qcc.inputType.compiler.682558511" superClass="com.qnx.qcc.inputType.compiler"/>
 							</tool>
-							<tool id="com.qnx.qcc.tool.assembler.753955788" name="QCC Assembler" superClass="com.qnx.qcc.tool.assembler">
-								<inputType id="com.qnx.qcc.inputType.assembler.1792660464" superClass="com.qnx.qcc.inputType.assembler"/>
+							<tool id="com.qnx.qcc.tool.assembler.1208543845" name="QCC Assembler" superClass="com.qnx.qcc.tool.assembler">
+								<inputType id="com.qnx.qcc.inputType.assembler.1581109111" superClass="com.qnx.qcc.inputType.assembler"/>
 							</tool>
-							<tool id="com.qnx.qcc.tool.linker.1942975008" name="QCC Linker" superClass="com.qnx.qcc.tool.linker">
-								<option id="com.qnx.qcc.option.linker.langcpp.1216479812" name="C++ (-lang-c++)" superClass="com.qnx.qcc.option.linker.langcpp" value="true" valueType="boolean"/>
-								<option id="com.qnx.qcc.option.linker.libraryPaths.739054819" name="Library Paths (-L)" superClass="com.qnx.qcc.option.linker.libraryPaths" valueType="libPaths">
+							<tool id="com.qnx.qcc.tool.linker.653189793" name="QCC Linker" superClass="com.qnx.qcc.tool.linker">
+								<option id="com.qnx.qcc.option.linker.langcpp.759403950" name="C++ (-lang-c++)" superClass="com.qnx.qcc.option.linker.langcpp" value="true" valueType="boolean"/>
+								<option id="com.qnx.qcc.option.linker.libraryPaths.238126739" name="Library Paths (-L)" superClass="com.qnx.qcc.option.linker.libraryPaths" valueType="libPaths">
 									<listOptionValue builtIn="false" value="${QNX_TARGET}/../target-override/${CPUVARDIR}/lib"/>
 									<listOptionValue builtIn="false" value="${QNX_TARGET}/../target-override/${CPUVARDIR}/usr/lib"/>
-									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/ofxQNX/libs/FreeImage/libPlayBook/ARMv7}&quot;"/>
-									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/ofxQNX/libs/glu/libPlayBook/ARMv7/Release}&quot;"/>
-									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/ofxQNX/libs/poco/libPlayBook/ARMv7}&quot;"/>
-									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/ofxQNX/libs/tess2/libPlayBook/ARMv7/Release}&quot;"/>
-									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/ofxQNX/libs/SDL/libPlayBook/Device-Release}&quot;"/>
-									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/ofxQNX/libs/TouchControlOverlay/libPlayBook/Device-Release}&quot;"/>
+									<listOptionValue builtIn="false" value="${workspace_loc:/addons/ofxQNX/libs/FreeImage/libPlayBook/ARMv7}"/>
+									<listOptionValue builtIn="false" value="${workspace_loc:/addons/ofxQNX/libs/glu/libPlayBook/ARMv7/Release}"/>
+									<listOptionValue builtIn="false" value="${workspace_loc:/addons/ofxQNX/libs/poco/libPlayBook/ARMv7}"/>
+									<listOptionValue builtIn="false" value="${workspace_loc:/addons/ofxQNX/libs/SDL/libPlayBook/Device-Release}"/>
+									<listOptionValue builtIn="false" value="${workspace_loc:/addons/ofxQNX/libs/tess2/libPlayBook/ARMv7/Release}"/>
+									<listOptionValue builtIn="false" value="${workspace_loc:/addons/ofxQNX/libs/TouchControlOverlay/libPlayBook/Device-Release}"/>
+									<listOptionValue builtIn="false" value="${workspace_loc:/addons/ofxQNX/libs/vorbis/libPlayBook/Device-Release}"/>
+									<listOptionValue builtIn="false" value="${workspace_loc:/addons/ofxQNX/libs/ogg/libPlayBook/ARMv7/Release}"/>
 								</option>
-								<option id="com.qnx.qcc.option.linker.pie.1008205880" name="Position Independent Executable (-pie)" superClass="com.qnx.qcc.option.linker.pie" value="true" valueType="boolean"/>
-								<option id="com.qnx.qcc.option.linker.security.1495480475" name="Enhanced Security (-Wl,-z,relro -Wl,-z,now)" superClass="com.qnx.qcc.option.linker.security" value="true" valueType="boolean"/>
-								<option id="com.qnx.qcc.option.linker.libraries.1643244261" name="Libraries (-l)" superClass="com.qnx.qcc.option.linker.libraries" valueType="libs">
+								<option id="com.qnx.qcc.option.linker.pie.679520365" name="Position Independent Executable (-pie)" superClass="com.qnx.qcc.option.linker.pie" value="true" valueType="boolean"/>
+								<option id="com.qnx.qcc.option.linker.security.294567826" name="Enhanced Security (-Wl,-z,relro -Wl,-z,now)" superClass="com.qnx.qcc.option.linker.security" value="true" valueType="boolean"/>
+								<option id="com.qnx.qcc.option.linker.libraries.1862787753" superClass="com.qnx.qcc.option.linker.libraries" valueType="libs">
 									<listOptionValue builtIn="false" value="m"/>
 									<listOptionValue builtIn="false" value="bps"/>
 									<listOptionValue builtIn="false" value="screen"/>
+									<listOptionValue builtIn="false" value="mmrndclient"/>
+									<listOptionValue builtIn="false" value="strm"/>
 									<listOptionValue builtIn="false" value="EGL"/>
 									<listOptionValue builtIn="false" value="GLESv1_CM"/>
 									<listOptionValue builtIn="false" value="freetype"/>
@@ -222,25 +223,30 @@
 									<listOptionValue builtIn="false" value="asound"/>
 									<listOptionValue builtIn="false" value="SDL"/>
 									<listOptionValue builtIn="false" value="TouchControlOverlay"/>
+									<listOptionValue builtIn="false" value="OpenAL"/>
+									<listOptionValue builtIn="false" value="alut"/>
+									<listOptionValue builtIn="false" value="vorbis"/>
+									<listOptionValue builtIn="false" value="ogg"/>
 								</option>
-								<inputType id="com.qnx.qcc.inputType.linker.852251838" superClass="com.qnx.qcc.inputType.linker">
+								<inputType id="com.qnx.qcc.inputType.linker.2101889192" superClass="com.qnx.qcc.inputType.linker">
 									<additionalInput kind="additionalinputdependency" paths="$(USER_OBJS)"/>
 									<additionalInput kind="additionalinput" paths="$(LIBS)"/>
 								</inputType>
 							</tool>
-							<tool id="com.qnx.qcc.tool.archiver.692310531" name="QCC Archiver" superClass="com.qnx.qcc.tool.archiver"/>
+							<tool id="com.qnx.qcc.tool.archiver.1880337330" name="QCC Archiver" superClass="com.qnx.qcc.tool.archiver"/>
 						</toolChain>
 					</folderInfo>
 					<sourceEntries>
-						<entry flags="VALUE_WORKSPACE_PATH|RESOLVED" kind="sourcePath" name="src"/>
 						<entry flags="VALUE_WORKSPACE_PATH|RESOLVED" kind="sourcePath" name="openFrameworks"/>
+						<entry flags="VALUE_WORKSPACE_PATH|RESOLVED" kind="sourcePath" name="src"/>
+						<entry flags="VALUE_WORKSPACE_PATH|RESOLVED" kind="sourcePath" name="ofxQNX"/>
 					</sourceEntries>
 				</configuration>
 			</storageModule>
 			<storageModule moduleId="org.eclipse.cdt.core.externalSettings"/>
 		</cconfiguration>
-		<cconfiguration id="com.qnx.qcc.configuration.exe.debug.886947137">
-			<storageModule buildSystemId="org.eclipse.cdt.managedbuilder.core.configurationDataProvider" id="com.qnx.qcc.configuration.exe.debug.886947137" moduleId="org.eclipse.cdt.core.settings" name="Simulator-Debug">
+		<cconfiguration id="com.qnx.qcc.configuration.exe.debug.1320113783">
+			<storageModule buildSystemId="org.eclipse.cdt.managedbuilder.core.configurationDataProvider" id="com.qnx.qcc.configuration.exe.debug.1320113783" moduleId="org.eclipse.cdt.core.settings" name="Simulator-Debug">
 				<externalSettings/>
 				<extensions>
 					<extension id="com.qnx.tools.ide.qde.core.QDEBynaryParser" point="org.eclipse.cdt.core.BinaryParser"/>
@@ -250,40 +256,42 @@
 				</extensions>
 			</storageModule>
 			<storageModule moduleId="cdtBuildSystem" version="4.0.0">
-				<configuration artifactName="${ProjName}" buildArtefactType="org.eclipse.cdt.build.core.buildArtefactType.exe" buildProperties="org.eclipse.cdt.build.core.buildType=org.eclipse.cdt.build.core.buildType.debug,org.eclipse.cdt.build.core.buildArtefactType=org.eclipse.cdt.build.core.buildArtefactType.exe" description="" id="com.qnx.qcc.configuration.exe.debug.886947137" name="Simulator-Debug" parent="com.qnx.qcc.configuration.exe.debug">
-					<folderInfo id="com.qnx.qcc.configuration.exe.debug.886947137." name="/" resourcePath="">
-						<toolChain id="com.qnx.qcc.toolChain.exe.debug.252742202" name="QNX QCC" superClass="com.qnx.qcc.toolChain">
-							<targetPlatform archList="all" binaryParser="com.qnx.tools.ide.qde.core.QDEBynaryParser" id="com.qnx.qcc.targetPlatform.1239321234" osList="all" superClass="com.qnx.qcc.targetPlatform"/>
-							<builder buildPath="${workspace_loc:/qnxSoundPlayerExample/Simulator-Debug}" id="com.qnx.nto.1589840004" keepEnvironmentInBuildfile="false" name="CDT Internal Builder" superClass="com.qnx.nto"/>
-							<tool id="com.qnx.qcc.tool.compiler.297642656" name="QCC Compiler" superClass="com.qnx.qcc.tool.compiler">
-								<option id="com.qnx.qcc.option.compiler.optlevel.1681472472" name="Optimization Level" superClass="com.qnx.qcc.option.compiler.optlevel" value="com.qnx.qcc.option.compiler.optlevel.0" valueType="enumerated"/>
-								<option id="com.qnx.qcc.option.compile.debug.2113768600" name="Debug (-g)" superClass="com.qnx.qcc.option.compile.debug" value="false" valueType="boolean"/>
-								<option id="com.qnx.qcc.option.compiler.includePath.6241023" name="Include Directories (-I)" superClass="com.qnx.qcc.option.compiler.includePath" valueType="includePath">
-									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/ofxQNX/libs/SDL/include}&quot;"/>
+				<configuration artifactName="${ProjName}" buildArtefactType="org.eclipse.cdt.build.core.buildArtefactType.exe" buildProperties="org.eclipse.cdt.build.core.buildType=org.eclipse.cdt.build.core.buildType.debug,org.eclipse.cdt.build.core.buildArtefactType=org.eclipse.cdt.build.core.buildArtefactType.exe" description="" id="com.qnx.qcc.configuration.exe.debug.1320113783" name="Simulator-Debug" parent="com.qnx.qcc.configuration.exe.debug">
+					<folderInfo id="com.qnx.qcc.configuration.exe.debug.1320113783." name="/" resourcePath="">
+						<toolChain id="com.qnx.qcc.toolChain.exe.debug.867125122" name="QNX QCC" superClass="com.qnx.qcc.toolChain">
+							<targetPlatform archList="all" binaryParser="com.qnx.tools.ide.qde.core.QDEBynaryParser" id="com.qnx.qcc.targetPlatform.44777360" osList="all" superClass="com.qnx.qcc.targetPlatform"/>
+							<builder buildPath="${workspace_loc:/qnxSoundPlayerExample/Simulator-Debug}" id="com.qnx.nto.384343197" keepEnvironmentInBuildfile="false" name="CDT Internal Builder" superClass="com.qnx.nto"/>
+							<tool id="com.qnx.qcc.tool.compiler.1093556120" name="QCC Compiler" superClass="com.qnx.qcc.tool.compiler">
+								<option id="com.qnx.qcc.option.compiler.optlevel.1917636032" name="Optimization Level" superClass="com.qnx.qcc.option.compiler.optlevel" value="com.qnx.qcc.option.compiler.optlevel.0" valueType="enumerated"/>
+								<option id="com.qnx.qcc.option.compile.debug.1993094905" name="Debug (-g)" superClass="com.qnx.qcc.option.compile.debug" value="true" valueType="boolean"/>
+								<option id="com.qnx.qcc.option.compiler.includePath.864557482" name="Include Directories (-I)" superClass="com.qnx.qcc.option.compiler.includePath" valueType="includePath">
 									<listOptionValue builtIn="false" value="${QNX_TARGET}/usr/include/freetype2"/>
 									<listOptionValue builtIn="false" value="${QNX_TARGET}/../target-override/usr/include"/>
-									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/addons/ofxAccelerometer/src}&quot;"/>
-									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/ofxQNX/libs/boost/include}&quot;"/>
-									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/ofxQNX/libs/FreeImage/include}&quot;"/>
-									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/ofxQNX/libs/glu/include}&quot;"/>
-									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/ofxQNX/libs/poco/include}&quot;"/>
-									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/ofxQNX/libs/tess2/include}&quot;"/>
-									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/ofxQNX/src}&quot;"/>
-									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/libs/cairo/include/cairo}&quot;"/>
-									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/libs/openFrameworks}&quot;"/>
-									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/libs/openFrameworks/3d}&quot;"/>
-									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/libs/openFrameworks/app}&quot;"/>
-									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/libs/openFrameworks/events}&quot;"/>
-									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/libs/openFrameworks/gl}&quot;"/>
-									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/libs/openFrameworks/graphics}&quot;"/>
-									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/libs/openFrameworks/math}&quot;"/>
-									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/libs/openFrameworks/sound}&quot;"/>
-									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/libs/openFrameworks/types}&quot;"/>
-									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/libs/openFrameworks/utils}&quot;"/>
-									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/libs/openFrameworks/video}&quot;"/>
+									<listOptionValue builtIn="false" value="${workspace_loc:/addons/ofxAccelerometer/src}"/>
+									<listOptionValue builtIn="false" value="${workspace_loc:/addons/ofxQNX/src}"/>
+									<listOptionValue builtIn="false" value="${workspace_loc:/addons/ofxQNX/libs/boost/include}"/>
+									<listOptionValue builtIn="false" value="${workspace_loc:/addons/ofxQNX/libs/FreeImage/include}"/>
+									<listOptionValue builtIn="false" value="${workspace_loc:/addons/ofxQNX/libs/glu/include}"/>
+									<listOptionValue builtIn="false" value="${workspace_loc:/libs/poco/include}"/>
+									<listOptionValue builtIn="false" value="${workspace_loc:/addons/ofxQNX/libs/SDL/include}"/>
+									<listOptionValue builtIn="false" value="${workspace_loc:/addons/ofxQNX/libs/tess2/include}"/>
+									<listOptionValue builtIn="false" value="${workspace_loc:/addons/ofxQNX/libs/vorbis/include}"/>
+									<listOptionValue builtIn="false" value="${workspace_loc:/addons/ofxQNX/libs/ogg/include}"/>
+									<listOptionValue builtIn="false" value="${workspace_loc:/libs/cairo/include/cairo}"/>
+									<listOptionValue builtIn="false" value="${workspace_loc:/libs/openFrameworks}"/>
+									<listOptionValue builtIn="false" value="${workspace_loc:/libs/openFrameworks/3d}"/>
+									<listOptionValue builtIn="false" value="${workspace_loc:/libs/openFrameworks/app}"/>
+									<listOptionValue builtIn="false" value="${workspace_loc:/libs/openFrameworks/events}"/>
+									<listOptionValue builtIn="false" value="${workspace_loc:/libs/openFrameworks/gl}"/>
+									<listOptionValue builtIn="false" value="${workspace_loc:/libs/openFrameworks/graphics}"/>
+									<listOptionValue builtIn="false" value="${workspace_loc:/libs/openFrameworks/math}"/>
+									<listOptionValue builtIn="false" value="${workspace_loc:/libs/openFrameworks/sound}"/>
+									<listOptionValue builtIn="false" value="${workspace_loc:/libs/openFrameworks/types}"/>
+									<listOptionValue builtIn="false" value="${workspace_loc:/libs/openFrameworks/utils}"/>
+									<listOptionValue builtIn="false" value="${workspace_loc:/libs/openFrameworks/video}"/>
 								</option>
-								<option id="com.qnx.qcc.option.compiler.security.2021562378" name="Enhanced Security (-fstack-protector-all)" superClass="com.qnx.qcc.option.compiler.security" value="true" valueType="boolean"/>
-								<option id="com.qnx.qcc.option.compiler.defines.239518686" name="Defines (-D)" superClass="com.qnx.qcc.option.compiler.defines" valueType="definedSymbols">
+								<option id="com.qnx.qcc.option.compiler.security.742770833" name="Enhanced Security (-fstack-protector-all)" superClass="com.qnx.qcc.option.compiler.security" value="true" valueType="boolean"/>
+								<option id="com.qnx.qcc.option.compiler.defines.1357682021" name="Defines (-D)" superClass="com.qnx.qcc.option.compiler.defines" valueType="definedSymbols">
 									<listOptionValue builtIn="false" value="_FORTIFY_SOURCE=2"/>
 									<listOptionValue builtIn="false" value="USING_GL11"/>
 									<listOptionValue builtIn="false" value="TARGET_QNX"/>
@@ -291,33 +299,37 @@
 									<listOptionValue builtIn="false" value="TARGET_LITTLE_ENDIAN"/>
 									<listOptionValue builtIn="false" value="__PLAYBOOK__"/>
 								</option>
-								<option id="com.qnx.qcc.option.compiler.qccoptions.1443645180" name="QCC Options" superClass="com.qnx.qcc.option.compiler.qccoptions" valueType="stringList">
+								<option id="com.qnx.qcc.option.compiler.qccoptions.1629008761" superClass="com.qnx.qcc.option.compiler.qccoptions" valueType="stringList">
 									<listOptionValue builtIn="false" value="-m32 -march=i486"/>
 								</option>
-								<inputType id="com.qnx.qcc.inputType.compiler.400030489" superClass="com.qnx.qcc.inputType.compiler"/>
+								<inputType id="com.qnx.qcc.inputType.compiler.163525855" superClass="com.qnx.qcc.inputType.compiler"/>
 							</tool>
-							<tool id="com.qnx.qcc.tool.assembler.1489365090" name="QCC Assembler" superClass="com.qnx.qcc.tool.assembler">
-								<option id="com.qnx.qcc.option.assembler.debug.2007681208" name="Debug (-g)" superClass="com.qnx.qcc.option.assembler.debug" value="false" valueType="boolean"/>
-								<inputType id="com.qnx.qcc.inputType.assembler.2132429954" superClass="com.qnx.qcc.inputType.assembler"/>
+							<tool id="com.qnx.qcc.tool.assembler.1472222258" name="QCC Assembler" superClass="com.qnx.qcc.tool.assembler">
+								<option id="com.qnx.qcc.option.assembler.debug.894219056" name="Debug (-g)" superClass="com.qnx.qcc.option.assembler.debug" value="true" valueType="boolean"/>
+								<inputType id="com.qnx.qcc.inputType.assembler.1539642942" superClass="com.qnx.qcc.inputType.assembler"/>
 							</tool>
-							<tool id="com.qnx.qcc.tool.linker.899739946" name="QCC Linker" superClass="com.qnx.qcc.tool.linker">
-								<option id="com.qnx.qcc.option.linker.debug.947918222" name="Debug (-g)" superClass="com.qnx.qcc.option.linker.debug" value="false" valueType="boolean"/>
-								<option id="com.qnx.qcc.option.linker.langcpp.217698847" name="C++ (-lang-c++)" superClass="com.qnx.qcc.option.linker.langcpp" value="true" valueType="boolean"/>
-								<option id="com.qnx.qcc.option.linker.libraryPaths.968582280" name="Library Paths (-L)" superClass="com.qnx.qcc.option.linker.libraryPaths" valueType="libPaths">
+							<tool id="com.qnx.qcc.tool.linker.1326562139" name="QCC Linker" superClass="com.qnx.qcc.tool.linker">
+								<option id="com.qnx.qcc.option.linker.debug.1782677824" name="Debug (-g)" superClass="com.qnx.qcc.option.linker.debug" value="true" valueType="boolean"/>
+								<option id="com.qnx.qcc.option.linker.langcpp.1083285450" name="C++ (-lang-c++)" superClass="com.qnx.qcc.option.linker.langcpp" value="true" valueType="boolean"/>
+								<option id="com.qnx.qcc.option.linker.libraryPaths.1699610138" name="Library Paths (-L)" superClass="com.qnx.qcc.option.linker.libraryPaths" valueType="libPaths">
 									<listOptionValue builtIn="false" value="${QNX_TARGET}/../target-override/${CPUVARDIR}/lib"/>
 									<listOptionValue builtIn="false" value="${QNX_TARGET}/../target-override/${CPUVARDIR}/usr/lib"/>
-									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/ofxQNX/libs/FreeImage/libPlayBook/X86}&quot;"/>
-									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/ofxQNX/libs/glu/libPlayBook/X86/Debug}&quot;"/>
-									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/ofxQNX/libs/poco/libPlayBook/X86}&quot;"/>
-									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/ofxQNX/libs/tess2/libPlayBook/X86/Debug}&quot;"/>
-									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/ofxQNX/libs/SDL/libPlayBook/Simulator}&quot;"/>
-									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/ofxQNX/libs/TouchControlOverlay/libPlayBook/Simulator}&quot;"/>
+									<listOptionValue builtIn="false" value="${workspace_loc:/addons/ofxQNX/libs/FreeImage/libPlayBook/X86}"/>
+									<listOptionValue builtIn="false" value="${workspace_loc:/addons/ofxQNX/libs/glu/libPlayBook/X86/Debug}"/>
+									<listOptionValue builtIn="false" value="${workspace_loc:/addons/ofxQNX/libs/poco/libPlayBook/X86}"/>
+									<listOptionValue builtIn="false" value="${workspace_loc:/addons/ofxQNX/libs/SDL/libPlayBook/Simulator}"/>
+									<listOptionValue builtIn="false" value="${workspace_loc:/addons/ofxQNX/libs/tess2/libPlayBook/X86/Debug}"/>
+									<listOptionValue builtIn="false" value="${workspace_loc:/addons/ofxQNX/libs/TouchControlOverlay/libPlayBook/Simulator}"/>
+									<listOptionValue builtIn="false" value="${workspace_loc:/addons/ofxQNX/libs/vorbis/libPlayBook/Simulator}"/>
+									<listOptionValue builtIn="false" value="${workspace_loc:/addons/ofxQNX/libs/ogg/libPlayBook/X86/Debug}"/>
 								</option>
-								<option id="com.qnx.qcc.option.linker.security.205514453" name="Enhanced Security (-Wl,-z,relro -Wl,-z,now)" superClass="com.qnx.qcc.option.linker.security" value="true" valueType="boolean"/>
-								<option id="com.qnx.qcc.option.linker.libraries.170116069" name="Libraries (-l)" superClass="com.qnx.qcc.option.linker.libraries" valueType="libs">
+								<option id="com.qnx.qcc.option.linker.security.1410379001" name="Enhanced Security (-Wl,-z,relro -Wl,-z,now)" superClass="com.qnx.qcc.option.linker.security" value="true" valueType="boolean"/>
+								<option id="com.qnx.qcc.option.linker.libraries.260012449" superClass="com.qnx.qcc.option.linker.libraries" valueType="libs">
 									<listOptionValue builtIn="false" value="m"/>
 									<listOptionValue builtIn="false" value="bps"/>
 									<listOptionValue builtIn="false" value="screen"/>
+									<listOptionValue builtIn="false" value="mmrndclient"/>
+									<listOptionValue builtIn="false" value="strm"/>
 									<listOptionValue builtIn="false" value="EGL"/>
 									<listOptionValue builtIn="false" value="GLESv1_CM"/>
 									<listOptionValue builtIn="false" value="freetype"/>
@@ -333,17 +345,22 @@
 									<listOptionValue builtIn="false" value="asound"/>
 									<listOptionValue builtIn="false" value="SDL"/>
 									<listOptionValue builtIn="false" value="TouchControlOverlay"/>
+									<listOptionValue builtIn="false" value="OpenAL"/>
+									<listOptionValue builtIn="false" value="alut"/>
+									<listOptionValue builtIn="false" value="vorbis"/>
+									<listOptionValue builtIn="false" value="ogg"/>
 								</option>
-								<inputType id="com.qnx.qcc.inputType.linker.1079640654" superClass="com.qnx.qcc.inputType.linker">
+								<inputType id="com.qnx.qcc.inputType.linker.492759417" superClass="com.qnx.qcc.inputType.linker">
 									<additionalInput kind="additionalinputdependency" paths="$(USER_OBJS)"/>
 									<additionalInput kind="additionalinput" paths="$(LIBS)"/>
 								</inputType>
 							</tool>
-							<tool id="com.qnx.qcc.tool.archiver.442223967" name="QCC Archiver" superClass="com.qnx.qcc.tool.archiver"/>
+							<tool id="com.qnx.qcc.tool.archiver.337564493" name="QCC Archiver" superClass="com.qnx.qcc.tool.archiver"/>
 						</toolChain>
 					</folderInfo>
 					<sourceEntries>
 						<entry flags="VALUE_WORKSPACE_PATH|RESOLVED" kind="sourcePath" name="openFrameworks"/>
+						<entry flags="VALUE_WORKSPACE_PATH|RESOLVED" kind="sourcePath" name="ofxQNX"/>
 						<entry flags="VALUE_WORKSPACE_PATH|RESOLVED" kind="sourcePath" name="src"/>
 					</sourceEntries>
 				</configuration>
@@ -352,27 +369,31 @@
 		</cconfiguration>
 	</storageModule>
 	<storageModule moduleId="cdtBuildSystem" version="4.0.0">
-		<project id="qnxSoundPlayerExample.null.584845727" name="qnxSoundPlayerExample"/>
+		<project id="qnxSoundPlayerExample.null.1104110457" name="qnxSoundPlayerExample"/>
 	</storageModule>
 	<storageModule moduleId="scannerConfiguration">
 		<autodiscovery enabled="true" problemReportingEnabled="true" selectedProfileId="com.qnx.tools.ide.qde.managedbuilder.core.qccScannerInfo"/>
-		<scannerConfigBuildInfo instanceId="com.qnx.qcc.configuration.exe.profile.854364533">
+		<scannerConfigBuildInfo instanceId="com.qnx.qcc.configuration.exe.profile.coverage.737421926">
 			<autodiscovery enabled="true" problemReportingEnabled="true" selectedProfileId="com.qnx.tools.ide.qde.managedbuilder.core.qccScannerInfo"/>
 		</scannerConfigBuildInfo>
-		<scannerConfigBuildInfo instanceId="com.qnx.qcc.configuration.exe.debug.2136424254">
+		<scannerConfigBuildInfo instanceId="com.qnx.qcc.configuration.exe.profile.773575053">
 			<autodiscovery enabled="true" problemReportingEnabled="true" selectedProfileId="com.qnx.tools.ide.qde.managedbuilder.core.qccScannerInfo"/>
 		</scannerConfigBuildInfo>
-		<scannerConfigBuildInfo instanceId="com.qnx.qcc.configuration.exe.profile.506414136">
+		<scannerConfigBuildInfo instanceId="com.qnx.qcc.configuration.exe.profile.2081087860">
 			<autodiscovery enabled="true" problemReportingEnabled="true" selectedProfileId="com.qnx.tools.ide.qde.managedbuilder.core.qccScannerInfo"/>
 		</scannerConfigBuildInfo>
-		<scannerConfigBuildInfo instanceId="com.qnx.qcc.configuration.exe.profile.coverage.1890969643">
+		<scannerConfigBuildInfo instanceId="com.qnx.qcc.configuration.exe.debug.1320113783">
 			<autodiscovery enabled="true" problemReportingEnabled="true" selectedProfileId="com.qnx.tools.ide.qde.managedbuilder.core.qccScannerInfo"/>
 		</scannerConfigBuildInfo>
-		<scannerConfigBuildInfo instanceId="com.qnx.qcc.configuration.exe.debug.886947137">
+		<scannerConfigBuildInfo instanceId="com.qnx.qcc.configuration.exe.release.746107162">
 			<autodiscovery enabled="true" problemReportingEnabled="true" selectedProfileId="com.qnx.tools.ide.qde.managedbuilder.core.qccScannerInfo"/>
 		</scannerConfigBuildInfo>
-		<scannerConfigBuildInfo instanceId="com.qnx.qcc.configuration.exe.release.2096755720">
+		<scannerConfigBuildInfo instanceId="com.qnx.qcc.configuration.exe.debug.1870586175">
+			<autodiscovery enabled="true" problemReportingEnabled="true" selectedProfileId="com.qnx.tools.ide.qde.managedbuilder.core.qccScannerInfo"/>
+		</scannerConfigBuildInfo>
+		<scannerConfigBuildInfo instanceId="com.qnx.qcc.configuration.exe.profile.coverage.84379356">
 			<autodiscovery enabled="true" problemReportingEnabled="true" selectedProfileId="com.qnx.tools.ide.qde.managedbuilder.core.qccScannerInfo"/>
 		</scannerConfigBuildInfo>
 	</storageModule>
+	<storageModule moduleId="refreshScope"/>
 </cproject>
