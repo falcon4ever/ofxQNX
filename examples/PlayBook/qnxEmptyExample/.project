@@ -27,7 +27,7 @@
 				</dictionary>
 				<dictionary>
 					<key>org.eclipse.cdt.make.core.buildLocation</key>
-					<value>${workspace_loc:/qnxEmptyExample/Device-Debug}</value>
+					<value>${workspace_loc:/qnxEmptyExample/Simulator-Debug}</value>
 				</dictionary>
 				<dictionary>
 					<key>org.eclipse.cdt.make.core.contents</key>
@@ -76,179 +76,179 @@
 	</natures>
 	<linkedResources>
 		<link>
-			<name>openFrameworks/bbutil.c</name>
+			<name>ofxQNX/bbutil.c</name>
 			<type>1</type>
-			<locationURI>PARENT-2-WORKSPACE_LOC/addons/ofxQNX/src/bbutil.c</locationURI>
+			<locationURI>PARENT-3-PROJECT_LOC/addons/ofxQNX/src/bbutil.c</locationURI>
 		</link>
 		<link>
-			<name>openFrameworks/ofAppQNXWindow.cpp</name>
+			<name>ofxQNX/ofAppQNXWindow.cpp</name>
 			<type>1</type>
-			<locationURI>PARENT-2-WORKSPACE_LOC/addons/ofxQNX/src/ofAppQNXWindow.cpp</locationURI>
+			<locationURI>PARENT-3-PROJECT_LOC/addons/ofxQNX/src/ofAppQNXWindow.cpp</locationURI>
+		</link>
+		<link>
+			<name>ofxQNX/ofxQNXAccelerometer.cpp</name>
+			<type>1</type>
+			<locationURI>PARENT-3-PROJECT_LOC/addons/ofxQNX/src/ofxQNXAccelerometer.cpp</locationURI>
+		</link>
+		<link>
+			<name>ofxQNX/ofxQNXLogChannel.cpp</name>
+			<type>1</type>
+			<locationURI>PARENT-3-PROJECT_LOC/addons/ofxQNX/src/ofxQNXLogChannel.cpp</locationURI>
+		</link>
+		<link>
+			<name>ofxQNX/ofxQNXSoundPlayer.cpp</name>
+			<type>1</type>
+			<locationURI>PARENT-3-PROJECT_LOC/addons/ofxQNX/src/ofxQNXSoundPlayer.cpp</locationURI>
+		</link>
+		<link>
+			<name>ofxQNX/ofxQNXSoundStream.cpp</name>
+			<type>1</type>
+			<locationURI>PARENT-3-PROJECT_LOC/addons/ofxQNX/src/ofxQNXSoundStream.cpp</locationURI>
 		</link>
 		<link>
 			<name>openFrameworks/ofAppRunner.cpp</name>
 			<type>1</type>
-			<locationURI>PARENT-2-WORKSPACE_LOC/libs/openFrameworks/app/ofAppRunner.cpp</locationURI>
+			<locationURI>PARENT-3-PROJECT_LOC/libs/openFrameworks/app/ofAppRunner.cpp</locationURI>
 		</link>
 		<link>
 			<name>openFrameworks/ofBitmapFont.cpp</name>
 			<type>1</type>
-			<locationURI>PARENT-2-WORKSPACE_LOC/libs/openFrameworks/graphics/ofBitmapFont.cpp</locationURI>
+			<locationURI>PARENT-3-PROJECT_LOC/libs/openFrameworks/graphics/ofBitmapFont.cpp</locationURI>
 		</link>
 		<link>
 			<name>openFrameworks/ofColor.cpp</name>
 			<type>1</type>
-			<locationURI>PARENT-2-WORKSPACE_LOC/libs/openFrameworks/types/ofColor.cpp</locationURI>
+			<locationURI>PARENT-3-PROJECT_LOC/libs/openFrameworks/types/ofColor.cpp</locationURI>
 		</link>
 		<link>
 			<name>openFrameworks/ofEvents.cpp</name>
 			<type>1</type>
-			<locationURI>PARENT-2-WORKSPACE_LOC/libs/openFrameworks/events/ofEvents.cpp</locationURI>
+			<locationURI>PARENT-3-PROJECT_LOC/libs/openFrameworks/events/ofEvents.cpp</locationURI>
 		</link>
 		<link>
 			<name>openFrameworks/ofFileUtils.cpp</name>
 			<type>1</type>
-			<locationURI>PARENT-2-WORKSPACE_LOC/libs/openFrameworks/utils/ofFileUtils.cpp</locationURI>
+			<locationURI>PARENT-3-PROJECT_LOC/libs/openFrameworks/utils/ofFileUtils.cpp</locationURI>
 		</link>
 		<link>
 			<name>openFrameworks/ofGLRenderer.cpp</name>
 			<type>1</type>
-			<locationURI>PARENT-2-WORKSPACE_LOC/libs/openFrameworks/gl/ofGLRenderer.cpp</locationURI>
+			<locationURI>PARENT-3-PROJECT_LOC/libs/openFrameworks/gl/ofGLRenderer.cpp</locationURI>
 		</link>
 		<link>
 			<name>openFrameworks/ofGraphics.cpp</name>
 			<type>1</type>
-			<locationURI>PARENT-2-WORKSPACE_LOC/libs/openFrameworks/graphics/ofGraphics.cpp</locationURI>
+			<locationURI>PARENT-3-PROJECT_LOC/libs/openFrameworks/graphics/ofGraphics.cpp</locationURI>
 		</link>
 		<link>
 			<name>openFrameworks/ofImage.cpp</name>
 			<type>1</type>
-			<locationURI>PARENT-2-WORKSPACE_LOC/libs/openFrameworks/graphics/ofImage.cpp</locationURI>
+			<locationURI>PARENT-3-PROJECT_LOC/libs/openFrameworks/graphics/ofImage.cpp</locationURI>
 		</link>
 		<link>
 			<name>openFrameworks/ofLog.cpp</name>
 			<type>1</type>
-			<locationURI>PARENT-2-WORKSPACE_LOC/libs/openFrameworks/utils/ofLog.cpp</locationURI>
+			<locationURI>PARENT-3-PROJECT_LOC/libs/openFrameworks/utils/ofLog.cpp</locationURI>
 		</link>
 		<link>
 			<name>openFrameworks/ofMath.cpp</name>
 			<type>1</type>
-			<locationURI>PARENT-2-WORKSPACE_LOC/libs/openFrameworks/math/ofMath.cpp</locationURI>
+			<locationURI>PARENT-3-PROJECT_LOC/libs/openFrameworks/math/ofMath.cpp</locationURI>
 		</link>
 		<link>
 			<name>openFrameworks/ofMatrix4x4.cpp</name>
 			<type>1</type>
-			<locationURI>PARENT-2-WORKSPACE_LOC/libs/openFrameworks/math/ofMatrix4x4.cpp</locationURI>
+			<locationURI>PARENT-3-PROJECT_LOC/libs/openFrameworks/math/ofMatrix4x4.cpp</locationURI>
 		</link>
 		<link>
 			<name>openFrameworks/ofMesh.cpp</name>
 			<type>1</type>
-			<locationURI>PARENT-2-WORKSPACE_LOC/libs/openFrameworks/3d/ofMesh.cpp</locationURI>
+			<locationURI>PARENT-3-PROJECT_LOC/libs/openFrameworks/3d/ofMesh.cpp</locationURI>
 		</link>
 		<link>
 			<name>openFrameworks/ofPath.cpp</name>
 			<type>1</type>
-			<locationURI>PARENT-2-WORKSPACE_LOC/libs/openFrameworks/graphics/ofPath.cpp</locationURI>
+			<locationURI>PARENT-3-PROJECT_LOC/libs/openFrameworks/graphics/ofPath.cpp</locationURI>
 		</link>
 		<link>
 			<name>openFrameworks/ofPixels.cpp</name>
 			<type>1</type>
-			<locationURI>PARENT-2-WORKSPACE_LOC/libs/openFrameworks/graphics/ofPixels.cpp</locationURI>
+			<locationURI>PARENT-3-PROJECT_LOC/libs/openFrameworks/graphics/ofPixels.cpp</locationURI>
 		</link>
 		<link>
 			<name>openFrameworks/ofPolyline.cpp</name>
 			<type>1</type>
-			<locationURI>PARENT-2-WORKSPACE_LOC/libs/openFrameworks/graphics/ofPolyline.cpp</locationURI>
+			<locationURI>PARENT-3-PROJECT_LOC/libs/openFrameworks/graphics/ofPolyline.cpp</locationURI>
 		</link>
 		<link>
 			<name>openFrameworks/ofQuaternion.cpp</name>
 			<type>1</type>
-			<locationURI>PARENT-2-WORKSPACE_LOC/libs/openFrameworks/math/ofQuaternion.cpp</locationURI>
+			<locationURI>PARENT-3-PROJECT_LOC/libs/openFrameworks/math/ofQuaternion.cpp</locationURI>
 		</link>
 		<link>
 			<name>openFrameworks/ofRectangle.cpp</name>
 			<type>1</type>
-			<locationURI>PARENT-2-WORKSPACE_LOC/libs/openFrameworks/types/ofRectangle.cpp</locationURI>
+			<locationURI>PARENT-3-PROJECT_LOC/libs/openFrameworks/types/ofRectangle.cpp</locationURI>
 		</link>
 		<link>
 			<name>openFrameworks/ofSoundPlayer.cpp</name>
 			<type>1</type>
-			<locationURI>PARENT-2-WORKSPACE_LOC/libs/openFrameworks/sound/ofSoundPlayer.cpp</locationURI>
+			<locationURI>PARENT-3-PROJECT_LOC/libs/openFrameworks/sound/ofSoundPlayer.cpp</locationURI>
 		</link>
 		<link>
 			<name>openFrameworks/ofSoundStream.cpp</name>
 			<type>1</type>
-			<locationURI>PARENT-2-WORKSPACE_LOC/libs/openFrameworks/sound/ofSoundStream.cpp</locationURI>
+			<locationURI>PARENT-3-PROJECT_LOC/libs/openFrameworks/sound/ofSoundStream.cpp</locationURI>
 		</link>
 		<link>
 			<name>openFrameworks/ofTessellator.cpp</name>
 			<type>1</type>
-			<locationURI>PARENT-2-WORKSPACE_LOC/libs/openFrameworks/graphics/ofTessellator.cpp</locationURI>
+			<locationURI>PARENT-3-PROJECT_LOC/libs/openFrameworks/graphics/ofTessellator.cpp</locationURI>
 		</link>
 		<link>
 			<name>openFrameworks/ofTexture.cpp</name>
 			<type>1</type>
-			<locationURI>PARENT-2-WORKSPACE_LOC/libs/openFrameworks/gl/ofTexture.cpp</locationURI>
+			<locationURI>PARENT-3-PROJECT_LOC/libs/openFrameworks/gl/ofTexture.cpp</locationURI>
 		</link>
 		<link>
 			<name>openFrameworks/ofThread.cpp</name>
 			<type>1</type>
-			<locationURI>PARENT-2-WORKSPACE_LOC/libs/openFrameworks/utils/ofThread.cpp</locationURI>
+			<locationURI>PARENT-3-PROJECT_LOC/libs/openFrameworks/utils/ofThread.cpp</locationURI>
 		</link>
 		<link>
 			<name>openFrameworks/ofTrueTypeFont.cpp</name>
 			<type>1</type>
-			<locationURI>PARENT-2-WORKSPACE_LOC/libs/openFrameworks/graphics/ofTrueTypeFont.cpp</locationURI>
+			<locationURI>PARENT-3-PROJECT_LOC/libs/openFrameworks/graphics/ofTrueTypeFont.cpp</locationURI>
 		</link>
 		<link>
 			<name>openFrameworks/ofURLFileLoader.cpp</name>
 			<type>1</type>
-			<locationURI>PARENT-2-WORKSPACE_LOC/libs/openFrameworks/utils/ofURLFileLoader.cpp</locationURI>
+			<locationURI>PARENT-3-PROJECT_LOC/libs/openFrameworks/utils/ofURLFileLoader.cpp</locationURI>
 		</link>
 		<link>
 			<name>openFrameworks/ofUtils.cpp</name>
 			<type>1</type>
-			<locationURI>PARENT-2-WORKSPACE_LOC/libs/openFrameworks/utils/ofUtils.cpp</locationURI>
+			<locationURI>PARENT-3-PROJECT_LOC/libs/openFrameworks/utils/ofUtils.cpp</locationURI>
 		</link>
 		<link>
 			<name>openFrameworks/ofVbo.cpp</name>
 			<type>1</type>
-			<locationURI>PARENT-2-WORKSPACE_LOC/libs/openFrameworks/gl/ofVbo.cpp</locationURI>
+			<locationURI>PARENT-3-PROJECT_LOC/libs/openFrameworks/gl/ofVbo.cpp</locationURI>
 		</link>
 		<link>
 			<name>openFrameworks/ofVec2f.cpp</name>
 			<type>1</type>
-			<locationURI>PARENT-2-WORKSPACE_LOC/libs/openFrameworks/math/ofVec2f.cpp</locationURI>
+			<locationURI>PARENT-3-PROJECT_LOC/libs/openFrameworks/math/ofVec2f.cpp</locationURI>
 		</link>
 		<link>
 			<name>openFrameworks/ofVec4f.cpp</name>
 			<type>1</type>
-			<locationURI>PARENT-2-WORKSPACE_LOC/libs/openFrameworks/math/ofVec4f.cpp</locationURI>
+			<locationURI>PARENT-3-PROJECT_LOC/libs/openFrameworks/math/ofVec4f.cpp</locationURI>
 		</link>
 		<link>
 			<name>openFrameworks/ofxAccelerometer.cpp</name>
 			<type>1</type>
-			<locationURI>PARENT-2-WORKSPACE_LOC/addons/ofxAccelerometer/src/ofxAccelerometer.cpp</locationURI>
-		</link>
-		<link>
-			<name>openFrameworks/ofxQNXAccelerometer.cpp</name>
-			<type>1</type>
-			<locationURI>PARENT-2-WORKSPACE_LOC/addons/ofxQNX/src/ofxQNXAccelerometer.cpp</locationURI>
-		</link>
-		<link>
-			<name>openFrameworks/ofxQNXSoundStream.cpp</name>
-			<type>1</type>
-			<locationURI>PARENT-2-WORKSPACE_LOC/addons/ofxQNX/src/ofxQNXSoundStream.cpp</locationURI>
-		</link>
-		<link>
-			<name>openFrameworks/ofxQNXLogChannel.cpp</name>
-			<type>1</type>
-			<locationURI>PARENT-2-WORKSPACE_LOC/addons/ofxQNX/src/ofxQNXLogChannel.cpp</locationURI>
-		</link>
-		<link>
-			<name>openFrameworks/ofxQNXSoundPlayer.cpp</name>
-			<type>1</type>
-			<locationURI>PARENT-2-WORKSPACE_LOC/addons/ofxQNX/src/ofxQNXSoundPlayer.cpp</locationURI>
+			<locationURI>PARENT-3-PROJECT_LOC/addons/ofxAccelerometer/src/ofxAccelerometer.cpp</locationURI>
 		</link>
 	</linkedResources>
 </projectDescription>
