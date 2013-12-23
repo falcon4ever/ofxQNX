@@ -38,7 +38,7 @@ if [ -d "$BBNDK_BB10_ROOT" ]; then
 	export BB_FREEIMAGE_PREFIX 
 	
 	# Get build environment
-	source "$BBNDK_BB10_ROOT/bbndk-env.sh"
+	source "$BBNDK_BB10_ROOT/bbndk-env_10_0_10_822.sh"
 	
 	PLATFORM_POSTFIX="BB10"
 	export PLATFORM_POSTFIX
