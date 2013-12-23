@@ -20,15 +20,15 @@ cd "$BB_BOOTSTRAP_ROOT/bootstrap/downloads"
 if [ -d "$BBNDK_BB10_ROOT" ]; then
 
 	# Patch syslog
-	echo "Installing dummy syslog.h, target dir: $BBNDK_BB10_ROOT/target_10_0_10_738/qnx6/usr/include/"
-	cp ../poco/syslog.h $BBNDK_BB10_ROOT/target_10_0_10_738/qnx6/usr/include/
+	echo "Installing dummy syslog.h, target dir: $BBNDK_BB10_ROOT/target_10_0_10_822/qnx6/usr/include/"
+	cp ../poco/syslog.h $BBNDK_BB10_ROOT/target_10_0_10_822/qnx6/usr/include/
 
-	if [ ! -f $BBNDK_BB10_ROOT/target_10_0_10_738/qnx6/usr/include/syslog.h ]; then
+	if [ ! -f $BBNDK_BB10_ROOT/target_10_0_10_822/qnx6/usr/include/syslog.h ]; then
 		echo "Trying again with sudo"
-		sudo cp ../poco/syslog.h $BBNDK_BB10_ROOT/target_10_0_10_738/qnx6/usr/include/
+		sudo cp ../poco/syslog.h $BBNDK_BB10_ROOT/target_10_0_10_822/qnx6/usr/include/
 
-		if [ ! -f $BBNDK_BB10_ROOT/target_10_0_10_738/qnx6/usr/include/syslog.h ]; then		
-			echo "Please copy syslog.h manually to: $BBNDK_BB10_ROOT/target_10_0_10_738/qnx6/usr/include/ "
+		if [ ! -f $BBNDK_BB10_ROOT/target_10_0_10_822/qnx6/usr/include/syslog.h ]; then		
+			echo "Please copy syslog.h manually to: $BBNDK_BB10_ROOT/target_10_0_10_822/qnx6/usr/include/ "
 			exit 1;
 		fi
 	fi
@@ -41,7 +41,7 @@ if [ -d "$BBNDK_BB10_ROOT" ]; then
 	tar -zxf $BB_POCO_FILE
 
 	# Get build environment
-	source "$BBNDK_BB10_ROOT/bbndk-env_10_0_10_738.sh"
+	source "$BBNDK_BB10_ROOT/bbndk-env_10_0_10_822.sh"
 
 	# Build x86 target
 	cd "$BB_BOOTSTRAP_ROOT/bootstrap/downloads/$BB_POCO_FOLDER"
