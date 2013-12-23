@@ -1,2 +1,2 @@
 PlayBook Native SDK version: 2.1.0.1032
-BB10 Native SDK version: 10.0.10.738
+BB10 Native SDK version: 10.0.10.822
