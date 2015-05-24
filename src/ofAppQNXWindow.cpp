@@ -545,7 +545,11 @@ void ofAppQNXWindow::qnxHandleScreenEvent(bps_event_t *event) {
 			// Special cases?
 			if (screen_val == 61453) 				// return
 				ofNotifyKeyPressed(OF_KEY_RETURN);
+			else if (screen_val == 13) 				// return BB10
+				ofNotifyKeyPressed(OF_KEY_RETURN);
 			else if (screen_val == 61448) 			// backspace
+				ofNotifyKeyPressed(OF_KEY_BACKSPACE);
+			else if (screen_val == 8) 			// backspace BB10
 				ofNotifyKeyPressed(OF_KEY_BACKSPACE);
 			else if (screen_val == 8220) 			// left double quotation mark
 				return; //ofNotifyKeyPressed((int)"“");
@@ -563,12 +567,16 @@ void ofAppQNXWindow::qnxHandleScreenEvent(bps_event_t *event) {
 			// Special cases?
 			if (screen_val == 61453) 				// return
 				ofNotifyKeyReleased(OF_KEY_RETURN);
+			else if (screen_val == 13) 				// return BB10
+				ofNotifyKeyReleased(OF_KEY_RETURN);
 			else if (screen_val == 61448) 			// backspace
 				ofNotifyKeyReleased(OF_KEY_BACKSPACE);
+			else if (screen_val == 8) 			// backspace BB10
+				ofNotifyKeyReleased(OF_KEY_BACKSPACE);
 			else if (screen_val == 8220) 			// left double quotation mark
-				return; //ofNotifyKeyPressed((int)"“");
+				return; //ofNotifyKeyReleased((int)"“");
 			else if (screen_val == 8221) 			// right double quotation mark
-				return; //ofNotifyKeyPressed((int)"”");
+				return; //ofNotifyKeyReleased((int)"”");			
 			else
 				ofNotifyKeyReleased(screen_val);
 		}

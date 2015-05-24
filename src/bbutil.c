@@ -37,7 +37,7 @@
 #include <ft2build.h>
 #include FT_FREETYPE_H
 
-#include "png.h"
+#include "libpng14/png.h"
 
 EGLDisplay egl_disp;
 EGLSurface egl_surf;
@@ -191,7 +191,7 @@ bbutil_init_egl(screen_context_t ctx) {
 		bbutil_terminate();
 		return EXIT_FAILURE;
 	}
-	
+
     rc = screen_set_window_property_iv(screen_win, SCREEN_PROPERTY_FORMAT, &format);
     if (rc) {
         perror("screen_set_window_property_iv(SCREEN_PROPERTY_FORMAT)");
