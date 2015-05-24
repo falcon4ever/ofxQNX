@@ -107,6 +107,7 @@ FreeImage
 - [http://freeimage.sourceforge.net/](http://freeimage.sourceforge.net/)
 - Using version 3.14.1 and removed support for EXR to make it compile.
 - Modify the makefiles (MKDIR and CP command) if you're not using MinGW but Linux or Mac
+- Please note that this version of FreeImage is bundled with libpng14 (BB10 Native SDK 10.2.x+ now ships with both libpng14 and libpng16 (default))
 
 GLU
 
@@ -151,6 +152,7 @@ Additional information can be found here:
 
 05/24/2015
 - Updated libraries for **BB10 Native SDK 10.3.1.995**
+- Using libpng14 (make sure you're using libpng14 as the default is libpng16 now).
 
 04/04/2013
 
@@ -316,6 +318,7 @@ More info:
 
 ## TODO ##
 
+- Update FreeImage and make the project use libpng16 instead of libpng14
 - Add Camera support for BB10.
 - Add GPS support and example.
 - Clean up ofxQNXSoundPlayer and qnxAudioOutputExample class.
@@ -403,7 +406,7 @@ Libraries (-l)
 - EGL
 - GLESv1_CM
 - freetype
-- png
+- png14
 - socket
 - PocoNet
 - PocoUtil
