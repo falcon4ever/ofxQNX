@@ -6,11 +6,9 @@ Project page: [http://www.multigesture.net/projects/ofxqnx/](http://www.multiges
 
 Repository: [https://github.com/falcon4ever/ofxQNX](https://github.com/falcon4ever/ofxQNX)
 
-Copyright (C) 2012-2013 Laurence Muller
+Copyright (C) 2012-2015 Laurence Muller
 
 ### Contact ###
-
-E-mail: [laurence.muller@gmail.com](mailto:laurence.muller@gmail.com)
 
 Website: [http://www.multigesture.net](http://www.multigesture.net)
 
@@ -36,7 +34,7 @@ To compile the project you will need to install the BlackBerry Native SDK ( **2.
 
 ### BlackBerry 10 ###
 
-To compile the project you will need to install the BlackBerry 10 Native SDK ( **10.0.10.738** ):
+To compile the project you will need to install the BlackBerry 10 Native SDK ( **10.3.1.995** ):
 
 - [http://developer.blackberry.com/native/download/#blackberry10](http://developer.blackberry.com/native/download/#blackberry10)
 
@@ -150,6 +148,9 @@ Additional information can be found here:
 - [http://forum.openframeworks.cc/index.php/topic,10726.0.html](http://forum.openframeworks.cc/index.php/topic,10726.0.html)
 
 ## NEWS ##
+
+05/24/2015
+- Updated libraries for **BB10 Native SDK 10.3.1.995**
 
 04/04/2013
 

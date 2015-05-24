@@ -11,7 +11,7 @@ BB_BOOTSTRAP_ROOT=${BB_BOOTSTRAP_ROOT%/*}
 if [ -d "$BBNDK_BB10_ROOT" ]; then
 
 	# Get build environment	
-	source "$BBNDK_BB10_ROOT/bbndk-env.sh"	
+	source "$BBNDK_BB10_ROOT/bbndk-env_10_3_1_995.sh"	
 	cd "$BB_BOOTSTRAP_ROOT/bootstrap/ogg"	
 	
 	# Build libs
